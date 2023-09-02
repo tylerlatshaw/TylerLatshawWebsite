@@ -1,5 +1,5 @@
 export default function FormComingSoonContact() {
-    return <form className="w-full h-full" id="notify-me" method="POST" action="./includes/contact-form-handler.php">
+    return <form className="w-full h-full" id="notify-me" method="POST" action="#">
         <div className="w-fit mx-auto">
             <input type="text" name="floating_name" id="floating_name" className="hidden" defaultValue="Notification Request" hidden />
             <input type="text" name="floating_message" id="floating_message" className="hidden" defaultValue="Notify when site goes live" hidden />
