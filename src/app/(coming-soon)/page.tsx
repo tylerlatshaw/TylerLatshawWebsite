@@ -1,10 +1,6 @@
 import Image from 'next/image'
 import Logo from "@/assets/images/gradient-logo-animated.svg"
-import dynamic from 'next/dynamic'
-
-const FormComingSoonContact = dynamic(() => import('@/app/(coming-soon)/components/coming-soon-contact'), {
-  ssr: false,
-})
+import ComingSoonForm from './components/coming-soon-form'
 
 export default function Home() {
   return (
@@ -34,7 +30,7 @@ export default function Home() {
                 Be the first to know when<br />the new site goes live
               </h1>
 
-              <FormComingSoonContact />
+              <ComingSoonForm />
 
             </div>
 
