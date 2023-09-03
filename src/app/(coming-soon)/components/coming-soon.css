@@ -1,57 +1,20 @@
 body {
     background-color: rgb(17, 24, 39) !important;
     background-image: radial-gradient(75% 75% at 50% 50%, #253745FF 0%, #0B111AFF 100%);
-
-    -webkit-animation: fadein 2s;
-    /* Safari, Chrome and Opera > 12.1 */
-    -moz-animation: fadein 2s;
-    /* Firefox < 16 */
-    -ms-animation: fadein 2s;
-    /* Internet Explorer */
-    -o-animation: fadein 2s;
-    /* Opera < 12.1 */
-    animation: fadein 2s;
 }
 
-@keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.email-form {
+    display: flex;
+    align-content: center;
+    vertical-align: middle;
+    align-items: flex-start;
 }
 
-/* Firefox < 16 */
-@-moz-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.email-form input, button {
+    height: 48px;
 }
 
-/* Safari, Chrome and Opera > 12.1 */
-@-webkit-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-/* Internet Explorer */
-@-ms-keyframes fadein {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
+.email-form button {
+    height: 48px;
+    margin-top: 1px;
 }
