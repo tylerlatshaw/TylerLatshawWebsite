@@ -16,32 +16,32 @@ export default function Page() {
 
   {/* This is used to generate a new homepage image with a unique color scheme to match */}
 
-  var homepageImageClasses = "homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ";
+  var homepageImageClasses = 'homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ';
 
   function getRandomImage() {
     var rand = Math.floor(Math.random() * 6) + 1;
   
     switch (rand) {
       case 1:
-        homepageImageClasses += "homepage-main-image-blue";
+        homepageImageClasses += 'homepage-main-image-blue';
         return Headshot1;
       case 2:
-        homepageImageClasses += "homepage-main-image-red";
+        homepageImageClasses += 'homepage-main-image-red';
         return Headshot2;
       case 3:
-        homepageImageClasses += "homepage-main-image-green";
+        homepageImageClasses += 'homepage-main-image-green';
         return Headshot3;
       case 4:
-        homepageImageClasses += "homepage-main-image-blue";
+        homepageImageClasses += 'homepage-main-image-blue';
         return Headshot4;
       case 5:
-        homepageImageClasses += "homepage-main-image-red";
+        homepageImageClasses += 'homepage-main-image-red';
         return Headshot5;
       case 6:
-        homepageImageClasses += "homepage-main-image-green";
+        homepageImageClasses += 'homepage-main-image-green';
         return Headshot6;
       default:
-        homepageImageClasses += "homepage-main-image-blue";
+        homepageImageClasses += 'homepage-main-image-blue';
         return Headshot1;
     }
   }
@@ -52,7 +52,7 @@ export default function Page() {
         {/* Left column */}
         <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
           <h1 className="my-4 text-3xl leading-tight md:leading-tight md:text-5xl text-white font-bold text-center md:text-left">
-            Hello! I'm&nbsp;
+            Hello! I&apos;m&nbsp;
             <span className="logo-first-name bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-pink-600 to-purple-500">Tyler</span>, a certified technical business analyst and trivia-lover.
           </h1>
           <p className="homepage-subtext leading-normal text-base text-green-500 md:text-xl mb-8 text-center md:text-left">
