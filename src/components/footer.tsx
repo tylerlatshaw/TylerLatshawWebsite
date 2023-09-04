@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic'
+import Link from 'next/link'
 
 const FormFooterContact = dynamic(() => import('./footer-contact'), {
   ssr: false,
@@ -10,9 +11,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-3">
             <div className="grid grid-col content-start w-fit mx-auto py-6">
                 <div className="m-auto">
-                    <a className="grid items-center text-indigo-400 no-underline hover:no-underline font-bold text-3xl lg:text-4xl" href="/">
+                    <Link className="grid items-center text-indigo-400 no-underline hover:no-underline font-bold text-3xl lg:text-4xl" href="/">
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700">Tyler Latshaw</span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="grid text-left">
                     <div className="mt-6">
@@ -39,16 +40,16 @@ export default function Footer() {
                 <div className="grid grid-cols-2">
                     <div className="grid grid-col content-start w-fit mx-auto">
                         <span className="">Quick Links</span>
-                        <a href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Home</a>
-                        <a href="resume" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Resume</a>
-                        <a href="portfolio" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Portfolio</a>
-                        <a href="interests" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Interests</a>
-                        <a href="contact-me" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Contact Me</a>
+                        <Link href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Home</Link>
+                        <Link href="resume" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Resume</Link>
+                        <Link href="portfolio" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Portfolio</Link>
+                        <Link href="interests" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Interests</Link>
+                        <Link href="contact-me" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Contact Me</Link>
                     </div>
                     <div className="grid grid-col content-start w-fit mx-auto">
                         <span className="">Site Links</span>
-                        <a href="./privacy-policy" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Privacy Policy</a>
-                        <a href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Sitemap</a>
+                        <Link href="./privacy-policy" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Privacy Policy</Link>
+                        <Link href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Sitemap</Link>
                     </div>
                 </div>
             </div>
@@ -60,7 +61,7 @@ export default function Footer() {
     </div>
     <div className="w-full pt-6 text-sm md:text-left fade-in text-gray-300">
         <p className="text-center">
-            &copy; 2023 Tyler J. Latshaw. All rights reserved. | Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="underline hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
+            &copy; {new Date().getFullYear()} Tyler J. Latshaw. All rights reserved. | Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="underline hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
         </p>
     </div>
 </div>

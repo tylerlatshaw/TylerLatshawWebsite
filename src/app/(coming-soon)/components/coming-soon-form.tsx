@@ -1,5 +1,5 @@
 export default function ComingSoonForm() {
-    return <form className="w-full h-full" id="notify-me" method="POST" action="/">
+    return <form className="w-full h-full" id="notify-me" method="POST" action="javascript:formSubmit()">
         <div className="w-fit mx-auto">
             <input type="text" name="floating_name" id="floating_name" className="hidden" defaultValue="Notification Request" hidden />
             <input type="text" name="floating_message" id="floating_message" className="hidden" defaultValue="Notify when site goes live" hidden />
@@ -15,4 +15,8 @@ export default function ComingSoonForm() {
             </div>
         </div>
     </form>
+}
+
+export function formSubmit() {
+    document.querySelector('.subscribed-text')?.classList.remove('hidden');
 }

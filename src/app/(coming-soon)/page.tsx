@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute content-start w-full mx-auto py-6 top-3/4 text-gray-500">
+      <div className="absolute content-start w-full mx-auto py-6 top-3/4 text-gray-400">
         <div className="grid justify-center">
           <div className="mt-6">
             <a href="mailto:tyler@tylerlatshaw.com" className="group block" target="_blank">
