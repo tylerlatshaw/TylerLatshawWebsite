@@ -60,9 +60,21 @@ export default function Footer() {
             </div>
         </div>
         <div className="w-full pt-6 text-md fade-in text-gray-400">
-            <p className="text-center">
-                &copy; {new Date().getFullYear()} Tyler J. Latshaw. All rights reserved. | Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="underline hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
+            <p className="text-center" id="copyright">
+                {generateCopyright()}
             </p>
         </div>
     </div>
+}
+
+function generateCopyright() {
+    return <div dangerouslySetInnerHTML={createCopyright()} />;
+}
+
+function createCopyright() {
+    var year = new Date().getFullYear();
+
+    var copyright = `&copy; ${year} Tyler J. Latshaw. All rights reserved. | Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="underline hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.`;
+
+    return { __html: copyright };
 }
