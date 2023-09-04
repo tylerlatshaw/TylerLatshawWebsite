@@ -1,5 +1,4 @@
 export default function PrivacyPolicy() {
-
     return <>
         <aside className="absolute sm:sticky h-fit transition-transform -translate-x-full sm:translate-x-0 whitespace-nowrap w-fit">
             <div className="h-full px-3 py-4 overflow-y-auto text-white">
