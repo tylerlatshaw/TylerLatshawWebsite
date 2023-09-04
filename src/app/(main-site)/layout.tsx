@@ -28,9 +28,13 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <Navigation />
-      {children}
-      <Footer />
+      <main>
+        <Navigation />
+        {children}
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   )
 }
