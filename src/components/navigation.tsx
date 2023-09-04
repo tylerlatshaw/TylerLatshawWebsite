@@ -7,7 +7,7 @@ export default function Navigation() {
                 <div className="flex space-x-7">
                     <div className="m-auto">
                         <a className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700 py-1">Tyler Latshaw</span>
+                            <span className="logo-full-name bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700 py-1">Tyler Latshaw</span>
                         </a>
                     </div>
                 </div>
