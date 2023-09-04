@@ -16,32 +16,32 @@ export default function Page() {
 
   {/* This is used to generate a new homepage image with a unique color scheme to match */}
 
-  var homepageImageClasses = 'homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ';
+  var homepageImageClasses = "homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ";
 
   function getRandomImage() {
     var rand = Math.floor(Math.random() * 6) + 1;
   
     switch (rand) {
       case 1:
-        homepageImageClasses += 'homepage-main-image-blue';
+        homepageImageClasses += "homepage-main-image-blue";
         return Headshot1;
       case 2:
-        homepageImageClasses += 'homepage-main-image-red';
+        homepageImageClasses += "homepage-main-image-red";
         return Headshot2;
       case 3:
-        homepageImageClasses += 'homepage-main-image-green';
+        homepageImageClasses += "homepage-main-image-green";
         return Headshot3;
       case 4:
-        homepageImageClasses += 'homepage-main-image-blue';
+        homepageImageClasses += "homepage-main-image-blue";
         return Headshot4;
       case 5:
-        homepageImageClasses += 'homepage-main-image-red';
+        homepageImageClasses += "homepage-main-image-red";
         return Headshot5;
       case 6:
-        homepageImageClasses += 'homepage-main-image-green';
+        homepageImageClasses += "homepage-main-image-green";
         return Headshot6;
       default:
-        homepageImageClasses += 'homepage-main-image-blue';
+        homepageImageClasses += "homepage-main-image-blue";
         return Headshot1;
     }
   }
