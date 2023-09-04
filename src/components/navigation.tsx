@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Navigation() {
     return <nav className="bg-gray-900 absolute w-full right-0 top-0 p-3 md:bg-transparent">
         <div className="container mx-auto">
@@ -11,11 +13,11 @@ export default function Navigation() {
                 </div>
                 {/* Navbar items */}
                 <div className="hidden md:flex items-center space-x-3">
-                    <a href="/" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Home</a>
-                    <a href="resume" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Resume</a>
-                    <a href="portfolio" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Portfolio</a>
-                    <a href="interests" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Interests</a>
-                    <a href="contact-me" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Contact Me</a>
+                    <Link href="/" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Home</Link>
+                    <Link href="resume" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Resume</Link>
+                    <Link href="portfolio" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Portfolio</Link>
+                    <Link href="interests" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Interests</Link>
+                    <Link href="contact-me" className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">Contact Me</Link>
                 </div>
 
                 {/* Mobile menu button */}

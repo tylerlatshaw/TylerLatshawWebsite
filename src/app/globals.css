@@ -16,7 +16,6 @@ div[data-lastpass-icon-root] {
     display: none
 }
 
-
 .grecaptcha-badge {
     visibility: hidden;
 }
@@ -29,6 +28,10 @@ div[data-lastpass-icon-root] {
 
 .nav-link {
     border-radius: 10px;
+}
+
+.footer-logo {
+    padding-bottom: 4px;
 }
 
 .footer-textarea {
