@@ -102,7 +102,3 @@ div[data-lastpass-icon-root] {
     background-repeat: no-repeat;
     background-size: cover;
 }
-
-.privacy-policy a:link {
-    text-decoration: underline white solid 1px !important;
-}
