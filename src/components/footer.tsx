@@ -60,9 +60,9 @@ export default function Footer() {
             </div>
         </div>
         <div className="w-full pt-6 text-md fade-in text-gray-400">
-            <p className="text-center" id="copyright">
+            <div className="text-center" id="copyright">
                 {generateCopyright()}
-            </p>
+            </div>
         </div>
     </div>
 }
