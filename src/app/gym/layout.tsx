@@ -1,5 +1,5 @@
+import './../globals.css'
 import type { Metadata } from 'next'
-import '../font-awesome/css/all.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://tylerlatshaw.com/'),
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   },
   title: {
     template: '%s | Tyler Latshaw',
-    default: 'Tyler Latshaw | Technical Business Analyst and Scrum Master',
+    default: 'Gym Stats',
   },
   description: 'Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.',
   generator: 'Next.js',
@@ -25,12 +25,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-      </head>
-        {children}
-    </html>
+    <>
+      <body className="leading-normal tracking-normal bg-cover bg-fixed min-h-screen" suppressHydrationWarning={true}>
+        <main>
+          {children}
+        </main>
+      </body>
+    </>
   )
 }

@@ -28,13 +28,15 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <main>
-        <Navigation />
-        {children}
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      <body className="leading-normal tracking-normal text-white bg-cover bg-fixed min-h-screen" suppressHydrationWarning={true}>
+        <main>
+          <Navigation />
+          {children}
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </body>
     </>
   )
 }
