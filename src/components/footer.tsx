@@ -12,7 +12,7 @@ export default function Footer() {
             <div className="grid grid-col content-start w-fit mx-auto py-6">
                 <div className="m-auto">
                     <Link className="grid items-center text-indigo-400 no-underline hover:no-underline font-bold text-3xl lg:text-4xl" href="/">
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700">Tyler Latshaw</span>
+                        <span className="footer-logo bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700">Tyler Latshaw</span>
                     </Link>
                 </div>
                 <div className="grid text-left">
