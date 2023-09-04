@@ -15,7 +15,7 @@ export default function Footer() {
                             <span className="footer-logo bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700">Tyler Latshaw</span>
                         </Link>
                     </div>
-                    <div className="grid text-left">
+                    <div className="grid justify-items-center">
                         <div className="mt-6">
                             <a href="mailto:tyler@tylerlatshaw.com" className="group block" target="_blank">
                                 <div className="flex items-center">
@@ -25,8 +25,8 @@ export default function Footer() {
                             </a>
                         </div>
                     </div>
-                    <div className="grid text-left">
-                        <div className="mt-3">
+                    <div className="grid justify-items-center">
+                        <div className="mt-1">
                             <a href="https://www.linkedin.com/in/tylerlatshaw/" className="group block" target="_blank">
                                 <div className="flex items-center">
                                     <i className="fab fa-linkedin fa-lg fa-fw text-white m-2 group-hover:text-green-500"></i>
@@ -59,7 +59,7 @@ export default function Footer() {
                 </div>
             </div>
         </div>
-        <div className="w-full pt-6 text-sm md:text-left fade-in text-gray-300">
+        <div className="w-full pt-6 text-md fade-in text-gray-400">
             <p className="text-center">
                 &copy; {new Date().getFullYear()} Tyler J. Latshaw. All rights reserved. | Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="underline hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
             </p>

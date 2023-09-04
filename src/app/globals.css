@@ -31,7 +31,7 @@ div[data-lastpass-icon-root] {
 }
 
 .footer-logo {
-    line-height: normal;
+    padding-bottom: 4px;
 }
 
 .footer-textarea {
