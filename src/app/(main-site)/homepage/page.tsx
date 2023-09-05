@@ -12,39 +12,38 @@ import CertCsm from '@/assets/images/cert-csm.svg'
 import CertServsafe from '@/assets/images/cert-servsafe.svg'
 import CoverPlaceholder from '@/assets/images/cover-image-placeholder.png'
 
-export default function Page() {
+{/* This is used to generate a new homepage image with a unique color scheme to match */ }
 
-  {/* This is used to generate a new homepage image with a unique color scheme to match */}
-
+function GetRandomImage() {
   var homepageImageClasses = 'homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ';
+  var rand = Math.floor(Math.random() * 6) + 1;
 
-  function getRandomImage() {
-    var rand = Math.floor(Math.random() * 6) + 1;
-  
-    switch (rand) {
-      case 1:
-        homepageImageClasses += 'homepage-main-image-blue';
-        return Headshot1;
-      case 2:
-        homepageImageClasses += 'homepage-main-image-red';
-        return Headshot2;
-      case 3:
-        homepageImageClasses += 'homepage-main-image-green';
-        return Headshot3;
-      case 4:
-        homepageImageClasses += 'homepage-main-image-blue';
-        return Headshot4;
-      case 5:
-        homepageImageClasses += 'homepage-main-image-red';
-        return Headshot5;
-      case 6:
-        homepageImageClasses += 'homepage-main-image-green';
-        return Headshot6;
-      default:
-        homepageImageClasses += 'homepage-main-image-blue';
-        return Headshot1;
-    }
+  switch (rand) {
+    case 1:
+      homepageImageClasses += 'homepage-main-image-blue';
+      return <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    case 2:
+      homepageImageClasses += 'homepage-main-image-red';
+      return <Image src={Headshot2} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    case 3:
+      homepageImageClasses += 'homepage-main-image-green';
+      return <Image src={Headshot3} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    case 4:
+      homepageImageClasses += 'homepage-main-image-blue';
+      return <Image src={Headshot4} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    case 5:
+      homepageImageClasses += 'homepage-main-image-red';
+      return <Image src={Headshot5} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    case 6:
+      homepageImageClasses += 'homepage-main-image-green';
+      return <Image src={Headshot6} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
+    default:
+      homepageImageClasses += 'homepage-main-image-blue';
+      return <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
   }
+}
+
+export default function Page() {
 
   return <>
     <div className="h-full">
@@ -64,7 +63,7 @@ export default function Page() {
         {/* Right column */}
         <div className="w-full xl:w-3/5 p-12">
           {/* Classes for the image are set in the homepageImageClasses variable */}
-          <Image src={getRandomImage()} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />
+          <GetRandomImage />
         </div>
       </div>
     </div>
