@@ -1,3 +1,4 @@
+import VinylRecordCard from '@/components/vinyl-record-card'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -7,15 +8,18 @@ export const metadata: Metadata = {
 export default function Page() {
   return <>
     <div className="h-full mb-16 md:pb-8 md:mb-28">
+
       <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
 
-        <div className="h-full mb-16 md:pb-8 md:mb-28">
+        <section className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-4 p-2 w-full">
 
-          <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+          <VinylRecordCard />
+          <VinylRecordCard />
+          <VinylRecordCard />
+          <VinylRecordCard />
+          <VinylRecordCard />
 
-            <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-4 p-2">
-
-              {/* <?php
+          {/* <?php
               include './includes/database-connection.php';
 
               $get_records_sql = "SELECT R.RecordId
@@ -55,10 +59,7 @@ export default function Page() {
             $connection->close();
         ?> */}
 
-            </section>
-
-          </div>
-        </div>
+        </section>
 
       </div>
     </div>

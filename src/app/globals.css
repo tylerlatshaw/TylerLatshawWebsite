@@ -102,3 +102,7 @@ div[data-lastpass-icon-root] {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.record-card {
+    object-fit: "cover";
+}
