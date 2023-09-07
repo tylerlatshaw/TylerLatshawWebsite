@@ -29,8 +29,8 @@ interface VercelInviteUserEmailProps {
   inviteFromLocation?: string;
 }
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
   : '';
 
 export const VercelInviteUserEmail = ({
@@ -66,7 +66,7 @@ export const VercelInviteUserEmail = ({
               Join <strong>{teamName}</strong> on <strong>Vercel</strong>
             </Heading>
             <Text className="text-black text-[14px] leading-[24px]">
-              Hello {username},
+              Hello {process.env.NEXT_PUBLIC_SOMETHING},
             </Text>
             <Text className="text-black text-[14px] leading-[24px]">
               <strong>bukinoshita</strong> (
