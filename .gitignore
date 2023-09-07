@@ -38,4 +38,4 @@ next-env.d.ts
 /PHP_site
 
 # react email
-/.react-email/
+/.react-email
