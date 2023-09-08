@@ -4,16 +4,13 @@ import {
     Container,
     Head,
     Heading,
-    Column,
     Html,
     Img,
     Link,
     Preview,
     Section,
     Text,
-    Row,
-    Tailwind,
-    Font,
+    Tailwind
 } from '@react-email/components';
 import * as React from 'react';
 
@@ -24,13 +21,15 @@ export const EmailTemplate = () => (
         <Body style={main}>
             <Tailwind>
                 <Section style={header}>
-                    <Img
-                        style={imgHeader}
-                        src={`https://tylerlatshaw.com/static/logo.png`}
-                        width={300}
-                        alt="Tyler Latshaw logo"
-                        className="pt-8 pb-8"
-                    />
+                    <Link href='https://tylerlatshaw.com/'>
+                        <Img
+                            style={imgHeader}
+                            src={`https://tylerlatshaw.com/static/logo.png`}
+                            width={300}
+                            alt="Tyler Latshaw logo"
+                            className="pt-8 pb-8"
+                        />
+                    </Link>
                 </Section>
                 <Container style={container}>
                     <Heading style={heading}>
@@ -108,13 +107,15 @@ export const EmailTemplate = () => (
 
 
                     <Text style={footerLinkSection}>
-                        <Img
-                            style={imgFooter}
-                            src={`https://tylerlatshaw.com/static/logo.png`}
-                            width={300}
-                            alt="codepen"
-                            className="pt-8 pb-8"
-                        />
+                        <Link href='https://tylerlatshaw.com/'>
+                            <Img
+                                style={imgFooter}
+                                src={`https://tylerlatshaw.com/static/logo.png`}
+                                width={300}
+                                alt="codepen"
+                                className="pt-8 pb-8"
+                            />
+                        </Link>
 
                         <Link style={link} href="${baseUrl}/resume">Resume</Link> |{' '}
                         <Link style={link} href="${baseUrl}/portfolio">Portfolio</Link> |{' '}

@@ -3,7 +3,7 @@
 import { useSearchParams } from 'next/navigation'
 
 import { Resend } from 'resend';
-import EmailTemplate from '@/components/emails/coming-soon'
+import EmailTemplate from '@/components/emails/coming-soon-site-is-live'
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
