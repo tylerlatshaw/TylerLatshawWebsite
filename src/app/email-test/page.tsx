@@ -1,15 +1,16 @@
 import { Resend } from 'resend';
-import EmailTemplate from '@/components/emails/sample-vercel'
+import EmailTemplate from '@/components/emails/coming-soon'
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
 
-async function TestEmail () {
+async function TestEmail() {
   try {
     const data = await resend.emails.send({
-      from: fromAddress,
-      to: ['tylerlatshaw@gmail.com'],
+      from: `${fromAddress}`,
+      to: `tylerlatshaw@gmail.com`,
       subject: 'Hello World',
+      text: 'Test',
       react: <EmailTemplate />
     });
 
@@ -20,9 +21,9 @@ async function TestEmail () {
 }
 
 
-export default async function Page () {
+export default async function Page() {
 
-    await TestEmail();
+  await TestEmail();
 
-    return <h1>Hello!</h1>
+  return <h1>Hello!</h1>
 }
