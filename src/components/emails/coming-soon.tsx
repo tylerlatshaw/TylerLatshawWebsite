@@ -12,121 +12,118 @@ import {
     Section,
     Text,
     Row,
+    Tailwind,
+    Font,
 } from '@react-email/components';
+import { unsubscribe } from 'diagnostics_channel';
 import * as React from 'react';
 
 const baseUrl = 'localhost:3001';
 
-export const CodepenChallengersEmail = () => (
+export const EmailTemplate = () => (
     <Html>
         <Head />
-        <Preview>#CodePenChallenge: Cubes</Preview>
+        <Preview>Exciting News: My website is now LIVE!&nbsp;🎉</Preview>
         <Body style={main}>
-            <Section style={header}>
-                <Img
-                    style={imgHeader}
-                    src={`${baseUrl}/static/logo.png`}
-                    width={600}
-                    alt="codepen"
-                />
-            </Section>
-            <Container style={container}>
-                <Text style={challengeLink}>
-                    <Link style={link}>View this Challenge on CodePen</Link>
-                </Text>
-
-                <Heading style={heading}>
-                    <strong>This week:</strong> #CodePenChallenge:{' '}
-                    <Text style={cubeText}>Cubes</Text>
-                </Heading>
-
-                <Section style={section}>
-                    <Text style={text}>The Shape challenge continues!</Text>
-
-                    <Text style={text}>
-                        Last week, we kicked things off with round shapes. We "rounded" up
-                        the Pens from week one in our{' '}
-                        <Link style={blueLink}>#CodePenChallenge: Round</Link> collection.
-                    </Text>
-
-                    <Text style={text}>This week, we move on to cubes 🧊</Text>
-
-                    <Text style={text}>
-                        Creating cubes in the browser is all about mastery of illusion. Take
-                        control of perspective and shadows and you can make the magic of 3D
-                        on a flat screen 🧙
-                    </Text>
-
-                    <Text style={text}>
-                        This week is a fun chance to work on your CSS shape-building skills,
-                        or dig into a 3D JavaScript library like Three.js.
-                    </Text>
-
-                    <Text style={text}>
-                        This week's starter template features an ice cube emoji to help
-                        inspire a "cool" idea for your Pen. As always, the template is just
-                        as jumping off point. Feel free to incorporate the 🧊 in your
-                        creation, add more elements, or freeze it out completely and start
-                        over from scratch!
-                    </Text>
-
-                    <Text style={yourChallenge}>
-                        💪 <strong>Your Challenge:</strong>{' '}
-                        <Link style={blueLink}>
-                            create a Pen that includes cube shapes.
-                        </Link>
-                    </Text>
-
+            <Tailwind>
+                <Section style={header}>
                     <Img
-                        src={`${baseUrl}/static/codepen-cube.png`}
-                        width={600}
+                        style={imgHeader}
+                        src={`https://tylerlatshaw.com/_next/static/media/gradient-logo-animated.a32fad62.svg`}
+                        width={300}
                         alt="codepen"
+                        className="pt-8 pb-8"
                     />
+                </Section>
+                <Container style={container}>
+                    <Heading style={heading}>
+                        Exciting News: My website is now <strong>LIVE</strong>!&nbsp;🎉
+                    </Heading>
 
-                    <Section style={sectionPro}>
+                    <Section style={mainSection}>
+                        <Text style={text}>Hello there!</Text>
+
+                        <Text style={text}>
+                            I hope this email finds you well. I have some exciting news to share - my brand-new website is officially live!
+                        </Text>
+
+                        <Text style={text}>
+                            You can view the new site at <Link href="https://tylerlatshaw.com/">https://tylerlatshaw.com/</Link>
+                        </Text>
+
+                        <Text style={text}>I couldn't be more thrilled to invite you to explore my new website - I am humbled that you requested to be notified when it goes live. I have worked hard on the site over the past few months, teaching myself Next.js along the way! Some things you can expect:</Text>
+
+                        <Text style={text}>Some things you can expect:</Text>
+
+                        <Text style={text}>
+                            ✨ <strong>New Design:</strong>{' '}I've rewritten my entire website from the ground up. It features a visually-appealing design that is intuitive to use.
+                        </Text>
+
+                        <Text style={text}>
+                            📰 <strong>All New Content:</strong>{' '}I updated my portfolio to include more relavent information and examples of my work and even included a few pages so you can get to know me personally.
+                        </Text>
+
+                        <Text style={text}>
+                            📱 <strong>User-Focused Interaction:</strong>{' '}My new website is built with the user experience in mind. I designed the site to be completely mobile friendly and easy to use.
+                        </Text>
+
+                        <Section style={alignCenter}>
+                            <Button style={button} pX={12} pY={12} href="https://tylerlatshaw.com/">
+                                Visit My Site Now
+                            </Button>
+                        </Section>
+
+                        <Text style={text}>
+                            Thank you for your support as I navigate creating my online portfolio. I cannot wait to hear what you think!
+                        </Text>
+
+                        <Text style={text}>
+                            - Tyler
+                        </Text>
+
                         <Img
-                            style={imagePro}
-                            src={`${baseUrl}/static/codepen-pro.png`}
-                            width={250}
+                            src={`${baseUrl}/static/signature.png`}
+                            width={600}
                             alt="codepen"
                         />
 
-                        <Text>
-                            CodePen PRO combines a bunch of features that can help any
-                            front-end designer or developer at any experience level.
-                        </Text>
+                        <Section style={callToAction}>
+                            <Text style={ctaHeader}>
+                                Get in Contact
+                            </Text>
+                            <Link href='mailto:tyler@tylerlatshaw.com' style={link}>tyler@tylerlatshaw.com</Link><br/>
+                            <Link href='https://www.linkedin.com/in/tylerlatshaw/' style={link}>Connect With Me On LinkedIn</Link>
+                        </Section>
 
-                        <Button style={button} pX={12} pY={12}>
-                            <strong>Learn More</strong>
-                        </Button>
                     </Section>
-                </Section>
+                    <Text style={disclaimer}>
+                        You are receiving this message because you requested to know when my site goes live.
+                    </Text>
 
-                <Text style={yellowSection}>
-                    <strong>To participate:</strong>{' '}
-                    <Link style={blueLink}>Create a Pen →</Link> and tag it{' '}
-                    <Link style={blueLink}>
-                        <strong>codepenchallenge</strong>
-                    </Link>{' '}
-                    and
-                    <Link style={blueLink}>
-                        {' '}
-                        <strong>cpc-cubes</strong>
-                    </Link>
-                    . We'll be watching and gathering the Pens into a Collection, and
-                    sharing on <Link style={blueLink}>Twitter</Link> and{' '}
-                    <Link style={blueLink}>Instagram</Link> (Use the #CodePenChallenge tag
-                    on Twitter and Instagram as well).
-                </Text>
-            </Container>
+
+                    <Text style={footerLinkSection}>
+                        <Link style={link} href="${baseUrl}/resume">Resume</Link> |{' '}
+                        <Link style={link} href="${baseUrl}/portfolio">Portfolio</Link> |{' '}
+                        <Link style={link} href="${baseUrl}/interests">Interests</Link> |{' '}
+                        <Link style={link} href="${baseUrl}/contact-me">Contact Me</Link> |{' '}
+                        <Link style={link} href="${baseUrl}/privacy-policy">Privacy Policy</Link>
+                    </Text>
+
+                    <Text style={unsubscribeFooter}>
+                        Don't want to receieve future updates? Reply with "Unsubscribe" in the subject line.
+                    </Text>
+                </Container>
+            </Tailwind>
         </Body>
     </Html>
 );
 
-export default CodepenChallengersEmail;
+export default EmailTemplate
+    ;
 
 const main = {
     fontFamily: '"Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif',
+    fallbackFontFamily: "Verdana",
     backgroundColor: '#505050',
     margin: '0',
 };
@@ -139,86 +136,59 @@ const header = {
     width: '100%',
     backgroundColor: '#191919',
     margin: '0 auto',
-    paddingBottom: '30px',
     zIndex: '999',
 };
 
 const container = {
     paddingLeft: '12px',
     paddingRight: '12px',
-    margin: '0 auto',
+    margin: '0 auto 16px auto',
     width: '648px',
     maxWidth: '648px',
-    position: 'relative' as const,
-};
-
-const challengeLink = {
-    backgroundColor: '#505050',
-    textAlign: 'center' as const,
-    padding: '10px 0 25px 0',
-    fontSize: '13px',
-    position: 'absolute' as const,
-    width: '100%',
-    maxWidth: '648px',
-    top: '-28px',
-    margin: '0 0 16px 0',
-};
-
-const link = {
-    color: '#fff',
-    cursor: 'pointer',
-};
-
-const blueLink = {
-    color: '#15c',
-    cursor: 'pointer',
+    position: 'relative' as const
 };
 
 const heading = {
-    background: '#f0d361',
+    background: '#233441',
     padding: '30px',
-    color: '#191919',
+    color: 'white',
+    textAlign: 'center' as const,
     fontWeight: '400',
-    marginBottom: '0',
+    marginTop: '0',
+    marginBottom: '0'
 };
 
-const section = {
+const mainSection = {
     margin: '0',
-    background: '#fff',
+    background: 'white',
     padding: '0 24px',
-};
-
-const yellowSection = {
-    background: '#f5d247',
-    padding: '30px',
-    fontSize: '18px',
-    lineHeight: '1.5',
+    marginTop: '0',
+    marginBottom: '0'
 };
 
 const text = {
     fontSize: '16px',
+    color: 'black'
 };
 
-const cubeText = { fontSize: '32px', margin: '4px 0 0 0' };
-
-const yourChallenge = {
-    fontSize: '16px',
-    border: '6px solid #ebd473',
-    padding: '20px',
-    margin: '0 0 40px 0',
+const alignCenter = {
+    textAlign: 'center' as const
 };
 
-const sectionPro = {
-    marginTop: '40px',
+const callToAction = {
+    marginTop: '24px',
     marginBottom: '24px',
     textAlign: 'center' as const,
-    background: '#0b112a',
-    color: '#fff',
-    padding: '35px 20px 30px 20px',
-    border: '6px solid #2138c6',
+    background: '#234130',
+    color: 'white',
+    padding: '32px 24px 32px 24px',
+    border: '6px solid #191919'
 };
 
-const imagePro = { margin: '0 auto 30px auto' };
+const ctaHeader = {
+    fontSize: '22px',
+    margin: '0 0 24px 0'
+};
 
 const button = {
     background: '#2138c6',
@@ -227,84 +197,39 @@ const button = {
     fontSize: '15px',
     lineHeight: '18px',
     cursor: 'pointer',
-    borderRadius: '4px',
+    borderRadius: '4px'
 };
 
-const resourcesTitle = {
-    fontWeight: '900',
-    lineHeight: '1.1',
-    marginTop: '-40px',
-    fontSize: '18px',
-};
-
-const ideasTitle = {
-    fontWeight: '900',
-    lineHeight: '1.1',
-    fontSize: '18px',
-};
-
-const ideas = {
-    width: '50%',
-    paddingRight: '10px',
-};
-
-const resources = {
-    width: '50%',
-    paddingLeft: '10px',
-};
-
-const card = {
-    padding: '20px',
-    margin: '0 0 20px 0',
-    borderRadius: '10px',
-    fontSize: '36px',
+const disclaimer = {
+    backgroundColor: '#696969',
+    color: 'white',
     textAlign: 'center' as const,
+    padding: '12px 0 12px 0',
+    fontSize: '14px',
+    width: '100%',
+    maxWidth: '648px',
+    margin: '0 0 16px 0',
+    marginBottom: '0'
 };
 
-const yellowCard = {
-    ...card,
-    background: '#fff4c8',
-    border: '1px solid #f4d247',
-};
-
-const blueCard = {
-    ...card,
-    background: '#d9f6ff',
-    border: '1px solid #92bfd0',
-};
-
-const textCard = {
-    fontSize: '13px',
-    textAlign: 'left' as const,
-};
-
-const goToChallenge = {
-    margin: '40px 0 120px 0',
+const footerLinkSection = {
+    background: '#233441',
     textAlign: 'center' as const,
+    padding: '24px',
+    fontSize: '14px',
+    color: 'white',
+    marginTop: '0',
+    marginBottom: '0'
 };
 
-const footerButton = {
-    fontSize: '26px',
-    color: '#15c',
-    background: '#222',
-    borderRadius: '4px',
-    fontWeight: 'bold',
-    cursor: 'pointer',
-};
-
-const footer = {
-    background: '#fff',
-    color: '#505050',
-    padding: '0 24px',
-    marginBottom: '48px',
-};
-
-const footerText = {
-    fontSize: '13px',
-};
-
-const footerLink = {
+const link = {
+    color: 'white',
     textDecoration: 'underline',
-    color: '#505050',
-    cursor: 'pointer',
+    margin: '0 2px'
+};
+
+const unsubscribeFooter = {
+    fontSize: '14px',
+    textAlign: 'center' as const,
+    color: '#1a1a1a'
 };
