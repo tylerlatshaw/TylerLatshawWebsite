@@ -50,12 +50,12 @@ export const EmailTemplate = () => (
                             You can visit the new site at <Link href="https://tylerlatshaw.com/">https://tylerlatshaw.com/</Link>
                         </Text>
 
-                        <Text style={text}>I couldn't be more thrilled to invite you to explore my new website - I am humbled that you requested to be notified when it goes live. I have worked hard on the site over the past few months, teaching myself Next.js along the way! Some things you can expect:</Text>
+                        <Text style={text}>I couldn&apos;t be more thrilled to invite you to explore my new website - I am humbled that you requested to be notified when it goes live. I have worked hard on the site over the past few months, teaching myself Next.js along the way! Some things you can expect:</Text>
 
                         <Text style={text}>Some things you can expect:</Text>
 
                         <Text style={text}>
-                            ✨ <strong>New Design:</strong>{' '}I've rewritten my entire website from the ground up. It features a visually-appealing design that is intuitive to use.
+                            ✨ <strong>New Design:</strong>{' '}I&apos;ve rewritten my entire website from the ground up. It features a visually-appealing design that is intuitive to use.
                         </Text>
 
                         <Text style={text}>
@@ -118,7 +118,7 @@ export const EmailTemplate = () => (
                     </Text>
 
                     <Text style={unsubscribeFooter}>
-                        Don't want to receieve future updates? Reply with "Unsubscribe" in the subject line.
+                        Don&apos;t want to receieve future updates? Reply with &quot;Unsubscribe&quot; in the subject line.
                     </Text>
                 </Container>
             </Tailwind>

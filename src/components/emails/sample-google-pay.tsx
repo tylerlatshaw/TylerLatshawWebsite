@@ -52,7 +52,7 @@ export const GooglePlayPolicyUpdateEmail = () => (
                         users.
                     </Text>
                     <Text style={paragraph}>
-                        We've added clarifications to our{' '}
+                        We&apos;ve added clarifications to our{' '}
                         <Link href="https://notifications.google.com" style={link}>
                             Target API Level policy
                         </Link>
@@ -62,7 +62,7 @@ export const GooglePlayPolicyUpdateEmail = () => (
                 </Section>
                 <Section style={paragraphList}>
                     <Text style={paragraph}>
-                        We’re noting exceptions to the{' '}
+                        We&apos;re noting exceptions to the{' '}
                         <Link href="https://notifications.google.com" style={link}>
                             Target API Level policy
                         </Link>
@@ -80,7 +80,7 @@ export const GooglePlayPolicyUpdateEmail = () => (
                 </Section>
                 <Section style={paragraphContent}>
                     <Text style={paragraph}>
-                        We’re also extending the deadline to give you more time to adjust to
+                        We&apos;re also extending the deadline to give you more time to adjust to
                         these changes. Now, apps that target API level 29 or below will
                         start experiencing reduced distribution starting <b>Jan 31, 2023</b>{' '}
                         instead of Nov 1, 2022. If you need more time to update your app,
