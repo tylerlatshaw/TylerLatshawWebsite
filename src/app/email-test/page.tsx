@@ -9,7 +9,7 @@ async function TestEmail() {
     const data = await resend.emails.send({
       from: `${fromAddress}`,
       to: `tylerlatshaw@gmail.com`,
-      subject: 'Hello World',
+      subject: '🚀 Exciting News: My Website is Now Live! 🎉',
       text: 'Test',
       react: <EmailTemplate />
     });
