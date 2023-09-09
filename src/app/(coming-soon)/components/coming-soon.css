@@ -18,3 +18,11 @@ body {
     height: 48px;
     margin-top: 1px;
 }
+
+.positive-response {
+    color: #16a34a;
+}
+
+.negative-response {
+    color: #b91c1c;
+}
