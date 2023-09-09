@@ -10,12 +10,22 @@ export async function POST(request: Request) {
 
     const { name, email, message, source } = await request.json();
 
+    var title="New Submission!&nbsp;📫";
+
+    const messageData = {
+        title,
+        name,
+        email,
+        message,
+        source
+    }
+
     await resend.sendEmail({
         from: `${fromAddress}`,
-        to: 'tylerlatshaw@gmail.com',
+        to: email,
         subject: '🚀 Exciting News: My Website is Now Live! 🎉',
         text: 'Test',
-        react: <WelcomeEmail />
+        react: <WelcomeEmail messageData/>
 
     });
 

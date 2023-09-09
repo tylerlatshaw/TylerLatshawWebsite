@@ -13,7 +13,7 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-export const EmailTemplate = () => (
+export const EmailTemplate = (props: any) => (
     <Html>
         <Head />
         <Preview>A new message has been submitted</Preview>
@@ -32,20 +32,20 @@ export const EmailTemplate = () => (
                 </Section>
                 <Container style={container}>
                     <Heading style={heading}>
-                        New Submission!&nbsp;📫
+                        {props.title}
                     </Heading>
 
                     <Section style={mainSection}>
-                        <Text style={text}>Someone has signed up to receive an update when the site goes live!</Text>
+                        <Text style={text}>You have received a new message:</Text>
 
                         <hr />
 
                         <Text style={text}><strong>Date: </strong>Date here</Text>
-                        <Text style={text}><strong>Email: </strong>Email here</Text>
-                        <Text style={text}><strong>Message: </strong>Message here</Text><br />
+                        <Text style={text}><strong>Email: </strong>{props.email}</Text>
+                        <Text style={text}><strong>Message: </strong>{props.message}</Text><br />
 
-                        <Text style={text}><strong>Form Source: </strong>Form source here</Text>
-                        <Text style={text}><strong>Page: </strong>Referring page</Text>
+                        <Text style={text}><strong>Form Source: </strong>{props.source}</Text>
+                        <Text style={text}><strong>Page: </strong>{props.title}</Text>
                     </Section>
 
                     <Text style={footerLinkSection}>
