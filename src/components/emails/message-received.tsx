@@ -13,7 +13,20 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-export const EmailTemplate = (props: any) => (
+interface EmailVariables {
+    messageData: {
+        date: string;
+        dateTime: string;
+        title: string;
+        name: string;
+        email: string;
+        message: string;
+        source: string;
+        referringPage: string;
+    }
+}
+
+export const EmailTemplate = (props: EmailVariables) => (
     <Html>
         <Head />
         <Preview>A new message has been submitted</Preview>
@@ -32,7 +45,7 @@ export const EmailTemplate = (props: any) => (
                 </Section>
                 <Container style={container}>
                     <Heading style={heading}>
-                        {props.title}
+                        {props.messageData.title}
                     </Heading>
 
                     <Section style={mainSection}>
@@ -40,12 +53,12 @@ export const EmailTemplate = (props: any) => (
 
                         <hr />
 
-                        <Text style={text}><strong>Date: </strong>Date here</Text>
-                        <Text style={text}><strong>Email: </strong>{props.email}</Text>
-                        <Text style={text}><strong>Message: </strong>{props.message}</Text><br />
+                        <Text style={text}><strong>Date: </strong>{props.messageData.dateTime}</Text>
+                        <Text style={text}><strong>Email: </strong>{props.messageData.email}</Text>
+                        <Text style={text}><strong>Message: </strong>{props.messageData.message}</Text><br />
 
-                        <Text style={text}><strong>Form Source: </strong>{props.source}</Text>
-                        <Text style={text}><strong>Page: </strong>{props.title}</Text>
+                        <Text style={text}><strong>Form Source: </strong>{props.messageData.source}</Text>
+                        <Text style={text}><strong>Page: </strong>{props.messageData.referringPage}</Text>
                     </Section>
 
                     <Text style={footerLinkSection}>
