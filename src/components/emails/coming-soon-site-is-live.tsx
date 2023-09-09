@@ -4,20 +4,15 @@ import {
     Container,
     Head,
     Heading,
-    Column,
     Html,
     Img,
     Link,
     Preview,
     Section,
     Text,
-    Row,
-    Tailwind,
-    Font,
+    Tailwind
 } from '@react-email/components';
 import * as React from 'react';
-
-const baseUrl = 'localhost:3001';
 
 export const EmailTemplate = () => (
     <Html>
@@ -26,13 +21,15 @@ export const EmailTemplate = () => (
         <Body style={main}>
             <Tailwind>
                 <Section style={header}>
-                    <Img
-                        style={imgHeader}
-                        src={`https://tylerlatshaw.com/_next/static/media/gradient-logo-animated.a32fad62.svg`}
-                        width={300}
-                        alt="codepen"
-                        className="pt-8 pb-8"
-                    />
+                    <Link href='https://tylerlatshaw.com/'>
+                        <Img
+                            style={imgHeader}
+                            src={`https://tylerlatshaw.com/static/logo.png`}
+                            width={300}
+                            alt="Tyler Latshaw logo"
+                            className="pt-8 pb-8"
+                        />
+                    </Link>
                 </Section>
                 <Container style={container}>
                     <Heading style={heading}>
@@ -76,14 +73,13 @@ export const EmailTemplate = () => (
                             Thank you for your support as I navigate creating my online portfolio. I cannot wait to hear what you think!
                         </Text>
 
-                        <Text style={text}>
-                            - Tyler
-                        </Text>
-
-                        <Img
-                            src={`${baseUrl}/static/signature.png`}
-                            alt="codepen"
-                        />
+                        <Section style={alignRight}>
+                            <Img
+                                src={`https://tylerlatshaw.com/static/signature.png`}
+                                alt="Tyler signature"
+                                style={signature}
+                            />
+                        </Section>
 
                         <Section style={callToAction}>
                             <Text style={ctaHeader}>
@@ -104,12 +100,23 @@ export const EmailTemplate = () => (
                         </Section>
 
                     </Section>
+
                     <Text style={disclaimer}>
                         You are receiving this message because you requested to know when my site goes live.
                     </Text>
 
 
                     <Text style={footerLinkSection}>
+                        <Link href='https://tylerlatshaw.com/'>
+                            <Img
+                                style={imgFooter}
+                                src={`https://tylerlatshaw.com/static/logo.png`}
+                                width={300}
+                                alt="codepen"
+                                className="pt-8 pb-8"
+                            />
+                        </Link>
+
                         <Link style={link} href="${baseUrl}/resume">Resume</Link> |{' '}
                         <Link style={link} href="${baseUrl}/portfolio">Portfolio</Link> |{' '}
                         <Link style={link} href="${baseUrl}/interests">Interests</Link> |{' '}
@@ -179,8 +186,18 @@ const text = {
     color: 'black'
 };
 
+const alignRight = {
+    display: "flex",
+    flexDirection: 'row-reverse' as const,
+    paddingRight: '48px'
+};
+
 const alignCenter = {
     textAlign: 'center' as const
+};
+
+const signature = {
+    width: '80px'
 };
 
 const callToAction = {
@@ -235,11 +252,17 @@ const disclaimer = {
 const footerLinkSection = {
     background: '#233441',
     textAlign: 'center' as const,
-    padding: '24px',
+    paddingTop: '0',
+    paddingBottom: '24px',
     fontSize: '14px',
     color: 'white',
     marginTop: '0',
     marginBottom: '0'
+};
+
+const imgFooter = {
+    margin: 'auto',
+    width: '200px'
 };
 
 const link = {
