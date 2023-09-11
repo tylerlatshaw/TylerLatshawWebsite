@@ -14,7 +14,20 @@ import {
 } from '@react-email/components';
 import * as React from 'react';
 
-export const EmailTemplate = () => (
+interface EmailVariables {
+    messageData: {
+        date: string;
+        dateTime: string;
+        title: string;
+        name: string;
+        email: string;
+        message: string;
+        source: string;
+        referringPage: string;
+    }
+}
+
+export const EmailTemplate = (props: EmailVariables) => (
     <Html>
         <Head />
         <Preview>I cannot wait to hear what you think!</Preview>
@@ -33,7 +46,7 @@ export const EmailTemplate = () => (
                 </Section>
                 <Container style={container}>
                     <Heading style={heading}>
-                        Exciting News: My Website is Now <strong>LIVE</strong>!&nbsp;🎉
+                        {props.messageData.title}
                     </Heading>
 
                     <Section style={mainSection}>
