@@ -3,6 +3,14 @@ body {
     background-image: radial-gradient(75% 75% at 50% 50%, #253745FF 0%, #0B111AFF 100%);
 }
 
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 28px #374151 inset !important;
+    -webkit-text-fill-color: white;
+}
+
 .email-form {
     display: flex;
     align-content: center;
@@ -10,13 +18,26 @@ body {
     align-items: flex-start;
 }
 
-.email-form input, button {
+.email-form input,
+button {
     height: 48px;
 }
 
 .email-form button {
     height: 48px;
     margin-top: 1px;
+}
+
+input:-webkit-autofill:disabled {
+    -webkit-box-shadow: 0 0 0 28px #1f2937 inset !important;
+}
+
+.email-form input:disabled {
+    background-color: #111827;
+}
+
+.email-form button:disabled {
+    background-color: #14532d;
 }
 
 .positive-response {
