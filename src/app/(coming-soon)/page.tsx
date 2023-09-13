@@ -1,7 +1,7 @@
-import Image from 'next/image'
-import Logo from "@/assets/images/gradient-logo-animated.svg"
-import ComingSoonForm from './components/coming-soon-form'
-import React from 'react'
+import Image from "next/image";
+import Logo from "@/assets/images/gradient-logo-animated.svg";
+import ComingSoonForm from "./components/coming-soon-form";
+import React from "react";
 
 export default function Home() {
   return (
@@ -62,5 +62,5 @@ export default function Home() {
         </div>
       </div>
     </div>
-  )
+  );
 }

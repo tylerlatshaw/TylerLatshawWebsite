@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 export default function Record() {
     return <>
@@ -28,5 +28,5 @@ export default function Record() {
                 <span className="align-bottom inline-block bg-green-900 rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2 mb-2">Genre</span>
             </div >
         </div >
-    </>
+    </>;
 }

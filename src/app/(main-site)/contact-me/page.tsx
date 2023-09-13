@@ -1,9 +1,9 @@
-import ContactForm from '@/components/contact-me-form'
-import { Metadata } from 'next'
+import ContactForm from "@/components/contact-me-form";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Contact Me',
-}
+  title: "Contact Me",
+};
 
 export default function Page() {
   return <>
@@ -23,5 +23,5 @@ export default function Page() {
         </div>
       </div>
     </div>
-  </>
+  </>;
 }

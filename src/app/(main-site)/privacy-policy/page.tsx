@@ -1,9 +1,9 @@
-import PrivacyPolicy from '@/components/privacy-policy'
-import { Metadata } from 'next'
+import PrivacyPolicy from "@/components/privacy-policy";
+import { Metadata } from "next";
  
 export const metadata: Metadata = {
-  title: 'Privacy Policy',
-}
+  title: "Privacy Policy",
+};
 
 export default function Page() {
   return <>
@@ -12,5 +12,5 @@ export default function Page() {
         <PrivacyPolicy />
       </div>
     </div>
-  </>
+  </>;
 }

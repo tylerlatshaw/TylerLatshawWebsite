@@ -3,30 +3,30 @@
  * License - https://fontawesome.com/license (Commercial License)
  */
 (function () {
-  'use strict';
+  "use strict";
 
   var _WINDOW = {};
   var _DOCUMENT = {};
 
   try {
-    if (typeof window !== 'undefined') _WINDOW = window;
-    if (typeof document !== 'undefined') _DOCUMENT = document;
+    if (typeof window !== "undefined") _WINDOW = window;
+    if (typeof document !== "undefined") _DOCUMENT = document;
   } catch (e) {}
 
   var _ref = _WINDOW.navigator || {},
       _ref$userAgent = _ref.userAgent,
-      userAgent = _ref$userAgent === void 0 ? '' : _ref$userAgent;
+      userAgent = _ref$userAgent === void 0 ? "" : _ref$userAgent;
 
   var WINDOW = _WINDOW;
   var DOCUMENT = _DOCUMENT;
   var IS_BROWSER = !!WINDOW.document;
-  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === 'function' && typeof DOCUMENT.createElement === 'function';
-  var IS_IE = ~userAgent.indexOf('MSIE') || ~userAgent.indexOf('Trident/');
+  var IS_DOM = !!DOCUMENT.documentElement && !!DOCUMENT.head && typeof DOCUMENT.addEventListener === "function" && typeof DOCUMENT.createElement === "function";
+  var IS_IE = ~userAgent.indexOf("MSIE") || ~userAgent.indexOf("Trident/");
 
-  var NAMESPACE_IDENTIFIER = '___FONT_AWESOME___';
+  var NAMESPACE_IDENTIFIER = "___FONT_AWESOME___";
   var PRODUCTION = function () {
     try {
-      return "production" === 'production';
+      return "production" === "production";
     } catch (e) {
       return false;
     }
@@ -62,7 +62,7 @@
       var source = arguments[i] != null ? arguments[i] : {};
       var ownKeys = Object.keys(source);
 
-      if (typeof Object.getOwnPropertySymbols === 'function') {
+      if (typeof Object.getOwnPropertySymbols === "function") {
         ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
           return Object.getOwnPropertyDescriptor(source, sym).enumerable;
         }));
@@ -100,7 +100,7 @@
       return acc;
     }, {});
 
-    if (typeof namespace.hooks.addPack === 'function' && !skipHooks) {
+    if (typeof namespace.hooks.addPack === "function" && !skipHooks) {
       namespace.hooks.addPack(prefix, normalized);
     } else {
       namespace.styles[prefix] = _objectSpread({}, namespace.styles[prefix] || {}, normalized);
@@ -113,8 +113,8 @@
      */
 
 
-    if (prefix === 'fas') {
-      defineIcons('fa', icons);
+    if (prefix === "fas") {
+      defineIcons("fa", icons);
     }
   }
 
@@ -1975,7 +1975,7 @@
   };
 
   bunker(function () {
-    defineIcons('fas', icons);
+    defineIcons("fas", icons);
   });
 
 }());

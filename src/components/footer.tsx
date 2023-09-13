@@ -1,9 +1,9 @@
-import dynamic from 'next/dynamic'
-import Link from 'next/link'
+import dynamic from "next/dynamic";
+import Link from "next/link";
 
-const FormFooterContact = dynamic(() => import('./footer-contact'), {
+const FormFooterContact = dynamic(() => import("./footer-contact"), {
     ssr: false,
-})
+});
 
 export default function Footer() {
     return <div className="w-full py-8 bg-slate-800">
@@ -64,7 +64,7 @@ export default function Footer() {
                 {generateCopyright()}
             </div>
         </div>
-    </div>
+    </div>;
 }
 
 function generateCopyright() {
