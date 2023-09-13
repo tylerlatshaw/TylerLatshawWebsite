@@ -28,6 +28,9 @@ yarn-error.log*
 .env*.local
 .env
 
+# local tsx files
+*.local.tsx
+
 # vercel
 .vercel
 

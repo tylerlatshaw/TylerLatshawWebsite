@@ -2,6 +2,8 @@
 
 import { Metadata } from 'next'
 
+import DatabaseTest from '@/app/api/database/add-new-contact-entry'
+
 export const metadata: Metadata = {
     title: 'Database Test',
 }
@@ -15,11 +17,7 @@ export default async function Page() {
     return <>
         <div className="h-full mb-16 md:pb-8 md:mb-28">
             <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-                {/* {artists.map(a =>
-                    <>
-                        <span>{a.Name}</span>
-                        <br />
-                    </>)} */}
+                {/* <DatabaseTest /> */}
             </div>
         </div>
     </>
