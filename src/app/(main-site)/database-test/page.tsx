@@ -1,12 +1,12 @@
 //import { PrismaClient } from '@prisma/client'
 
-import { Metadata } from 'next'
+import { Metadata } from "next";
 
-import DatabaseTest from '@/app/api/database/add-new-contact-entry'
+import DatabaseTest from "@/app/api/database/add-new-contact-entry";
 
 export const metadata: Metadata = {
-    title: 'Database Test',
-}
+    title: "Database Test",
+};
 
 //const prisma = new PrismaClient()
 
@@ -20,5 +20,5 @@ export default async function Page() {
                 {/* <DatabaseTest /> */}
             </div>
         </div>
-    </>
+    </>;
 }

@@ -3,7 +3,7 @@ export function getCurrentDate() {
     var day = new Date().getDay();
     var year = new Date().getFullYear();
 
-    return month + '/' + day + '/' + year;
+    return month + "/" + day + "/" + year;
 }
 
 export function getCurrentDateTime(date: string) {
@@ -11,5 +11,5 @@ export function getCurrentDateTime(date: string) {
     var minutes = new Date().getMinutes();
     var seconds = new Date().getSeconds();
 
-    return date + ' ' + hours + ':' + minutes + ':' + seconds;
+    return date + " " + hours + ":" + minutes + ":" + seconds;
 }

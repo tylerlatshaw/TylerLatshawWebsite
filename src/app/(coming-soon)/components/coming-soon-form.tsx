@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 
@@ -16,13 +16,13 @@ export default function ComingSoonForm() {
         const formData = new FormData(form);
 
         try {
-            const name = `${formData.get('name')}`;
-            const email = `${formData.get('email')}`;
-            const message = `${formData.get('message')}`;
+            const name = `${formData.get("name")}`;
+            const email = `${formData.get("email")}`;
+            const message = `${formData.get("message")}`;
             const referringPage = `${window.location.href}`;
-            const formSource = `${formData.get('source')}`;
+            const formSource = `${formData.get("source")}`;
 
-            await fetch('/api/handle-coming-soon-form', {
+            await fetch("/api/handle-coming-soon-form", {
                 method: form.method,
                 body: JSON.stringify({
                     name: name,
@@ -31,7 +31,7 @@ export default function ComingSoonForm() {
                     source: formSource,
                     referringPage: referringPage
                 })
-            })
+            });
             setSubmitState(1); // Success state
         } catch (e) {
             setSubmitState(2); // Error state
@@ -42,26 +42,26 @@ export default function ComingSoonForm() {
 
     function GetResponse() {
         if (submitState === 1) {
-            return 'Got it! I\'ll notify you when the site goes live.';
+            return "Got it! I'll notify you when the site goes live.";
         }
 
         if (submitState === 2) {
-            return 'Sorry, something went wrong.';
+            return "Sorry, something went wrong.";
         }
 
-        return '';
+        return "";
     }
 
     function GetResponseCssClass() {
         if (submitState === 1) {
-            return 'positive-response';
+            return "positive-response";
         }
 
         if (submitState === 2) {
-            return 'negative-response';
+            return "negative-response";
         }
 
-        return '';
+        return "";
     }
 
     return <form className="w-full h-full" id="notify-me" method="post" onSubmit={submitForm}>
@@ -80,5 +80,5 @@ export default function ComingSoonForm() {
                 <span className={`flex px-3 py-1 text-left text-md ${GetResponseCssClass()}`}>{GetResponse()}</span>
             </div>
         </div>
-    </form>
+    </form>;
 }

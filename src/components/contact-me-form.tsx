@@ -17,5 +17,5 @@ export default function ContactForm() {
             <input type="text" name="source" id="source" className="hidden" value="Contact Me" hidden />
             <button type="submit" className="g-recaptcha text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" data-sitekey="reCAPTCHA_site_key" data-callback='onSubmit' data-action='submit'>Submit <i className="fas fa-arrow-circle-right align-middle"></i></button>
         </form>
-    </>
+    </>;
 }

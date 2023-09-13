@@ -41,5 +41,5 @@ export default function Navigation() {
                 <li><a href="contact-me" className="nav-link block text-sm mx-3 px-3 py-3 hover:bg-green-500 hover:font-semibold transition duration-300">Contact Me</a></li>
             </ul>
         </div>
-    </nav>
+    </nav>;
 }

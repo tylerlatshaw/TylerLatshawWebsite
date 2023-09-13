@@ -15,5 +15,5 @@ export default function FormFooterContact() {
         </div>
         <input type="text" name="source" id="source" className="hidden" defaultValue="Footer" hidden />
         <button type="submit" className="text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" data-callback='onSubmit' data-action='submit'>Submit <i className="fas fa-arrow-circle-right align-middle"></i></button>
-    </form >
+    </form >;
 }

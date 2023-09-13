@@ -1,23 +1,23 @@
-import './../globals.css'
-import type { Metadata } from 'next'
+import "./../globals.css";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://tylerlatshaw.com/'),
+  metadataBase: new URL("https://tylerlatshaw.com/"),
   alternates: {
-    canonical: '/',
+    canonical: "/",
   },
   title: {
-    template: '%s | Tyler Latshaw',
-    default: 'Gym Stats',
+    template: "%s | Tyler Latshaw",
+    default: "Gym Stats",
   },
-  description: 'Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.',
-  generator: 'Next.js',
-  applicationName: 'Next.js',
-  keywords: ['Next.js', 'React', 'JavaScript'],
-  authors: [{ name: 'Tyler Latshaw', url: 'https://tylerlatshaw.com/' }],
-  creator: 'Tyler J. Latshaw',
-  publisher: 'Tyler J. Latshaw',
-}
+  description: "Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.",
+  generator: "Next.js",
+  applicationName: "Next.js",
+  keywords: ["Next.js", "React", "JavaScript"],
+  authors: [{ name: "Tyler Latshaw", url: "https://tylerlatshaw.com/" }],
+  creator: "Tyler J. Latshaw",
+  publisher: "Tyler J. Latshaw",
+};
 
 export default function RootLayout({
   children,
@@ -32,5 +32,5 @@ export default function RootLayout({
         </main>
       </body>
     </>
-  )
+  );
 }

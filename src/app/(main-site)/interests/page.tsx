@@ -1,9 +1,9 @@
-import VinylRecordCard from '@/components/vinyl-record-card'
-import { Metadata } from 'next'
+import VinylRecordCard from "@/components/vinyl-record-card";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'My Interests',
-}
+  title: "My Interests",
+};
 
 export default function Page() {
   return <>
@@ -63,5 +63,5 @@ export default function Page() {
 
       </div>
     </div>
-  </>
+  </>;
 }

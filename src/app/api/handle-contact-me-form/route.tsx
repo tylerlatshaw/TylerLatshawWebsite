@@ -1,9 +1,9 @@
-import { NextResponse } from 'next/server';
-import { Resend } from 'resend';
+import { NextResponse } from "next/server";
+import { Resend } from "resend";
 
-import MessageReceived from '@/components/emails/message-received';
-import { getCurrentDate, getCurrentDateTime } from '@/utilities/date-utilities';
-import { addContactToDatabase } from '@/database/contact';
+import MessageReceived from "@/components/emails/message-received";
+import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
+import { addContactToDatabase } from "@/database/contact";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
@@ -15,9 +15,9 @@ export async function POST(request: Request) {
 
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
-    var title = '';
-    var subject = '';
-    var fallbackText = '';
+    var title = "";
+    var subject = "";
+    var fallbackText = "";
 
     var messageData = {
         date,
@@ -28,13 +28,13 @@ export async function POST(request: Request) {
         message,
         source,
         referringPage
-    }
+    };
 
     addContactToDatabase(messageData);
 
     messageData.title = "New Contact Form Submission 📧";
-    subject = 'New Contact Form Submission' + date;
-    fallbackText = '';
+    subject = "New Contact Form Submission" + date;
+    fallbackText = "";
 
     await resend.sendEmail({
         from: `${fromAddress}`,
@@ -45,6 +45,6 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json({
-        status: 'Ok'
+        status: "Ok"
     });
 }

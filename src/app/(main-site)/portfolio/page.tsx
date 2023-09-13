@@ -1,8 +1,8 @@
-import { Metadata } from 'next'
+import { Metadata } from "next";
  
 export const metadata: Metadata = {
-  title: 'Portfolio',
-}
+  title: "Portfolio",
+};
 
 export default function Page() {
   return <>
@@ -13,5 +13,5 @@ export default function Page() {
 
       </div>
     </div>
-  </>
+  </>;
 }

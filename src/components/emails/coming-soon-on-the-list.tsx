@@ -11,8 +11,8 @@ import {
     Section,
     Text,
     Tailwind
-} from '@react-email/components';
-import * as React from 'react';
+} from "@react-email/components";
+import * as React from "react";
 
 interface EmailVariables {
     messageData: {
@@ -37,7 +37,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                     <Link href='https://tylerlatshaw.com/'>
                         <Img
                             style={imgHeader}
-                            src={`https://tylerlatshaw.com/static/logo.png`}
+                            src={"https://tylerlatshaw.com/static/logo.png"}
                             width={300}
                             alt="Tyler Latshaw logo"
                             className="pt-8 pb-8"
@@ -64,7 +64,7 @@ export const EmailTemplate = (props: EmailVariables) => (
 
                         <Section style={alignRight}>
                             <Img
-                                src={`https://tylerlatshaw.com/static/signature.png`}
+                                src={"https://tylerlatshaw.com/static/signature.png"}
                                 alt="Tyler signature"
                                 style={signature}
                             />
@@ -99,7 +99,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                         <Link href='https://tylerlatshaw.com/'>
                             <Img
                                 style={imgFooter}
-                                src={`https://tylerlatshaw.com/static/logo.png`}
+                                src={"https://tylerlatshaw.com/static/logo.png"}
                                 width={300}
                                 alt="codepen"
                                 className="pt-8 pb-8"
@@ -120,125 +120,125 @@ export default EmailTemplate
     ;
 
 const main = {
-    fontFamily: '"Google Sans",Roboto,RobotoDraft,Helvetica,Arial,sans-serif',
+    fontFamily: "\"Google Sans\",Roboto,RobotoDraft,Helvetica,Arial,sans-serif",
     fallbackFontFamily: "Verdana",
-    backgroundColor: '#505050',
-    margin: '0',
+    backgroundColor: "#505050",
+    margin: "0",
 };
 
 const imgHeader = {
-    margin: 'auto',
+    margin: "auto",
 };
 
 const header = {
-    width: '100%',
-    backgroundColor: '#191919',
-    margin: '0 auto',
-    zIndex: '999',
+    width: "100%",
+    backgroundColor: "#191919",
+    margin: "0 auto",
+    zIndex: "999",
 };
 
 const container = {
-    paddingLeft: '12px',
-    paddingRight: '12px',
-    margin: '0 auto 16px auto',
-    width: '648px',
-    maxWidth: '648px',
-    position: 'relative' as const
+    paddingLeft: "12px",
+    paddingRight: "12px",
+    margin: "0 auto 16px auto",
+    width: "648px",
+    maxWidth: "648px",
+    position: "relative" as const
 };
 
 const heading = {
-    background: '#233441',
-    padding: '30px',
-    color: 'white',
-    textAlign: 'center' as const,
-    fontWeight: '400',
-    marginTop: '0',
-    marginBottom: '0'
+    background: "#233441",
+    padding: "30px",
+    color: "white",
+    textAlign: "center" as const,
+    fontWeight: "400",
+    marginTop: "0",
+    marginBottom: "0"
 };
 
 const mainSection = {
-    margin: '0',
-    background: 'white',
-    padding: '0 24px',
-    marginTop: '0',
-    marginBottom: '0'
+    margin: "0",
+    background: "white",
+    padding: "0 24px",
+    marginTop: "0",
+    marginBottom: "0"
 };
 
 const text = {
-    fontSize: '16px',
-    color: 'black'
+    fontSize: "16px",
+    color: "black"
 };
 
 const alignRight = {
     display: "flex",
-    flexDirection: 'row-reverse' as const,
-    paddingRight: '48px'
+    flexDirection: "row-reverse" as const,
+    paddingRight: "48px"
 };
 
 const alignCenter = {
-    textAlign: 'center' as const
+    textAlign: "center" as const
 };
 
 const signature = {
-    width: '80px'
+    width: "80px"
 };
 
 const callToAction = {
-    marginTop: '24px',
-    marginBottom: '24px',
-    textAlign: 'center' as const,
-    background: '#234130',
-    color: 'white',
-    padding: '32px 24px 32px 24px',
-    border: '6px solid #191919',
-    width: '600px'
+    marginTop: "24px",
+    marginBottom: "24px",
+    textAlign: "center" as const,
+    background: "#234130",
+    color: "white",
+    padding: "32px 24px 32px 24px",
+    border: "6px solid #191919",
+    width: "600px"
 };
 
 const ctaHeader = {
-    fontSize: '22px',
-    margin: '0 0 24px 0'
+    fontSize: "22px",
+    margin: "0 0 24px 0"
 };
 
 const ctaButton = {
-    color: '#fff',
-    border: 'solid 1px',
-    fontSize: '15px',
-    lineHeight: '18px',
-    cursor: 'pointer',
-    borderRadius: '4px',
-    margin: '8px',
-    minWidth: '78px'
+    color: "#fff",
+    border: "solid 1px",
+    fontSize: "15px",
+    lineHeight: "18px",
+    cursor: "pointer",
+    borderRadius: "4px",
+    margin: "8px",
+    minWidth: "78px"
 };
 
 const disclaimer = {
-    backgroundColor: '#696969',
-    color: 'white',
-    textAlign: 'center' as const,
-    padding: '12px 0 12px 0',
-    fontSize: '14px',
-    width: '100%',
-    maxWidth: '648px',
-    margin: '0 0 16px 0',
-    marginBottom: '0'
+    backgroundColor: "#696969",
+    color: "white",
+    textAlign: "center" as const,
+    padding: "12px 0 12px 0",
+    fontSize: "14px",
+    width: "100%",
+    maxWidth: "648px",
+    margin: "0 0 16px 0",
+    marginBottom: "0"
 };
 
 const footerLinkSection = {
-    background: '#233441',
-    textAlign: 'center' as const,
-    paddingTop: '0',
-    fontSize: '14px',
-    color: 'white',
-    marginTop: '0',
-    marginBottom: '0'
+    background: "#233441",
+    textAlign: "center" as const,
+    paddingTop: "0",
+    fontSize: "14px",
+    color: "white",
+    marginTop: "0",
+    marginBottom: "0"
 };
 
 const imgFooter = {
-    margin: 'auto',
-    width: '200px'
+    margin: "auto",
+    width: "200px"
 };
 
 const unsubscribeFooter = {
-    fontSize: '14px',
-    textAlign: 'center' as const,
-    color: '#1a1a1a'
+    fontSize: "14px",
+    textAlign: "center" as const,
+    color: "#1a1a1a"
 };
