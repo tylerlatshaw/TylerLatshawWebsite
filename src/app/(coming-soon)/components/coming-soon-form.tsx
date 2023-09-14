@@ -68,7 +68,7 @@ export default function ComingSoonForm() {
         <div className="w-fit mx-auto">
             <input type="text" name="name" id="name" className="hidden" defaultValue="Notification Request" hidden />
             <input type="text" name="message" id="message" className="hidden" defaultValue="Notify me when the site goes live" hidden />
-            <input type="text" name="source" id="source" className="hidden" defaultValue="ComingSoon" hidden />
+            <input type="text" name="source" id="source" className="hidden" defaultValue="Coming Soon" hidden />
             <div className="w-full text-left">
                 <div className="email-form mt-8">
                     <input type="email" name="email" id="email" placeholder="Email Address" className="px-3 py-2.5 mx-0 text-lg text-white bg-gray-700 rounded-l-lg border-0 h-full focus:ring-0 focus:ring-offset-0 focus:outline-0 sm:w-48 md:w-60 lg:w-96 h-12" required disabled={loadingState} />
