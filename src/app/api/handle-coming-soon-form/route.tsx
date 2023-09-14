@@ -17,8 +17,6 @@ export async function POST(request: Request) {
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
     var title = "";
-    var subject = "";
-    var fallbackText = "";
 
     var messageData = {
         date,
