@@ -24,3 +24,14 @@ export async function addContactToDatabase(messageData: MessageData) {
         }
     });
 }
+
+export async function lookupByEmailAndSource(email: string, source: string) {
+    const contact = await prisma.contact.findFirst({
+        where: {
+            Email: email,
+            FormSource: source
+        }
+    });
+
+    return contact;
+}
