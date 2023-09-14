@@ -16,8 +16,6 @@ export async function POST(request: Request) {
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
     var title = "";
-    var subject = "";
-    var fallbackText = "";
 
     var messageData = {
         date,
@@ -30,19 +28,16 @@ export async function POST(request: Request) {
         referringPage
     };
 
-    addContactToDatabase(messageData);
-
-    messageData.title = "New Contact Form Submission 📧";
-    subject = "New Contact Form Submission" + date;
-    fallbackText = "";
-
-    await resend.sendEmail({
-        from: `${fromAddress}`,
-        to: email,
-        subject: subject,
-        text: fallbackText,
-        react: <MessageReceived messageData={messageData} />
-    });
+    await Promise.all([
+        addContactToDatabase(messageData),
+        resend.sendEmail({
+            from: `${fromAddress}`,
+            to: email,
+            subject: "New Contact Form Submission" + date,
+            text: "",
+            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission 📧" }} />
+        })
+    ]);
 
     return NextResponse.json({
         status: "Ok"
