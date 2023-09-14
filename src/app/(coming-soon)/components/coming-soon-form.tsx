@@ -26,14 +26,12 @@ export default function ComingSoonForm() {
         setLoadingState(true);
 
         try {
-            const referringPage = `${window.location.href}`;
-
             const { data } = await axios.post("/api/handle-coming-soon-form", {
                 name: "Notification Request",
                 email: formData.email,
                 message: "Notify me when the site goes live",
                 source: "Coming Soon",
-                referringPage: referringPage
+                referringPage: window.location.href
             });
 
             setResponseMessage(data.message);
