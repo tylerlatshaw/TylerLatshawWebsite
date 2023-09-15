@@ -1,5 +1,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
 
 const FormFooterContact = dynamic(() => import("./footer-contact"), {
     ssr: false,
@@ -22,17 +24,17 @@ export default function Footer() {
                                 <div className="mt-6">
                                     <a href="mailto:tyler@tylerlatshaw.com" className="group block" target="_blank">
                                         <div className="flex items-center">
-                                            <i className="far fa-envelope fa-lg fa-fw text-white m-2 group-hover:text-green-500"></i>
+                                            <MailOutlineIcon className="group-hover:text-green-500"/>&nbsp;
                                             <h3 className="text-white group-hover:text-green-500">tyler@tylerlatshaw.com</h3>
                                         </div>
                                     </a>
                                 </div>
                             </div>
                             <div className="grid justify-items-center">
-                                <div className="mt-1">
+                                <div className="mt-3">
                                     <a href="https://www.linkedin.com/in/tylerlatshaw/" className="group block" target="_blank">
                                         <div className="flex items-center">
-                                            <i className="fab fa-linkedin fa-lg fa-fw text-white m-2 group-hover:text-green-500"></i>
+                                            <LinkedInIcon className="group-hover:text-green-500"/>&nbsp;
                                             <h3 className="text-white group-hover:text-green-500">Connect With Me On LinkedIn</h3>
                                         </div>
                                     </a>

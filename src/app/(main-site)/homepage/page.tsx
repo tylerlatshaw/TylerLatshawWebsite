@@ -1,4 +1,5 @@
 import Image from "next/image";
+import SendIcon from "@mui/icons-material/Send";
 
 import Headshot1 from "@/assets/images/homepage-headshot-01-min.png";
 
@@ -81,9 +82,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>
@@ -98,9 +98,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>
@@ -115,9 +114,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>

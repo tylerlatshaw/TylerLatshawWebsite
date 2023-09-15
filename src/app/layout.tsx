@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import "../font-awesome/css/all.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tylerlatshaw.com/"),
