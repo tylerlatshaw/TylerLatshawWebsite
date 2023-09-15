@@ -1,47 +1,14 @@
 import Image from "next/image";
+import SendIcon from "@mui/icons-material/Send";
+
 import Headshot1 from "@/assets/images/homepage-headshot-01-min.png";
-import Headshot2 from "@/assets/images/homepage-headshot-02-min.png";
-import Headshot3 from "@/assets/images/homepage-headshot-03-min.png";
-import Headshot4 from "@/assets/images/homepage-headshot-04-min.png";
-import Headshot5 from "@/assets/images/homepage-headshot-05-min.png";
-import Headshot6 from "@/assets/images/homepage-headshot-06-min.png";
+
 import CertAcsm from "@/assets/images/cert-a-csm.svg";
 import CertCfsp from "@/assets/images/cert-cfsp.svg";
 import CertComptia from "@/assets/images/cert-comptia.svg";
 import CertCsm from "@/assets/images/cert-csm.svg";
 import CertServsafe from "@/assets/images/cert-servsafe.svg";
 import CoverPlaceholder from "@/assets/images/cover-image-placeholder.png";
-
-{/* This is used to generate a new homepage image with a unique color scheme to match */ }
-
-function GetRandomImage() {
-  var homepageImageClasses = "homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 ";
-  var rand = Math.floor(Math.random() * 6) + 1;
-
-  switch (rand) {
-    case 1:
-      homepageImageClasses += "homepage-main-image-blue";
-      return <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    case 2:
-      homepageImageClasses += "homepage-main-image-red";
-      return <Image src={Headshot2} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    case 3:
-      homepageImageClasses += "homepage-main-image-green";
-      return <Image src={Headshot3} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    case 4:
-      homepageImageClasses += "homepage-main-image-blue";
-      return <Image src={Headshot4} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    case 5:
-      homepageImageClasses += "homepage-main-image-red";
-      return <Image src={Headshot5} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    case 6:
-      homepageImageClasses += "homepage-main-image-green";
-      return <Image src={Headshot6} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-    default:
-      homepageImageClasses += "homepage-main-image-blue";
-      return <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={homepageImageClasses} id="homepage-main-image" priority={true} />;
-  }
-}
 
 export default function Page() {
 
@@ -62,8 +29,7 @@ export default function Page() {
 
         {/* Right column */}
         <div className="w-full xl:w-3/5 p-12">
-          {/* Classes for the image are set in the homepageImageClasses variable */}
-          <GetRandomImage />
+          <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={"homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 homepage-main-image-blue"} id="homepage-main-image" priority={true} />
         </div>
       </div>
     </div>
@@ -116,9 +82,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>
@@ -133,9 +98,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>
@@ -150,9 +114,8 @@ export default function Page() {
               <span className="uppercase font-semibold tracking-wide text-red-400 text-lg">Resume</span>
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" className="flex items-center w-fit px-3 py-2 text-sm font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more
-              <i className="fas fa-arrow-circle-right align-middle pl-2"></i>
+            <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
+              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
             </a>
           </div>
         </div>

@@ -1,3 +1,5 @@
+import SendIcon from "@mui/icons-material/Send";
+
 export default function FormFooterContact() {
     return <form className="w-full mt-1" id="footer-contact-form" method="POST" action="" >
         <div className="relative z-0 w-full mb-3 group">
@@ -14,6 +16,6 @@ export default function FormFooterContact() {
             <label htmlFor="floating_message" className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
         </div>
         <input type="text" name="source" id="source" className="hidden" defaultValue="Footer" hidden />
-        <button type="submit" className="text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" data-callback='onSubmit' data-action='submit'>Submit <i className="fas fa-arrow-circle-right align-middle"></i></button>
+        <button type="submit" className="flex items-center text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" data-callback='onSubmit' data-action='submit'>Submit&nbsp;<SendIcon className="text-base flex items-center"/> </button>
     </form >;
 }
