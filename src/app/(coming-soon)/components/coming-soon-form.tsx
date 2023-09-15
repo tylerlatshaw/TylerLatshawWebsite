@@ -37,7 +37,7 @@ export default function ComingSoonForm() {
             setResponseMessage(data.message);
             setSubmitState("Success");
         } catch (e) {
-            setResponseMessage("Something went wrong");
+            setResponseMessage("Something went wrong. Please try again.");
             setSubmitState("Error");
         }
 
