@@ -32,14 +32,22 @@ export async function POST(request: Request) {
         addContactToDatabase(messageData),
         resend.sendEmail({
             from: `${fromAddress}`,
-            to: email,
-            subject: "New Contact Form Submission" + date,
+            to: `${myEmailAddress}`,
+            subject: "New Contact Form Submission: " + email,
             text: "",
-            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission 📧" }} />
-        })
+            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission" }} />
+        }),
+        // resend.sendEmail({
+        //     from: `${fromAddress}`,
+        //     to: email,
+        //     subject: "Thanks for reaching out!",
+        //     text: "",
+        //     react: <MessageReceived messageData={{ ...messageData, title: "I'll be in touch soon! ✉️" }} />
+        // })
     ]);
 
     return NextResponse.json({
-        status: "Ok"
+        status: "Ok",
+        message: "Got it! I'll be in touch soon."
     });
 }
