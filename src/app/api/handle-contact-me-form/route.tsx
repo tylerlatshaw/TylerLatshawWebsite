@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-import MessageReceived from "@/components/emails/message-received";
+import MessageReceived from "@/components/emails/new-message-received";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
 import { addContactToDatabase } from "@/database/contact";
 

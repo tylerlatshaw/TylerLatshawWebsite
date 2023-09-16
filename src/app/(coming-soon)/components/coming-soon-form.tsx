@@ -1,10 +1,10 @@
 "use client";
 
 import axios from "axios";
-import SendIcon from "@mui/icons-material/Send";
-import RotateRightIcon from "@mui/icons-material/RotateRight";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import SendIcon from "@mui/icons-material/Send";
+import { CircularProgress, ButtonBase } from "@mui/material/";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type ComingSoonFormInputs = {
@@ -64,9 +64,9 @@ export default function ComingSoonForm() {
                 <div className="w-full text-left">
                     <div className="email-form mt-8">
                         <input {...register("email")} type="email" placeholder="Email Address" className="px-3 py-2.5 mx-0 text-lg text-white bg-gray-700 rounded-l-lg border-0 h-full focus:ring-0 focus:ring-offset-0 focus:outline-0 sm:w-48 md:w-60 lg:w-96 h-12" required disabled={loadingState} />
-                        <button type="submit" className="flex items-center text-white bg-green-700 hover:bg-green-800 rounded-r-lg w-auto px-5 py-2.5 mx-0 text-center h-full border-0 focus:ring-0 origin-center -translate-x-1 -translate-y-px text-base" disabled={loadingState}>
-                            {loadingState ? <>Submit&nbsp;<RotateRightIcon className="text-lg flex items-center animate-spin-slow" /></> : <>Submit&nbsp;<SendIcon className="text-lg flex items-center" /></>}
-                        </button>
+                        <ButtonBase type="submit" className="flex items-center text-white bg-green-700 hover:bg-green-800 rounded-r-lg w-auto px-5 py-2.5 mx-0 text-center h-full border-0 focus:ring-0 origin-center -translate-x-1 -translate-y-px text-base" disabled={loadingState}>
+                            {loadingState ? <>Submit&nbsp;<CircularProgress size={16} sx={{ color: "white" }} /></> : <>Submit&nbsp;<SendIcon className="text-lg flex items-center" /></>}
+                        </ButtonBase>
                     </div>
                     <span className={`flex px-3 py-1 text-left text-md ${GetResponseCssClass()}`}>{responseMessage}</span>
                 </div>
