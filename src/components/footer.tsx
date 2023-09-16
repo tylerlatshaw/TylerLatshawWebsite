@@ -1,11 +1,7 @@
-import dynamic from "next/dynamic";
 import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
-
-const FormFooterContact = dynamic(() => import("./footer-contact"), {
-    ssr: false,
-});
+import FormFooterContact from "./footer-contact";
 
 export default function Footer() {
     return (
@@ -44,7 +40,7 @@ export default function Footer() {
                         <div className="w-full md:border-x-2 border-slate-700 py-6">
                             <div className="grid grid-cols-2">
                                 <div className="grid grid-col content-start w-fit mx-auto">
-                                    <span className="">Quick Links</span>
+                                    <span className="font-medium">Quick Links</span>
                                     <Link href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Home</Link>
                                     <Link href="resume" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Resume</Link>
                                     <Link href="portfolio" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Portfolio</Link>
@@ -52,14 +48,14 @@ export default function Footer() {
                                     <Link href="contact-me" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Contact Me</Link>
                                 </div>
                                 <div className="grid grid-col content-start w-fit mx-auto">
-                                    <span className="">Site Links</span>
+                                    <span className="font-medium">Site Links</span>
                                     <Link href="./privacy-policy" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Privacy Policy</Link>
                                     <Link href="/" className="w-fit text-blue-300 no-underline hover:text-green-500 hover:text-underline transform hover:scale-125 duration-300 ease-in-out">Sitemap</Link>
                                 </div>
                             </div>
                         </div>
                         <div className="w-full px-3 sm:px-0 sm:w-[80%] mx-auto py-6 bg-white md:bg-transparent">
-                            <span>Send Me a Message</span>
+                            <span className="font-medium">Send Me a Message</span>
                             <FormFooterContact />
                         </div>
                     </div>
