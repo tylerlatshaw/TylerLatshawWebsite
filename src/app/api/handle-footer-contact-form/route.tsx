@@ -1,7 +1,8 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-import MessageReceived from "@/components/emails/message-received";
+import MessageReceived from "@/components/emails/new-message-received";
+import ThankYouEmail from "@/components/emails/thank-you-email";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
 import { addContactToDatabase } from "@/database/contact";
 
@@ -37,13 +38,13 @@ export async function POST(request: Request) {
             text: "",
             react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission" }} />
         }),
-        // resend.sendEmail({
-        //     from: `${fromAddress}`,
-        //     to: email,
-        //     subject: "Thanks for reaching out!",
-        //     text: "",
-        //     react: <MessageReceived messageData={{ ...messageData, title: "I'll be in touch soon! ✉️" }} />
-        // })
+        resend.sendEmail({
+            from: `${fromAddress}`,
+            to: email,
+            subject: "Thanks for reaching out!",
+            text: "",
+            react: <ThankYouEmail messageData={{ ...messageData, title: "I'll be in touch soon! ✉️" }} />
+        })
     ]);
 
     return NextResponse.json({
