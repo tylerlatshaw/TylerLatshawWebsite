@@ -6,7 +6,7 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
-import { CircularProgress, ButtonBase } from "@mui/material/";
+import { CircularProgress } from "@mui/material/";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type ContactFormInputs = {
@@ -91,11 +91,11 @@ export default function FormFooterContact() {
                 <label htmlFor="message" className="peer-focus:font-medium absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 z-10 origin-[0] peer-focus:left-0 peer-focus:text-green-600 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Message</label>
             </div>
             <div className="flex items-center">
-                <ButtonBase type="submit" className="text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" disabled={loadingState}>
+                <button type="submit" className="text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" disabled={loadingState}>
                     <span className="flex items-center">
                         {loadingState ? <>Submit&nbsp;<CircularProgress size={16} sx={{ color: "white" }} /></> : <>Submit&nbsp;<SendIcon className="text-lg flex items-center" /></>}
                     </span>
-                </ButtonBase>
+                </button>
                 <span className={`pl-3 text-md  ${GetResponseCssClass()}`}>{responseMessage}</span>
             </div>
         </form >
