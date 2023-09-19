@@ -1,15 +1,6 @@
 import Image from "next/image";
 import SendIcon from "@mui/icons-material/Send";
 
-import Headshot1 from "@/assets/images/homepage-headshot-01-min.png";
-
-import CertAcsm from "@/assets/images/cert-a-csm.svg";
-import CertCfsp from "@/assets/images/cert-cfsp.svg";
-import CertComptia from "@/assets/images/cert-comptia.svg";
-import CertCsm from "@/assets/images/cert-csm.svg";
-import CertServsafe from "@/assets/images/cert-servsafe.svg";
-import CoverPlaceholder from "@/assets/images/cover-image-placeholder.png";
-
 export default function Page() {
 
   return <>
@@ -29,7 +20,7 @@ export default function Page() {
 
         {/* Right column */}
         <div className="w-full xl:w-3/5 p-12">
-          <Image src={Headshot1} sizes="fill" alt="Tyler Latshaw" className={"homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 homepage-main-image-blue"} id="homepage-main-image" priority={true} />
+          <Image src="/static/homepage-headshot.png" width={709} height={421} alt="Tyler Latshaw" className={"homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 homepage-main-image-blue"} id="homepage-main-image" priority={true} />
         </div>
       </div>
     </div>
@@ -41,19 +32,19 @@ export default function Page() {
       <div className="certification-ribbon w-100 my-3 grow max-w-screen-xl mx-auto overflow-x-auto">
         <div className="certification-ribbon mx-auto flex flex-row items-center w-100">
           <div className="flex-shrink-0 sm:grow px-6">
-            <Image src={CertAcsm} sizes="fill" alt="A-CSM Logo" className="mx-auto certification-image align-middle" priority={false} />
+            <Image src="/static/cert-a-csm.svg" width={165} height={150} alt="A-CSM Logo" className="mx-auto certification-image align-middle" priority={false} />
           </div>
           <div className="flex-shrink-0 sm:grow px-6">
-            <Image src={CertCsm} sizes="fill" alt="CSM Logo" className="mx-auto certification-image align-middle" priority={false} />
+            <Image src="/static/cert-csm.svg" width={165} height={150} alt="CSM Logo" className="mx-auto certification-image align-middle" priority={false} />
           </div>
           <div className="flex-shrink-0 sm:grow px-6">
-            <Image src={CertComptia} sizes="fill" alt="Comptia A+ Logo" className="mx-auto certification-image align-middle" priority={false} />
+            <Image src="/static/cert-comptia.svg" width={180} height={150} alt="Comptia A+ Logo" className="mx-auto certification-image align-middle" priority={false} />
           </div>
           <div className="flex-shrink-0 sm:grow px-6">
-            <Image src={CertCfsp} sizes="fill" alt="CFSP Logo" className="mx-auto certification-image align-middle" priority={false} />
+            <Image src="/static/cert-cfsp.svg" width={300} height={89} alt="CFSP Logo" className="mx-auto certification-image align-middle" priority={false} />
           </div>
           <div className="flex-shrink-0 sm:grow px-6">
-            <Image src={CertServsafe} sizes="fill" alt="ServSafe Logo" className="mx-auto certification-image align-middle" priority={false} />
+            <Image src="/static/cert-servsafe.svg" width={300} height={134} alt="ServSafe Logo" className="mx-auto certification-image align-middle" priority={false} />
           </div>
         </div>
       </div>
@@ -75,7 +66,7 @@ export default function Page() {
         {/* Left column */}
         <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
           <a href="#">
-            <Image src={CoverPlaceholder} sizes="fill" alt="Placeholder Image" className="rounded-t-lg" priority={false} />
+            <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Placeholder Image" className="rounded-t-lg" priority={false} />
           </a>
           <div className="p-5">
             <a href="#">
@@ -83,7 +74,7 @@ export default function Page() {
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
+              Read more&nbsp;<SendIcon className="text-base flex items-center" />
             </a>
           </div>
         </div>
@@ -91,7 +82,7 @@ export default function Page() {
         {/* Middle column */}
         <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
           <a href="#">
-            <Image src={CoverPlaceholder} sizes="fill" alt="Placeholder Image" className="rounded-t-lg" priority={false} />
+            <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Placeholder Image" className="rounded-t-lg" priority={false} />
           </a>
           <div className="p-5">
             <a href="#">
@@ -99,7 +90,7 @@ export default function Page() {
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
+              Read more&nbsp;<SendIcon className="text-base flex items-center" />
             </a>
           </div>
         </div>
@@ -107,7 +98,7 @@ export default function Page() {
         {/* Right column */}
         <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
           <a href="#">
-            <Image src={CoverPlaceholder} sizes="fill" alt="Placeholder Image" className="rounded-t-lg" priority={false} />
+            <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Placeholder Image" className="rounded-t-lg" priority={false} />
           </a>
           <div className="p-5">
             <a href="#">
@@ -115,7 +106,7 @@ export default function Page() {
             </a>
             <p className="mb-3 font-normal text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="#" className="flex items-center w-fit px-3 py-2 text-base font-medium text-center text-white bg-red-400 rounded-lg hover:bg-red-500 focus:ring-2 focus:outline-none focus:ring-red-300">
-              Read more&nbsp;<SendIcon className="text-base flex items-center"/>
+              Read more&nbsp;<SendIcon className="text-base flex items-center" />
             </a>
           </div>
         </div>

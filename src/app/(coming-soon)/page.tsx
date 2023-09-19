@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Logo from "@/assets/images/gradient-logo-animated.svg";
 import ComingSoonForm from "./components/coming-soon-form";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
@@ -10,7 +9,7 @@ export default function Home() {
     <div className="w-full h-full fixed absolute top-0 left-0 z-50">
       <div className="absolute top-[5%] sm:top-[10%] text-center w-full">
         <div className="w-fit mx-auto">
-          <Image src={Logo} height={1} width={1} alt="Tyler Latshaw animated logo" className="w-[90%] sm:w-[600px] h-fit mx-auto" />
+          <Image src="/static/gradient-logo-animated.svg" width={300} height={46} alt="Tyler Latshaw animated logo" className="w-[90%] sm:w-[600px] h-fit mx-auto" priority={true}/>
         </div>
       </div>
 
