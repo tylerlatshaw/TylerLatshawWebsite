@@ -1,5 +1,6 @@
 name: Log count of message
 on:
+  workflow_dispatch:
   schedule:
     - cron: '5,10,15,20,25,30,35,40,45,50,55,00 * * * *' # daily https://crontab.guru/
 jobs:
