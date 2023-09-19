@@ -91,7 +91,13 @@ input:-webkit-autofill:disabled {
     -webkit-box-shadow: 0 0 0 28px var(--gray-800) inset !important;
 }
 
-.footer-contact-form button:disabled {
+.footer-contact-form .button {
+    text-transform: none;
+    font-weight: 400;
+    width: 106px;
+}
+
+.footer-contact-form .button:disabled {
     background-color: var(--green-900);
 }
 

@@ -19,13 +19,18 @@ input:-webkit-autofill:active {
 }
 
 .email-form input,
-button {
+.button {
     height: 48px;
 }
 
-.email-form button {
+.email-form .button {
     height: 48px;
     margin-top: 1px;
+    text-transform: none;
+    font-weight: 400;
+    width: 115px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 input:-webkit-autofill:disabled {
@@ -36,14 +41,6 @@ input:-webkit-autofill:disabled {
     background-color: #111827;
 }
 
-.email-form button:disabled {
+.email-form .button:disabled {
     background-color: #14532d;
-}
-
-.positive-response {
-    color: #16a34a;
-}
-
-.negative-response {
-    color: #dc2626;
 }
