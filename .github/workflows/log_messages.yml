@@ -1,4 +1,4 @@
-name: Keep alive cron job
+name: Log count of message
 on:
   schedule:
     - cron: '0 15 * * *' # daily https://crontab.guru/
