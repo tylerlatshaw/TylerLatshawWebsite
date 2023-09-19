@@ -34,7 +34,7 @@ export const EmailTemplate = (props: EmailVariables) => (
         <Body style={main}>
             <Tailwind>
                 <Section style={header}>
-                    <Link href='https://tylerlatshaw.com/'>
+                    <Link href='https://tylerlatshaw.com/?utm_source=autoresponder&utm_medium=email&utm_campaign=thank_you_email'>
                         <Img
                             style={imgHeader}
                             src={"https://tylerlatshaw.com/static/logo.png"}
@@ -52,7 +52,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                     <Section style={mainSection}>
                         <Text style={text}>Hello!</Text>
 
-                        <Text style={text}>Thanks for sending me a message on <Link href="https://tylerlatshaw.com/">my website</Link>! I&apos;ll be in touch soon. Below is a copy of your message:</Text>
+                        <Text style={text}>Thanks for sending me a message on <Link href="https://tylerlatshaw.com/?utm_source=autoresponder&utm_medium=email&utm_campaign=thank_you_email">my website</Link>! I&apos;ll be in touch soon. Below is a copy of your message:</Text>
 
                         <Text style={userMessage}>{props.messageData.message}</Text>
 
@@ -73,7 +73,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                                 <Button style={ctaButton} pX={12} pY={12} href="mailto:tyler@tylerlatshaw.com">
                                     Email
                                 </Button>
-                                <Button style={ctaButton} pX={12} pY={12} href="https://tylerlatshaw.com/">
+                                <Button style={ctaButton} pX={12} pY={12} href="https://tylerlatshaw.com/?utm_source=autoresponder&utm_medium=email&utm_campaign=thank_you_email">
                                     Website
                                 </Button>
                                 <Button style={ctaButton} pX={12} pY={12} href="https://www.linkedin.com/in/tylerlatshaw/">
@@ -90,7 +90,7 @@ export const EmailTemplate = (props: EmailVariables) => (
 
 
                     <Text style={footerLinkSection}>
-                        <Link href='https://tylerlatshaw.com/'>
+                        <Link href='https://tylerlatshaw.com/?utm_source=autoresponder&utm_medium=email&utm_campaign=thank_you_email'>
                             <Img
                                 style={imgFooter}
                                 src={"https://tylerlatshaw.com/static/logo.png"}

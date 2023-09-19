@@ -41,13 +41,20 @@ model Genres {
 }
 
 model ListenHistory {
-  ListenHistoryId Int      @unique(map: "ListenHistoryId")
+  ListenHistoryId Int      @id @unique(map: "ListenHistoryId")
   DateCreated     DateTime @default(now()) @db.DateTime(0)
   DateUpdated     DateTime @default(now()) @db.DateTime(0)
   ListenDate      DateTime @db.DateTime(0)
   SongTitle       String   @db.Text
   Artist          String?  @db.Text
   Album           String?  @db.Text
+}
+
+model Log {
+  LogId         Int      @id @unique(map: "LogId") @default(autoincrement())
+  DateCreated   DateTime @default(now()) @db.DateTime(0)
+  DateUpdated   DateTime @default(now()) @db.DateTime(0)
+  CountMessages Int
 }
 
 model MuscleGroup {
@@ -94,7 +101,7 @@ model Records {
 }
 
 model Workout {
-  WorkoutId   Int      @id @default(autoincrement())
+  WorkoutId   Int      @id @unique(map: "WorkoutId_2") @default(autoincrement())
   DateCreated DateTime @default(now()) @db.DateTime(0)
   DateUpdated DateTime @default(now()) @db.DateTime(0)
   Name        String   @db.VarChar(50)
@@ -105,7 +112,7 @@ model Workout {
 }
 
 model WorkoutToMuscleGroup {
-  WorkoutToMuscleGroupId Int      @id @default(autoincrement())
+  WorkoutToMuscleGroupId Int      @id @unique(map: "WorkoutToMuscleGroupId") @default(autoincrement())
   DateCreated            DateTime @default(now()) @db.DateTime(0)
   DateUpdated            DateTime @default(now()) @db.DateTime(0)
   WorkoutId              Int

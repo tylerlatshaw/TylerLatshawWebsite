@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "prisma generate && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "npx eslint --fix .",
     "email": "email dev --dir src/components/emails --port 3001"
   },
   "dependencies": {

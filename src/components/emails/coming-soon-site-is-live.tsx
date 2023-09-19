@@ -34,7 +34,7 @@ export const EmailTemplate = (props: EmailVariables) => (
         <Body style={main}>
             <Tailwind>
                 <Section style={header}>
-                    <Link href='https://tylerlatshaw.com/'>
+                    <Link href='https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live'>
                         <Img
                             style={imgHeader}
                             src={"https://tylerlatshaw.com/static/logo.png"}
@@ -57,7 +57,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                         </Text>
 
                         <Text style={text}>
-                            You can visit the new site at <Link href="https://tylerlatshaw.com/">https://tylerlatshaw.com/</Link>
+                            You can visit the new site at <Link href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">https://tylerlatshaw.com/</Link>
                         </Text>
 
                         <Text style={text}>I couldn&apos;t be more thrilled to invite you to explore my new website - I am humbled that you requested to be notified when it goes live. I have worked hard on the site over the past few months, teaching myself Next.js along the way! Some things you can expect:</Text>
@@ -77,7 +77,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                         </Text>
 
                         <Section style={alignCenter}>
-                            <Button style={button} pX={12} pY={12} href="https://tylerlatshaw.com/">
+                            <Button style={button} pX={12} pY={12} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
                                 Visit My Site Now
                             </Button>
                         </Section>
@@ -103,7 +103,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                                 <Button style={ctaButton} pX={12} pY={12} href="mailto:tyler@tylerlatshaw.com">
                                     Email
                                 </Button>
-                                <Button style={ctaButton} pX={12} pY={12} href="https://tylerlatshaw.com/">
+                                <Button style={ctaButton} pX={12} pY={12} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
                                     Website
                                 </Button>
                                 <Button style={ctaButton} pX={12} pY={12} href="https://www.linkedin.com/in/tylerlatshaw/">
@@ -120,7 +120,7 @@ export const EmailTemplate = (props: EmailVariables) => (
 
 
                     <Text style={footerLinkSection}>
-                        <Link href='https://tylerlatshaw.com/'>
+                        <Link href='https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live'>
                             <Img
                                 style={imgFooter}
                                 src={"https://tylerlatshaw.com/static/logo.png"}
