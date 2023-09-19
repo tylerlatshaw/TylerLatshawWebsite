@@ -1,3 +1,5 @@
+"use client";
+
 import { addDatabaseLog } from "@/database/log";
 import { NextResponse } from "next/server";
 
