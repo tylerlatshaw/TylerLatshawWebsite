@@ -1,0 +1,12 @@
+name: Keep alive cron job
+on:
+  schedule:
+    - cron: '0 15 * * *' # daily https://crontab.guru/
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call endpoint to log count of messages
+        run: |
+          curl --request PUT \
+            --url '${{ secrets.SITE_URL }}/api/planet-scale-scheduled-task'
