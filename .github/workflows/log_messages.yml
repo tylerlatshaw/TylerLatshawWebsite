@@ -1,7 +1,7 @@
 name: Log count of message
 on:
   schedule:
-    - cron: '0 15 * * *' # daily https://crontab.guru/
+    - cron: '5,10,15,20,25,30,35,40,45,50,55,00 * * * *' # daily https://crontab.guru/
 jobs:
   cron:
     runs-on: ubuntu-latest
