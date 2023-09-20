@@ -1,9 +1,7 @@
 import SpeedDial from "@/components/gym/speed-dial";
 import WorkoutTable from "@/components/gym/workout-table";
 
-export default function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
-
-    //tylerlatshaw.com/gym?key=____________
+export default function Page({ searchParams }: { searchParams: { [key: string]: string | string[] | string } }) {
 
     if (searchParams.key === process.env.GYM_AUTH_GUID) {
         return <>
