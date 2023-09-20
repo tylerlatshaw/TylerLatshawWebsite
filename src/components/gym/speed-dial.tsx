@@ -6,10 +6,10 @@ import { useSearchParams } from "next/navigation";
 
 export default function CustomSpeedDial() {
 
-    const searchParams = useSearchParams();
-    const key = searchParams.get("key");
+    // const searchParams = useSearchParams();
+    // const key = searchParams.get("key");
 
-    if (key === process.env.NEXT_PUBLIC_GYM_AUTH_GUID) {
+    // if (key === process.env.NEXT_PUBLIC_GYM_AUTH_GUID) {
         return (
             <div className="absolute bottom-8 right-8">
                 <div className="absolute bottom-4 right-4 h-fit w-fit group">
@@ -21,5 +21,5 @@ export default function CustomSpeedDial() {
         );
     }
 
-    return;
-}
+//     return;
+// }
