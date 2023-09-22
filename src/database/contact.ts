@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-interface MessageData {
+type MessageData = {
     date: string;
     dateTime: string;
     title: string;

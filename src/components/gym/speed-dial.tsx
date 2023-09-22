@@ -2,7 +2,6 @@
 
 import { Button } from "@material-tailwind/react";
 import AddIcon from "@mui/icons-material/Add";
-import { useSearchParams } from "next/navigation";
 
 export default function CustomSpeedDial() {
 

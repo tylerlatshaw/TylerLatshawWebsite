@@ -30,6 +30,8 @@ export default function RootLayout({
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
         {children}
+        
+        <script src="node_modules/@material-tailwind/html@latest/scripts/ripple.js"></script>
     </html>
   );
 }

@@ -8,9 +8,10 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
+import { RequestJson } from "@/app/api/handle-footer-contact-form/route";
 
 type SubmitState = "Idle" | "Success" | "Error";
-type ContactFormInputs = {
+type FormInputs = {
     name: string
     email: string
     message: string
@@ -18,19 +19,17 @@ type ContactFormInputs = {
 
 export default function FormFooterContact() {
 
-    const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
-    const [loadingState, setLoadingState] = useState<boolean>(false);
-
     const {
         register,
         handleSubmit,
         reset,
-        formState,
-        formState: { isSubmitSuccessful }
-    } = useForm<ContactFormInputs>();
+    } = useForm<FormInputs>();
 
-    const onSubmit: SubmitHandler<ContactFormInputs> = async (formData) => {
+    const [submitState, setSubmitState] = useState<SubmitState>("Idle");
+    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [loadingState, setLoadingState] = useState<boolean>(false);
+
+    const onSubmit: SubmitHandler<FormInputs> = async (formData) => {
         setSubmitState("Idle");
         setResponseMessage("");
         setLoadingState(true);
@@ -42,10 +41,15 @@ export default function FormFooterContact() {
                 message: formData.message,
                 source: "Footer",
                 referringPage: window.location.href
-            });
+            } as RequestJson);
 
             setResponseMessage(data.message);
             setSubmitState("Success");
+            reset({
+                name: "",
+                email: "",
+                message: ""
+            });
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");
             setSubmitState("Error");
@@ -53,17 +57,6 @@ export default function FormFooterContact() {
 
         setLoadingState(false);
     };
-
-    React.useEffect(() => {
-        if (formState.isSubmitSuccessful) {
-            reset({
-                name: "",
-                email: "",
-                message: ""
-            });
-        }
-    }, [formState, reset]);
-
 
     function GetResponseCssClass() {
         if (submitState === "Success") {
