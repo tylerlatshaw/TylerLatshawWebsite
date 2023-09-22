@@ -10,6 +10,8 @@ import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RequestJson } from "@/app/api/handle-dev-tools-form/route";
 
+const environment = process.env.NODE_ENV;
+
 const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
 type SubmitState = "Idle" | "Success" | "Error";
@@ -74,7 +76,13 @@ export default function DeveloperTools() {
         setLoadingState(true);
 
         try {
-            var enteredKey = formData.apiKey;
+            var enteredKey;
+
+            if (environment === "development") {
+                enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
+            } else {
+                enteredKey = formData.apiKey;
+            }
 
             const { data } = await axios.post("/api/handle-dev-tools-form", {
                 selection: selectedTemplate,
@@ -103,6 +111,12 @@ export default function DeveloperTools() {
     };
 
     function GetApiField() {
+        if (environment === "development") {
+            return (
+                <input {...register("apiKey")} type="password" className="hidden" />
+            );
+        }
+
         return (
             <div className="relative w-full group">
                 <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />

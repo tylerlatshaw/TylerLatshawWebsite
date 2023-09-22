@@ -40,7 +40,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/app/(coming-soon)/layout.js"  ],
+, "src/app/(coming-soon)/layout.js", "src/app/(main-site)/not-found.js"  ],
   "exclude": [
     "node_modules"
   ]

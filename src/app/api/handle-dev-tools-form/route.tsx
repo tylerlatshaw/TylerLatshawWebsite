@@ -11,6 +11,7 @@ import { TemplateOptions } from "@/components/developer-tools-form";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
+const devPrefix = "[Dev] ";
 
 export type RequestJson = {
     selection: TemplateOptions
@@ -59,7 +60,7 @@ export async function POST(request: Request) {
                 resend.sendEmail({
                     from: `${fromAddress}`,
                     to: formData.email,
-                    subject: "Thanks for reaching out!",
+                    subject: devPrefix + "Thanks for reaching out!" + " " + dateTime,
                     text: "",
                     react: <AutoReplyEmail messageData={{ ...formData, title: "I'll be in touch soon! ✉️" }} />
                 })
@@ -70,7 +71,7 @@ export async function POST(request: Request) {
             resend.sendEmail({
                 from: `${fromAddress}`,
                 to: formData.email,
-                subject: "You're on the List!",
+                subject: devPrefix + "You're on the List!" + " " + dateTime,
                 text: "",
                 react: <CsOnList messageData={{ ...formData, title: "You're on the list! ✅" }} />
             });
@@ -80,7 +81,7 @@ export async function POST(request: Request) {
             resend.sendEmail({
                 from: `${fromAddress}`,
                 to: formData.email,
-                subject: "Exciting News: My Website is Now Live! 🎉",
+                subject: devPrefix + "Exciting News: My Website is Now Live! 🎉" + " " + dateTime,
                 text: "",
                 react: <CsSiteLive messageData={{ ...formData, title: "Exciting News: My Website is Now LIVE! 🎉" }} />
             });
@@ -91,7 +92,7 @@ export async function POST(request: Request) {
                 resend.sendEmail({
                     from: `${fromAddress}`,
                     to: formData.email,
-                    subject: "New Contact Form Submission: " + formData.email,
+                    subject: devPrefix + "New Contact Form Submission: " + formData.email + " " + dateTime,
                     text: "",
                     react: <MessageReceived messageData={{ ...formData, title: "New Contact Form Submission" }} />
                 })
