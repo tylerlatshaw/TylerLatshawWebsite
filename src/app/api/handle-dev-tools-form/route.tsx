@@ -11,7 +11,6 @@ import { TemplateOptions } from "@/components/developer-tools-form";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
-const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
 export type RequestJson = {
     selection: TemplateOptions
