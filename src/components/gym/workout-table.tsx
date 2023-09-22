@@ -97,7 +97,7 @@ const tableRows = [
 
 export default function Page() {
 
-    const data = axios.get("/api/get-gym-workouts");
+    //const data = axios.get("/api/get-gym-workouts");
 
     function lookupImageUrl(muscleGroup: string) {
         const url = imageUrls.find(imageUrls => imageUrls.muscleGroup === muscleGroup)?.url ?? "/static/gym/chest.png";

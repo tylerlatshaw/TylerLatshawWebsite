@@ -10,7 +10,7 @@ import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RequestJson } from "@/app/api/handle-dev-tools-form/route";
 
-const environment = process.env.ENV;
+const environment = process.env.NEXT_PUBLIC_ENVIRONMENT;
 
 const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
