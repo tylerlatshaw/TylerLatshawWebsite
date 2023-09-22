@@ -38,7 +38,7 @@
     "@core": "build/core"
   },
   "devDependencies": {
-    "@types/node": "20.5.9",
+    "@types/node": "^20.5.9",
     "@types/react": "18.2.21",
     "prisma": "^5.3.1",
     "tsconfig-paths": "^4.2.0",
