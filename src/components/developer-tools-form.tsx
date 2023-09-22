@@ -10,12 +10,15 @@ import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RequestJson } from "@/app/api/handle-dev-tools-form/route";
 
+const environment = process.env.NODE_ENV;
+
 const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
 type SubmitState = "Idle" | "Success" | "Error";
-type TemplateOptions = "CS-OnList" | "CS-SiteLive" | "NewMessage" | "AutoReply";
+export type TemplateOptions = "CS-OnList" | "CS-SiteLive" | "NewMessage" | "AutoReply";
 type FormInputs = {
     selection: TemplateOptions
+    formName: string
     email: string
     apiKey: string
     title: string
@@ -54,7 +57,6 @@ export default function DeveloperTools() {
     const {
         register,
         handleSubmit,
-        reset,
         watch,
     } = useForm<FormInputs>({
         defaultValues: {
@@ -74,15 +76,32 @@ export default function DeveloperTools() {
         setLoadingState(true);
 
         try {
-            const { data } = await axios.post("/api/handle-footer-contact-form", {
+            var enteredKey;
+
+            if (environment === "development") {
+                enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
+            } else {
+                enteredKey = formData.apiKey;
+            }
+
+            const { data } = await axios.post("/api/handle-dev-tools-form", {
+                selection: selectedTemplate,
+                formName: emailTemplate.find(emailTemplate => emailTemplate.value === selectedTemplate)?.text ?? "Email",
+                apiKey: enteredKey,
                 email: formData.email,
+                name: formData.name,
+                message: formData.message,
                 source: "Dev Tools",
                 referringPage: window.location.href
             } as RequestJson);
 
+            if (data.status === "Error") {
+                setSubmitState("Error");
+            } else {
+                setSubmitState("Success");
+            }
+
             setResponseMessage(data.message);
-            setSubmitState("Success");
-            ResetForm();
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");
             setSubmitState("Error");
@@ -91,56 +110,63 @@ export default function DeveloperTools() {
         setLoadingState(false);
     };
 
-    function ResetForm() {
-        reset({
-            selection: "CS-OnList",
-            email: "",
-            apiKey: "",
-        });
+    function GetApiField() {
+        if (environment === "development") {
+            return (
+                <input {...register("apiKey")} type="password" className="hidden" />
+            );
+        }
+
+        return (
+            <div className="relative w-full group">
+                <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                <label htmlFor="apiKey" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                    API Key
+                </label>
+            </div>
+        );
     }
 
     function GetSelectedTemplateFields() {
         if (selectedTemplate === "AutoReply") {
             return (
-                <div className="relative w-full group">
-                    <input {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        a
-                    </label>
-                </div>
+                <>
+                    <div className="relative w-full group">
+                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                        <label htmlFor="name" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            Name
+                        </label>
+                    </div>
+                    <div className="relative w-full group">
+                        <TextareaAutosize {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" minRows={1} maxRows={4} required disabled={loadingState} />
+                        <label htmlFor="message" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-1 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            Message
+                        </label>
+                    </div>
+                </>
             );
         }
 
-        if (selectedTemplate === "CS-OnList") {
-            return (
-                <div className="relative w-full group">
-                    <input {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        b
-                    </label>
-                </div>
-            );
-        }
+        if (selectedTemplate === "CS-OnList") { return; }
 
-        if (selectedTemplate === "CS-SiteLive") {
-            return (
-                <div className="relative w-full group">
-                    <input {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        c
-                    </label>
-                </div>
-            );
-        }
+        if (selectedTemplate === "CS-SiteLive") { return; }
 
         if (selectedTemplate === "NewMessage") {
             return (
-                <div className="relative w-full group">
-                    <input {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        d
-                    </label>
-                </div>
+                <>
+                    <div className="relative w-full group">
+                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                        <label htmlFor="name" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            Name
+                        </label>
+                    </div>
+                    <div className="relative w-full group">
+                        <TextareaAutosize {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" minRows={1} maxRows={4} required disabled={loadingState} />
+                        <label htmlFor="message" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-1 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            Message
+                        </label>
+                    </div>
+                </>
             );
         }
 
@@ -178,15 +204,10 @@ export default function DeveloperTools() {
                 <div className="relative w-full group">
                     <input {...register("email")} type="email" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
                     <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        Email
+                        Send To
                     </label>
                 </div>
-                <div className="relative w-full group">
-                    <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
-                        API Key
-                    </label>
-                </div>
+                {GetApiField()}
                 {GetSelectedTemplateFields()}
                 <div className="flex items-center">
                     <Button type="submit" className="button text-white bg-green-700 hover:bg-green-800 focus:ring-2 focus:outline-none focus:ring-green-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center" disabled={loadingState}>

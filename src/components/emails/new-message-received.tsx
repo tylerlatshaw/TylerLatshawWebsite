@@ -54,6 +54,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                         <hr />
 
                         <Text style={text}><strong>Date: </strong>{props.messageData.dateTime}</Text>
+                        <Text style={text}><strong>Name: </strong>{props.messageData.name}</Text>
                         <Text style={text}><strong>Email: </strong>{props.messageData.email}</Text>
                         <Text style={text}><strong>Message: </strong>{props.messageData.message}</Text><br />
 
