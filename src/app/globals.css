@@ -54,6 +54,10 @@ div[data-lastpass-icon-root] {
     display: none
 }
 
+.hide-radio {
+    visibility: hidden;
+}
+
 
 /*******************************/
 /*****
