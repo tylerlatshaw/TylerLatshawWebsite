@@ -147,9 +147,3 @@ const imgFooter = {
     margin: "auto",
     width: "200px"
 };
-
-const unsubscribeFooter = {
-    fontSize: "14px",
-    textAlign: "center" as const,
-    color: "#1a1a1a"
-};

@@ -5,7 +5,7 @@ import {
     Avatar,
 } from "@material-tailwind/react";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import axios from "axios";
+//import axios from "axios";
 
 const tableHead = ["Muscle Group", "Workout", "Max Wieght", "Date"];
 
