@@ -10,9 +10,17 @@ const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
 const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
+export type RequestJson = {
+    name: string,
+    email: string,
+    message: string,
+    source: string,
+    referringPage: string,
+}
+
 export async function POST(request: Request) {
 
-    const { name, email, message, source, referringPage } = await request.json();
+    const { name, email, message, source, referringPage } = await request.json() as RequestJson;
 
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
