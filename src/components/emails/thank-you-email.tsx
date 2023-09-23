@@ -50,7 +50,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                     </Heading>
 
                     <Section style={mainSection}>
-                        <Text style={text}>Hello!</Text>
+                        <Text style={text}>Hello, {props.messageData.name}!</Text>
 
                         <Text style={text}>Thanks for sending me a message on <Link href="https://tylerlatshaw.com/?utm_source=autoresponder&utm_medium=email&utm_campaign=thank_you_email">my website</Link>! I&apos;ll be in touch soon. Below is a copy of your message:</Text>
 

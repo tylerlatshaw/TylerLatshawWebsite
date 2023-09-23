@@ -4,9 +4,8 @@ import {
     Card,
     Avatar,
 } from "@material-tailwind/react";
-import Link from "next/link";
-import EditIcon from "@mui/icons-material/Edit";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+//import axios from "axios";
 
 const tableHead = ["Muscle Group", "Workout", "Max Wieght", "Date"];
 
@@ -98,6 +97,8 @@ const tableRows = [
 
 export default function Page() {
 
+    //const data = axios.get("/api/get-gym-workouts");
+
     function lookupImageUrl(muscleGroup: string) {
         const url = imageUrls.find(imageUrls => imageUrls.muscleGroup === muscleGroup)?.url ?? "/static/gym/chest.png";
         return url;
@@ -118,21 +119,23 @@ export default function Page() {
                 <tbody>
                     {tableRows.map(({ muscleGroup, workout, maxWeight, date }, index) => {
                         const isLast = index === tableRows.length - 1;
-                        const classes = isLast ? "p-3 leading-none" : "p-3 border-b border-blue-gray-50 leading-none";
+                        const classes = isLast ? "p-2 leading-none" : "p-2 border-b border-blue-gray-50 leading-none";
 
                         return (
                             <tr key={index}>
                                 <td className={classes}>
-                                    <Avatar src={lookupImageUrl(muscleGroup)} className="h-10 w-10 mr-3 shadow-md rounded-full" />
+                                    <Avatar src={lookupImageUrl(muscleGroup)} className="h-12 w-12 ml-2 mr-3 shadow-md rounded-full" />
                                     {muscleGroup}
                                 </td>
                                 <td className={classes}>
                                     {workout}
                                 </td>
                                 <td className={classes}>
-                                    {maxWeight} lbs. <br />
-                                    <span className="positive-response font-bold text-xs">
-                                        <ArrowDropUpIcon className="text-base" />15
+                                    <span className="flex flex-col leading-normal">
+                                        {maxWeight} lbs. <br />
+                                        <span className="positive-response font-bold text-xs">
+                                            <ArrowDropUpIcon className="text-base" />15
+                                        </span>
                                     </span>
                                 </td>
                                 <td className={classes}>
