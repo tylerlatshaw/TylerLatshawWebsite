@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Page() {
 
   return <>
-    <div className="h-full">
+    <div className="h-full px-4 md:px-0">
       <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         {/* Left column */}
         <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
@@ -20,17 +20,17 @@ export default function Page() {
         </div>
 
         {/* Right column */}
-        <div className="w-full xl:w-3/5 p-12">
+        <div className="w-full xl:w-3/5 p-6 sm:p-12">
           <Image src="/static/homepage-headshot.png" width={709} height={421} alt="Tyler Latshaw" className={"homepage-main-image mx-auto w-full md:w-4/5 transform -rotate-3 transition hover:scale-105 duration-700 ease-in-out hover:rotate-3 homepage-main-image-blue"} id="homepage-main-image" priority={true} />
         </div>
       </div>
     </div>
 
     {/* Main */}
-    <div className="certification-ribbon mt-24 md:mt-36 mx-auto flex w-100 bg-white items-center">
+    <div className="certification-ribbon mt-24 md:mt-36 mx-auto flex w-100 bg-white items-center drop-shadow-[0_20px_16px_rgba(0,0,0,0.25)]">
 
       {/* Certification ribbon */}
-      <div className="certification-ribbon w-100 my-3 grow max-w-screen-xl mx-auto overflow-x-auto">
+      <div className="certification-ribbon w-100 my-3 grow max-w-screen-xl mx-auto overflow-x-auto ">
         <div className="certification-ribbon mx-auto flex flex-row items-center w-100">
           <div className="flex-shrink-0 sm:grow px-6">
             <Image src="/static/cert-a-csm.svg" width={165} height={150} alt="A-CSM Logo" className="mx-auto certification-image align-middle" priority={false} />
@@ -53,17 +53,17 @@ export default function Page() {
     </div>
 
     {/* Main */}
-    <div className="container mt-12 md:mt-16 mb-16 md:pb-8 md:mb-28 mx-auto flex flex-wrap flex-col md:flex-row items-center">
+    <div className="container mt-12 md:mt-16 mb-16 md:pb-8 md:mb-28 mx-auto px-4 md:px-0 flex flex-wrap flex-col md:flex-row items-center">
 
       <h2 className="w-full text-center text-2xl leading-tight md:leading-tight md:text-4xl text-white font-bold">Get to Know Me</h2>
 
       <div className="w-full pb-12 md:pb-18">
-        <div className="relative flex items-center mx-auto w-1/4 pt-4">
+        <div className="relative flex items-center mx-auto w-2/3 md:w-1/4 pt-4">
           <div className="flex-grow border-t border-white"></div>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4 md:gap-4 md:px-0 w-full text-center justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 w-full text-center justify-items-center">
         {/* Left column */}
         <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
           <Link href="/resume">
