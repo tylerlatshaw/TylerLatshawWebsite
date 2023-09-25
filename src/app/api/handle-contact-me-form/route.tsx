@@ -7,7 +7,7 @@ import { addContactToDatabase } from "@/database/contact";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
-const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
+//const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
 export async function POST(request: Request) {
 

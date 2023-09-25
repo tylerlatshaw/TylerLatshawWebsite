@@ -6,9 +6,10 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import SendIcon from "@mui/icons-material/Send";
+import { RequestJson } from "@/app/api/handle-coming-soon-form/route";
 
 type SubmitState = "Idle" | "Success" | "Error";
-type ComingSoonFormInputs = {
+type FormInputs = {
     email: string
 };
 
@@ -20,10 +21,11 @@ export default function ComingSoonForm() {
 
     const {
         register,
-        handleSubmit
-    } = useForm<ComingSoonFormInputs>();
+        handleSubmit,
+        reset,
+    } = useForm<FormInputs>();
 
-    const onSubmit: SubmitHandler<ComingSoonFormInputs> = async (formData) => {
+    const onSubmit: SubmitHandler<FormInputs> = async (formData) => {
         setSubmitState("Idle");
         setResponseMessage("");
         setLoadingState(true);
@@ -35,10 +37,13 @@ export default function ComingSoonForm() {
                 message: "Notify me when the site goes live",
                 source: "Coming Soon",
                 referringPage: window.location.href
-            });
+            } as RequestJson);
 
             setResponseMessage(data.message);
             setSubmitState("Success");
+            reset({
+                email: ""
+            });
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");
             setSubmitState("Error");
@@ -60,7 +65,7 @@ export default function ComingSoonForm() {
     }
 
     return (
-        <form className="w-full h-full" id="notify-me" method="post" onSubmit={handleSubmit(onSubmit)}>
+        <form className="w-full h-full" id="notify-me" method="POST" onSubmit={handleSubmit(onSubmit)}>
             <div className="w-fit mx-auto">
                 <div className="w-full text-left">
                     <div className="email-form mt-8">

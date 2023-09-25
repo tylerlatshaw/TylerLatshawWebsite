@@ -7,20 +7,23 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return <>
-    <div className="h-full mb-16 md:pb-8 md:mb-28">
-      <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center w-full">
+    <div className="h-full px-4 md:px-0 mb-16 md:mb-40">
+      <div className="container flex flex-wrap mx-auto pt-28 md:pt-36">
 
-        <h1 className="mb-8 text-3xl leading-tight md:text-4xl font-bold text-center w-full">Send Me a Message!</h1>
+        <h1 className="w-full mb-8 text-3xl md:text-4xl font-bold text-center">Send Me a Message!</h1>
 
-        <div className="flex md:flex-cols-2 mx-auto w-full">
-          <div className="w-full mx-auto">
+        <div className="w-full flex flex-col md:flex-row mx-auto">
+
+          <div className="w-full mx-auto order-2 md:order-1">
             Coming Soon
           </div>
 
-          <div className="w-full mx-auto text-white">
+          <div className="w-full mx-auto text-white order-1 md:order-2">
             <ContactForm />
           </div>
+          
         </div>
+
       </div>
     </div>
   </>;
