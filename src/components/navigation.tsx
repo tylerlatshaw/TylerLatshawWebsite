@@ -47,6 +47,10 @@ function lookupMobileIcon(pageName: string) {
 
 export default function Navigation() {
 
+    function toggleMobileState() {
+        setIsOpen(!isOpen);
+    }
+
     var mobileMenuButtonColor = "#FFFFFF";
 
     const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +64,7 @@ export default function Navigation() {
     const mobileMenuList = navigationLinks.map((menuItem) =>
         <div key={menuItem.display} className="mobile-menu group flex items-center w-full">
             <li className="flex items-center w-full group-hover:text-green-500">
-                <Link key={menuItem.display} href={menuItem.link} className="flex items-center">
+                <Link key={menuItem.display} href={menuItem.link} onClick={toggleMobileState} className="flex items-center">
                     <SvgIcon component={lookupMobileIcon(menuItem.display)} className="inline-block align-middle text-4xl" />
                     <span className="inline-block align-top rounded-md px-3 py-3 group-hover:font-semibold">{menuItem.display}</span>
                 </Link>
