@@ -17,6 +17,8 @@
     "@mui/material": "^5.14.9",
     "@prisma/client": "^5.3.1",
     "@react-email/components": "^0.0.7",
+    "@types/node": "^20.5.9",
+    "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "axios": "^1.5.0",
@@ -39,8 +41,6 @@
     "@core": "build/core"
   },
   "devDependencies": {
-    "@types/node": "^20.5.9",
-    "@types/react": "18.2.21",
     "prisma": "^5.3.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.2.2"

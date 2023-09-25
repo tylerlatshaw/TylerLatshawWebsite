@@ -33,6 +33,6 @@ export const supplementalLinks = [
     },
     {
         display: "Sitemap",
-        link: "#"
+        link: "/sitemap"
     }
 ];
