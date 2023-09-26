@@ -11,6 +11,7 @@ import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 import EmailIcon from "@mui/icons-material/Email";
 import { SvgIcon, SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import Link from "next/link";
 
 type iconLookupType = {
     display: string
@@ -46,15 +47,15 @@ function lookupMobileIcon(pageName: string) {
 
 export default function Navigation() {
 
-    function toggleMobileState() {
-        setIsOpen(!isOpen);
-    }
-
     var mobileMenuButtonColor = "#FFFFFF";
 
     const [isOpen, setIsOpen] = useState(false);
 
     isOpen ? mobileMenuButtonColor = "#22c55e" : mobileMenuButtonColor = "#FFFFFF";
+
+    if (typeof document !== "undefined") {
+        isOpen ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = "scroll";
+    }
 
     const desktopMenuList = navigationLinks.map((menuItem) =>
         <a key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">{menuItem.display}</a>
@@ -63,10 +64,10 @@ export default function Navigation() {
     const mobileMenuList = navigationLinks.map((menuItem) =>
         <div key={menuItem.display} className="mobile-menu group flex items-center w-full">
             <li className="flex items-center w-full group-hover:text-green-500">
-                <a key={menuItem.display} href={menuItem.link} onClick={toggleMobileState} className="flex items-center w-full">
+                <Link key={menuItem.display} href={menuItem.link} onClick={() => { setIsOpen(false); }} className="flex items-center w-full">
                     <SvgIcon component={lookupMobileIcon(menuItem.display)} className="inline-block align-middle text-4xl" />
                     <span className="inline-block align-top rounded-md px-3 py-3 group-hover:font-semibold">{menuItem.display}</span>
-                </a>
+                </Link>
             </li>
         </div>
     );

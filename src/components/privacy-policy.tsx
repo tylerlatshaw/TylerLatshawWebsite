@@ -126,7 +126,7 @@ export default function PrivacyPolicy() {
                                 <div className="gap-2 py-2">
                                     {headerLinks.map((links) => (
                                         <li key={links.name} className="flex items-center w-full first:hidden hover:bg-gray-300/100">
-                                            <a className="w-full px-3 py-px" href={links.anchor}>
+                                            <a className="w-full px-3 py-px" href={links.anchor} onClick={() => { setIsOpen(false); }}>
                                                 {links.name}
                                             </a>
                                         </li>
