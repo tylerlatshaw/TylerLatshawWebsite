@@ -1,4 +1,10 @@
+"use client";
+
+import Link from "next/link";
 import { PrivacyPolicyText } from "./privacy-policy-text";
+import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
+import { Twirl as Hamburger } from "hamburger-react";
+import { useState } from "react";
 
 type headings = {
     name: string
@@ -6,6 +12,10 @@ type headings = {
 }
 
 const headerLinks: headings[] = [
+    {
+        name: "Privacy Policy",
+        anchor: "#policy"
+    },
     {
         name: "Summary",
         anchor: "#summary"
@@ -66,34 +76,79 @@ const headerLinks: headings[] = [
 
 export default function PrivacyPolicy() {
 
-    function generateSidebar() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    var buttonClasses: string;
+
+    isOpen ? buttonClasses = "w-full pl-3 pr-1 text-left border-b-[1px] border-gray-300" : buttonClasses = "w-full pl-3 pr-1 text-left border-0";
+
+    function generateNavigation() {
         return (
-            <ul className="space-y-1 text-sm">
-                <li className="flex items-center font-bold px-2 py-1">
-                    CONTENTS
-                </li>
+            <>
+                <div className="hidden md:block sticky top-0 space-y-4">
+                    <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
+                        <ul className="text-base py-3">
 
-                {headerLinks.map((links) => (
-                    <li key={links.name} className="flex items-center rounded-lg hover:bg-gray-100 hover:text-gray-900">
-                        <a className="px-2 py-1 w-full" href={links.anchor}>
-                            {links.name}
-                        </a>
-                    </li>
-                ))}
+                            {headerLinks.map((links) => (
+                                <li key={links.name} className="flex items-center w-full first:font-bold first:uppercase hover:bg-gray-300/100">
+                                    <Link className="w-full py-1 px-3" href={links.anchor}>
+                                        {links.name}
+                                    </Link>
+                                </li>
+                            ))}
 
-            </ul>
+                        </ul>
+                    </div>
+
+                    <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
+                        <Link href="#">
+                            <button type="button" className="w-full py-2 px-3 text-left font-bold hover:bg-gray-300/100">
+                                <span className="text-left">Go to Top</span>
+                                <ArrowCircleUpIcon className="float-right" />
+                            </button>
+                        </Link>
+                    </div>
+                </div>
+
+                <div className="block md:hidden">
+                    <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
+                        <ul className="text-base">
+
+                            <div className={buttonClasses}>
+                                <span className="flex flex-row font-semibold">
+                                    <span className="flex items-center basis-full">Navigation</span>
+                                    <span className="flex items-center">
+                                        <Hamburger toggled={isOpen} toggle={setIsOpen} size={18} rounded label="Show menu" color="#000000" hideOutline={false} />
+                                    </span>
+                                </span>
+                            </div>
+
+                            {isOpen ? <>
+                                <div className="gap-2 py-2">
+                                    {headerLinks.map((links) => (
+                                        <li key={links.name} className="flex items-center w-full first:hidden hover:bg-gray-300/100">
+                                            <Link className="w-full px-3 py-px" href={links.anchor}>
+                                                {links.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </div>
+                            </> : null}
+
+                        </ul>
+                    </div>
+                </div>
+            </>
         );
     }
 
     return <>
-        <div className="flex flex-row">
-            <aside className="flex-none mt-4 w-fit">
-                <div className="sticky top-0 pt-4 h-fit bg-gray-300 rounded-lg">
-                    {generateSidebar()}
-                </div>
+        <div className="privacy-policy flex flex-col md:flex-row text-black gap-0 md:gap-4 space-y-4 md:space-y-0">
+            <aside className="flex-none w-full md:w-fit">
+                {generateNavigation()}
             </aside>
 
-            <div className="p-4 text-base bg-gray-800">
+            <div className="privacy-policy-main p-4 text-base bg-white/50 rounded-lg border-2 border-white" id="policy">
                 <PrivacyPolicyText />
             </div>
         </div>

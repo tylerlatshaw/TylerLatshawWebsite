@@ -201,3 +201,14 @@ input:-webkit-autofill:active {
 .contact-form input:-webkit-autofill:disabled {
     -webkit-box-shadow: 0 0 0 28px var(--gray-800) inset !important;
 }
+
+
+/*******************************/
+/*****
+/*****    PRIVACY POLICY 
+/*****
+/*******************************/
+
+.privacy-policy .privacy-policy-main a {
+    text-decoration: underline;
+}
