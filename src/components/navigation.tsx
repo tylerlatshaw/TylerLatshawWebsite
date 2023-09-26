@@ -52,7 +52,10 @@ export default function Navigation() {
     const [isOpen, setIsOpen] = useState(false);
 
     isOpen ? mobileMenuButtonColor = "#22c55e" : mobileMenuButtonColor = "#FFFFFF";
-    isOpen ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = "scroll";
+
+    if (typeof document !== "undefined") {
+        isOpen ? document.documentElement.style.overflow = "hidden" : document.documentElement.style.overflow = "scroll";
+    }
 
     const desktopMenuList = navigationLinks.map((menuItem) =>
         <a key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">{menuItem.display}</a>
