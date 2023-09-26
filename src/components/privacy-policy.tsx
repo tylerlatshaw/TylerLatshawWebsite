@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { PrivacyPolicyText } from "./privacy-policy-text";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { Twirl as Hamburger } from "hamburger-react";
@@ -91,9 +90,9 @@ export default function PrivacyPolicy() {
 
                             {headerLinks.map((links) => (
                                 <li key={links.name} className="flex items-center w-full first:font-bold first:uppercase hover:bg-gray-300/100">
-                                    <Link className="w-full py-1 px-3" href={links.anchor}>
+                                    <a className="w-full py-1 px-3" href={links.anchor}>
                                         {links.name}
-                                    </Link>
+                                    </a>
                                 </li>
                             ))}
 
@@ -101,12 +100,12 @@ export default function PrivacyPolicy() {
                     </div>
 
                     <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
-                        <Link href="#">
+                        <a href="#">
                             <button type="button" className="w-full py-2 px-3 text-left font-bold hover:bg-gray-300/100">
                                 <span className="text-left">Go to Top</span>
                                 <ArrowCircleUpIcon className="float-right" />
                             </button>
-                        </Link>
+                        </a>
                     </div>
                 </div>
 
@@ -127,9 +126,9 @@ export default function PrivacyPolicy() {
                                 <div className="gap-2 py-2">
                                     {headerLinks.map((links) => (
                                         <li key={links.name} className="flex items-center w-full first:hidden hover:bg-gray-300/100">
-                                            <Link className="w-full px-3 py-px" href={links.anchor}>
+                                            <a className="w-full px-3 py-px" href={links.anchor}>
                                                 {links.name}
-                                            </Link>
+                                            </a>
                                         </li>
                                     ))}
                                 </div>
