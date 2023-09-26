@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";
 import { navigationLinks } from "./navigation-links";
@@ -58,16 +57,16 @@ export default function Navigation() {
     isOpen ? mobileMenuButtonColor = "#22c55e" : mobileMenuButtonColor = "#FFFFFF";
 
     const desktopMenuList = navigationLinks.map((menuItem) =>
-        <Link key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">{menuItem.display}</Link>
+        <a key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">{menuItem.display}</a>
     );
 
     const mobileMenuList = navigationLinks.map((menuItem) =>
         <div key={menuItem.display} className="mobile-menu group flex items-center w-full">
             <li className="flex items-center w-full group-hover:text-green-500">
-                <Link key={menuItem.display} href={menuItem.link} onClick={toggleMobileState} className="flex items-center">
+                <a key={menuItem.display} href={menuItem.link} onClick={toggleMobileState} className="flex items-center w-full">
                     <SvgIcon component={lookupMobileIcon(menuItem.display)} className="inline-block align-middle text-4xl" />
                     <span className="inline-block align-top rounded-md px-3 py-3 group-hover:font-semibold">{menuItem.display}</span>
-                </Link>
+                </a>
             </li>
         </div>
     );
@@ -81,9 +80,9 @@ export default function Navigation() {
                         {/* Logo */}
                         <div className="flex space-x-7">
                             <div className="m-auto">
-                                <Link className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
+                                <a className="flex items-center text-indigo-400 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="/">
                                     <span className="logo-full-name bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700 py-1">Tyler Latshaw</span>
-                                </Link>
+                                </a>
                             </div>
                         </div>
 
@@ -105,8 +104,8 @@ export default function Navigation() {
                 {/* Mobile menu */}
                 {isOpen ? <>
                     <div className="w-full h-full fixed flex items-center top-0 left-0 bg-gray-900 md:hidden shadow p-3 z-40">
-                        <div className="mobile-menu fixed block p-8 text-2xl leading-none">
-                            <ul className="space-y-10">
+                        <div className="mobile-menu fixed block w-full p-8 text-2xl leading-none">
+                            <ul className="space-y-10 w-full">
                                 {mobileMenuList}
                             </ul>
                         </div>
