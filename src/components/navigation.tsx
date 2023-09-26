@@ -12,6 +12,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import { SvgIcon, SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 import Link from "next/link";
+import router from "next/router";
 
 type iconLookupType = {
     display: string
@@ -58,13 +59,15 @@ export default function Navigation() {
     }
 
     const desktopMenuList = navigationLinks.map((menuItem) =>
-        <a key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">{menuItem.display}</a>
+        <Link key={menuItem.display} href={menuItem.link} className="py-4 px-2 text-blue-300 no-underline hover:text-green-500 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 transform hover:scale-125 duration-300 ease-in-out">
+            {menuItem.display}
+        </Link>
     );
 
     const mobileMenuList = navigationLinks.map((menuItem) =>
         <div key={menuItem.display} className="mobile-menu group flex items-center w-full">
             <li className="flex items-center w-full group-hover:text-green-500">
-                <Link key={menuItem.display} href={menuItem.link} onClick={() => { setIsOpen(false); }} className="flex items-center w-full">
+                <Link key={menuItem.display} href={menuItem.link} onClick={() => { router.push(menuItem.link); setIsOpen(false); }} className="flex items-center w-full">
                     <SvgIcon component={lookupMobileIcon(menuItem.display)} className="inline-block align-middle text-4xl" />
                     <span className="inline-block align-top rounded-md px-3 py-3 group-hover:font-semibold">{menuItem.display}</span>
                 </Link>
