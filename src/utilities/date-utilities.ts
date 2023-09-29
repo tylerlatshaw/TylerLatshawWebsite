@@ -1,9 +1,20 @@
 export function getCurrentDate() {
-    var month = new Date().getMonth();
-    var day = new Date().getDay();
+    var month = new Date().getMonth() + 1;
+    var date = new Date().getDate();
     var year = new Date().getFullYear();
 
-    return month + "/" + day + "/" + year;
+    return month + "/" + date + "/" + year;
+}
+
+export function getCurrentDateISOFormat() {
+    var month = new Date().getMonth();
+    var date = new Date().getDate();
+    var year = new Date().getFullYear();
+
+    const fullDate = new Date(year, month, date);
+    const result = fullDate.toISOString().substring(0, 10);
+
+    return result;
 }
 
 export function getCurrentDateTime(date: string) {
