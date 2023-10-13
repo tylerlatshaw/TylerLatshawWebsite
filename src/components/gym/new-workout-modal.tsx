@@ -10,7 +10,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { MuscleGroup } from "@prisma/client";
+import { MuscleGroups } from "@/database/gym";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -35,7 +35,7 @@ export default function NewWorkoutModal({ onClose }: NewWorkoutModalProps) {
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
     const [responseMessage, setResponseMessage] = useState<String>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
-    const [muscleGroups, setMuscleGroups] = useState<MuscleGroup[]>([]);
+    const [muscleGroups, setMuscleGroups] = useState<MuscleGroups[]>([]);
 
     useEffect(() => {
         axios.get("/api/gym/get-muscle-groups").then((response) => {

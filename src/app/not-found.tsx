@@ -1,12 +1,8 @@
-import Link from "next/link";
-
 export default function NotFound() {
-    return (
-        <div>
-            <p>Could not find requested resource</p>
-            <p>
-                Go <Link href="/">home</Link>
-            </p>
-        </div>
-    );
+	return (
+		<main>
+			<h1>404 Not Found</h1>
+			<p>This is a custom 404 page.</p>
+		</main>
+	);
 }

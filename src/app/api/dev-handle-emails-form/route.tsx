@@ -7,7 +7,7 @@ import MessageReceived from "@/components/emails/new-message-received";
 import AutoReplyEmail from "@/components/emails/thank-you-email";
 
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { TemplateOptions } from "@/components/developer-tools-form";
+import { TemplateOptions } from "@/components/developer-email-send-form";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
