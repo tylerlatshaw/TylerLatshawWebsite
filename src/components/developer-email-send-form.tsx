@@ -8,7 +8,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson } from "@/app/api/handle-dev-tools-form/route";
+import { RequestJson } from "@/app/api/dev-handle-emails-form/route";
 
 const environment = process.env.NODE_ENV;
 
@@ -52,7 +52,7 @@ const emailTemplate: TemplateSelection[] = [
     }
 ];
 
-export default function DeveloperTools() {
+export default function DeveloperEmailForm() {
 
     const {
         register,
@@ -84,7 +84,7 @@ export default function DeveloperTools() {
                 enteredKey = formData.apiKey;
             }
 
-            const { data } = await axios.post("/api/handle-dev-tools-form", {
+            const { data } = await axios.post("/api/dev-handle-emails-form", {
                 selection: selectedTemplate,
                 formName: emailTemplate.find(emailTemplate => emailTemplate.value === selectedTemplate)?.text ?? "Email",
                 apiKey: enteredKey,
@@ -119,7 +119,7 @@ export default function DeveloperTools() {
 
         return (
             <div className="relative w-full group">
-                <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={36} required disabled={loadingState} />
                 <label htmlFor="apiKey" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
                     API Key
                 </label>
@@ -132,7 +132,7 @@ export default function DeveloperTools() {
             return (
                 <>
                     <div className="relative w-full group">
-                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={100} required disabled={loadingState} />
                         <label htmlFor="name" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
                             Name
                         </label>
@@ -155,7 +155,7 @@ export default function DeveloperTools() {
             return (
                 <>
                     <div className="relative w-full group">
-                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={100} required disabled={loadingState} />
                         <label htmlFor="name" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
                             Name
                         </label>
@@ -194,7 +194,7 @@ export default function DeveloperTools() {
                         {emailTemplate.sort((a, b) => a.text.localeCompare(b.text)).map((button) =>
                             <div key={button.value}>
                                 <input {...register("selection")} id={button.value} value={button.value} type="radio" className="hidden peer" required disabled={loadingState} />
-                                <label htmlFor={button.value} className="flex items-center w-full px-5 py-3 rounded-lg cursor-pointer text-gray-200 bg-gray-800/75 border border-gray-200 hover:text-gray-300 hover:bg-gray-900/60 hover:border-gray-300 peer-checked:text-green-600 peer-checked:border-green-600">
+                                <label htmlFor={button.value} className="flex items-center w-full px-4 py-3 rounded-lg cursor-pointer text-gray-200 bg-gray-800 border border-gray-200 hover:text-gray-300 hover:bg-gray-900 hover:border-gray-300 peer-checked:text-green-600 peer-checked:border-green-600">
                                     {button.text}
                                 </label>
                             </div>
@@ -202,7 +202,7 @@ export default function DeveloperTools() {
                     </div>
                 </div>
                 <div className="relative w-full group">
-                    <input {...register("email")} type="email" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
+                    <input {...register("email")} type="email" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={255} required disabled={loadingState} />
                     <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
                         Send To
                     </label>

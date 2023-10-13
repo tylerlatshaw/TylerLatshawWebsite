@@ -1,9 +1,32 @@
 import { Metadata } from "next";
-import DeveloperTools from "@/components/developer-tools-form";
+import Accordion from "@/components/developer-accordion";
+import DeveloperEmailForm from "@/components/developer-email-send-form";
+import AddRecordsForm from "@/components/developer-add-records-form";
+import EditRecordsForm from "@/components/developer-edit-records-form";
+import DeleteRecordsForm from "@/components/developer-delete-records-form";
 
 export const metadata: Metadata = {
   title: "Developer Tools",
 };
+
+const developerPageItems = [
+  {
+    title: "Send Emails",
+    content: <DeveloperEmailForm />
+  },
+  {
+    title: "Add Record Albums",
+    content: <AddRecordsForm />
+  },
+  {
+    title: "Edit Record Albums",
+    content: <EditRecordsForm />
+  },
+  {
+    title: "Delete Record Albums",
+    content: <DeleteRecordsForm />
+  }
+];
 
 export default function Page() {
   return <>
@@ -14,10 +37,10 @@ export default function Page() {
 
         <h1 className="w-full text-center text-3xl md:text-4xl font-bold">Developer Tools</h1>
 
-        <div className="w-full mt-8">
-          <div className="flex p-8 sm:w-1/2 bg-gray-800/75 m-auto rounded-md">
-            <DeveloperTools />
-          </div>
+        <div className="flex flex-row gap-4 w-full mt-8">
+
+          <Accordion items={developerPageItems} />
+
         </div>
 
       </div>
