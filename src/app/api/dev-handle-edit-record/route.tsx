@@ -4,7 +4,8 @@ import { NextResponse } from "next/server";
 export type RequestJson = {
     apiKey: string,
     recordId: number | undefined,
-    recordName: string | undefined,
+    originalRecordName: string,
+    newRecordName: string | undefined,
     year: number | undefined,
     imageUrl: string | undefined,
     discogsUrl: string | undefined,
@@ -14,7 +15,8 @@ export async function POST(request: Request) {
 
     const { apiKey,
         recordId,
-        recordName,
+        originalRecordName,
+        newRecordName,
         year,
         imageUrl,
         discogsUrl } = await request.json() as RequestJson;
@@ -22,20 +24,26 @@ export async function POST(request: Request) {
     var formData = {
         apiKey,
         recordId,
-        recordName,
+        originalRecordName,
+        newRecordName,
         year,
         imageUrl,
         discogsUrl
     };
+
+    var messageData: string = "";
     
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
+
+        newRecordName === undefined? messageData = originalRecordName : messageData = newRecordName!;
+        
         await Promise.all([
             updateRecord(formData)
         ]);
 
         return NextResponse.json({
             status: "Ok",
-            message: recordName + " successfully updated!"
+            message: messageData + " successfully updated!"
         });
     }
 

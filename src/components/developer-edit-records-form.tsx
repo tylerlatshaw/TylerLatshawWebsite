@@ -156,7 +156,8 @@ export default function EditRecordsForm() {
             var dataBuilder: RequestJsonEditRecord = {
                 apiKey: "",
                 recordId: undefined,
-                recordName: undefined,
+                originalRecordName: record.RecordName,
+                newRecordName: undefined,
                 year: undefined,
                 imageUrl: undefined,
                 discogsUrl: undefined
@@ -164,7 +165,7 @@ export default function EditRecordsForm() {
 
             dataBuilder!.apiKey = enteredKey;
             dataBuilder!.recordId = +formData.record.value!;
-            record.RecordName !== formData.recordName ? dataBuilder!.recordName = formData.recordName : dataBuilder!.recordName = undefined;
+            record.RecordName !== formData.recordName ? dataBuilder!.newRecordName = formData.recordName : dataBuilder!.newRecordName = undefined;
 
             if (record.ArtistId !== artist) {
                 //Delete unused record to artist relationships
@@ -223,7 +224,8 @@ export default function EditRecordsForm() {
             const { data } = await axios.post("/api/dev-handle-edit-record", {
                 apiKey: dataBuilder.apiKey,
                 recordId: dataBuilder.recordId,
-                recordName: dataBuilder.recordName,
+                originalRecordName: dataBuilder.originalRecordName,
+                newRecordName: dataBuilder.newRecordName,
                 year: dataBuilder.year,
                 imageUrl: dataBuilder.imageUrl,
                 discogsUrl: dataBuilder.discogsUrl,
@@ -232,9 +234,11 @@ export default function EditRecordsForm() {
             if (data.status === "Error") {
                 setSubmitState("Error");
             } else {
-                setSubmitState("Success");
+                remapFields();
                 setShowFormFields(false);
+                setSubmitState("Success");
                 reset();
+                setValue("record", { value: undefined, label: undefined });
             }
 
             setResponseMessage(data.message);
@@ -273,6 +277,20 @@ export default function EditRecordsForm() {
         }
 
         return "";
+    }
+
+    function remapFields() {
+        axios.get("/api/dev-get-record-data").then((response) => {
+            setRecords(response.data);
+        });
+
+        axios.get("/api/dev-get-artists").then((response) => {
+            setArtists(response.data);
+        });
+
+        axios.get("/api/dev-get-genres").then((response) => {
+            setGenres(response.data);
+        });
     }
 
     return (

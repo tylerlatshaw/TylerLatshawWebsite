@@ -30,6 +30,7 @@ export default function DeleteRecordsForm() {
         handleSubmit,
         control,
         reset,
+        setValue,
     } = useForm<FormInputs>({});
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
@@ -74,7 +75,8 @@ export default function DeleteRecordsForm() {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");
-                reset({ "record": { value: undefined, label: undefined } });
+                reset();
+                setValue("record", { value: undefined, label: undefined });
             }
 
             axios.get("/api/dev-get-record-data").then((response) => {

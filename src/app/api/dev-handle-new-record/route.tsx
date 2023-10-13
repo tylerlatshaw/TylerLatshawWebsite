@@ -2,13 +2,14 @@ import { addRecord } from "@/database/records";
 import { NextResponse } from "next/server";
 
 export type RequestJson = {
-    apiKey: string
-    recordName: string
-    artistId: number
-    genreId: number[]
-    year: number
-    imageUrl: string
-    discogsUrl: string
+    apiKey: string,
+    recordName: string,
+    artistId: number,
+    artistTypeId: number,
+    genreId: number[],
+    year: number,
+    imageUrl: string,
+    discogsUrl: string,
 }
 
 export async function POST(request: Request) {
@@ -16,6 +17,7 @@ export async function POST(request: Request) {
     const { apiKey,
         recordName,
         artistId,
+        artistTypeId,
         genreId,
         year,
         imageUrl,
@@ -25,6 +27,7 @@ export async function POST(request: Request) {
         apiKey,
         recordName,
         artistId,
+        artistTypeId,
         genreId,
         year,
         imageUrl,
