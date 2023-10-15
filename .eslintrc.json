@@ -1,14 +1,14 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "semi": [
-      "error"
-    ],
-    "quotes": [
-      "error"
-    ],
-    "no-unused-vars": [
-      "warn"
-    ]
-  }
+    "extends": "next/core-web-vitals",
+    "rules": {
+        "semi": [
+            "error"
+        ],
+        "quotes": [
+            "error"
+        ],
+        "no-unused-vars": [
+            "warn"
+        ]
+    }
 }
