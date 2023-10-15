@@ -8,12 +8,10 @@ module.exports = {
           hostname: "i.discogs.com",
           port: "",
           pathname: "/**",
-        },
+        }
       ],
     },
   };
-  
-
 
 // Injected content via Sentry wizard below
 

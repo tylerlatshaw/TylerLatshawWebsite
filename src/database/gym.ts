@@ -34,14 +34,14 @@ export async function getMuscleGroups() {
     const muscleGroups = await prisma.muscleGroup.findMany({
         select: {
             MuscleGroupId: true,
-            Name: true
+            Name: true,
         },
         distinct: ["Name"],
         orderBy: [
             {
-                Name: "asc"
+                Name: "asc",
             }
-        ]
+        ],
     });
 
     return muscleGroups;
@@ -60,14 +60,14 @@ export async function addNewWorkout(formData: NewWorkout) {
         data: {
             Name: formData.workoutName,
             MaxWeight: formData.weight,
-            WorkoutDate: formData.date
-        }
+            WorkoutDate: formData.date,
+        },
     });
 
     await prisma.workoutToMuscleGroup.create({
         data: {
             WorkoutId: newWorkout.WorkoutId,
-            MuscleGroupId: formData.muscleGroup
-        }
+            MuscleGroupId: formData.muscleGroup,
+        },
     });
 }

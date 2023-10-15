@@ -6,7 +6,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import SendIcon from "@mui/icons-material/Send";
-import { RequestJson } from "@/app/api/handle-coming-soon-form/route";
+import { RequestJson } from "@/app/api/coming-soon-form/route";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -16,7 +16,7 @@ type FormInputs = {
 export default function ComingSoonForm() {
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
 
     const {
@@ -31,18 +31,18 @@ export default function ComingSoonForm() {
         setLoadingState(true);
 
         try {
-            const { data } = await axios.post("/api/handle-coming-soon-form", {
+            const { data } = await axios.post("/api/coming-soon-form", {
                 name: "Notification Request",
                 email: formData.email,
                 message: "Notify me when the site goes live",
                 source: "Coming Soon",
-                referringPage: window.location.href
+                referringPage: window.location.href,
             } as RequestJson);
 
             setResponseMessage(data.message);
             setSubmitState("Success");
             reset({
-                email: ""
+                email: "",
             });
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");

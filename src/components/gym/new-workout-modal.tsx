@@ -5,7 +5,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { getCurrentDateISOFormat } from "@/utilities/date-utilities";
-import { RequestJson } from "@/app/api/gym/handle-new-workout/route";
+import { RequestJson } from "@/app/api/gym/new-workout/route";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
@@ -33,7 +33,7 @@ export default function NewWorkoutModal({ onClose }: NewWorkoutModalProps) {
     } = useForm<FormInputs>();
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const [muscleGroups, setMuscleGroups] = useState<MuscleGroups[]>([]);
 
@@ -49,18 +49,18 @@ export default function NewWorkoutModal({ onClose }: NewWorkoutModalProps) {
         setLoadingState(true);
 
         try {
-            const { data } = await axios.post("/api/gym/handle-new-workout", {
+            const { data } = await axios.post("/api/gym/new-workout", {
                 date: new Date(formData.date),
                 muscleGroup: +formData.muscleGroup,
                 workoutName: formData.workoutName,
-                weight: +formData.weight
+                weight: +formData.weight,
             } as RequestJson);
 
             setResponseMessage(data.message);
             setSubmitState("Success");
             reset({
                 workoutName: "",
-                weight: NaN
+                weight: NaN,
             });
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");

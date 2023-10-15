@@ -1,14 +1,14 @@
 import { PrismaClient } from "@prisma/client";
 
-import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-handle-new-record/route";
-import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-handle-new-record-to-artist/route";
-import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-handle-new-record-to-genre/route";
+import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-new-record/route";
+import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-new-record-to-artist/route";
+import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-new-record-to-genre/route";
 
-import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-handle-edit-record/route";
+import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-edit-record/route";
 
-import { RequestJson as RequestJsonDeleteRecord } from "@/app/api/dev-handle-delete-record/route";
-import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-handle-delete-record-to-artist/route";
-import { RequestJson as RequestJsonDeleteRecordToGenre } from "@/app/api/dev-handle-delete-record-to-genre/route";
+import { RequestJson as RequestJsonDeleteRecord } from "@/app/api/dev-delete-record/route";
+import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-delete-record-to-artist/route";
+import { RequestJson as RequestJsonDeleteRecordToGenre } from "@/app/api/dev-delete-record-to-genre/route";
 
 import { stoGetRecordData } from "./stoGetRecordData";
 
@@ -82,7 +82,7 @@ export async function getRecords() {
             {
                 Name: "asc",
             }
-        ]
+        ],
     });
 
     return records;
@@ -99,7 +99,7 @@ export async function getArtists() {
             {
                 Name: "asc",
             }
-        ]
+        ],
     });
 
     return artists;
@@ -111,7 +111,7 @@ export async function getRecordToArtist() {
             RecordToArtistId: true,
             ArtistId: true,
             RecordId: true,
-        }
+        },
     });
 
     return recordToArtist;
@@ -128,7 +128,7 @@ export async function getGenres() {
             {
                 Name: "asc",
             }
-        ]
+        ],
     });
 
     return genres;
@@ -140,7 +140,7 @@ export async function getRecordToGenre() {
             RecordToGenreId: true,
             GenreId: true,
             RecordId: true,
-        }
+        },
     });
 
     return recordToGenre;
@@ -160,7 +160,7 @@ export async function addRecord(formData: RequestJsonNewRecord) {
             Year: formData.year,
             ImageUrl: formData.imageUrl?.trim(),
             DiscogUrl: formData.discogsUrl?.trim(),
-        }
+        },
     });
 
     await prisma.recordToArtist.create({
@@ -168,7 +168,7 @@ export async function addRecord(formData: RequestJsonNewRecord) {
             ArtistId: formData.artistId,
             ArtistTypeId: formData.artistTypeId,
             RecordId: newRecord.RecordId,
-        }
+        },
     });
 
     formData.genreId.map(async (genre) => {
@@ -176,7 +176,7 @@ export async function addRecord(formData: RequestJsonNewRecord) {
             data: {
                 RecordId: newRecord.RecordId,
                 GenreId: genre,
-            }
+            },
         });
     });
 }
@@ -185,7 +185,7 @@ export async function addArtist(formData: string) {
     const newValue = await prisma.artists.create({
         data: {
             Name: formData?.trim(),
-        }
+        },
     });
 
     return newValue.ArtistId;
@@ -197,7 +197,7 @@ export async function addRecordToArtist(formData: RequestJsonNewRecordToArtist) 
             RecordId: formData.recordId!,
             ArtistId: formData.artistId!,
             ArtistTypeId: formData.artistTypeId,
-        }
+        },
     });
 }
 
@@ -206,7 +206,7 @@ export async function addRecordToGenre(formData: RequestJsonNewRecordToGenre) {
         data: {
             RecordId: formData.recordId!,
             GenreId: formData.genreId!,
-        }
+        },
     });
 }
 
@@ -214,7 +214,7 @@ export async function addGenre(formData: string) {
     const newValue = await prisma.genres.create({
         data: {
             Name: formData?.trim(),
-        }
+        },
     });
 
     return newValue.GenreId;
@@ -237,7 +237,7 @@ export async function updateRecord(formData: RequestJsonEditRecord) {
             Year: formData.year,
             ImageUrl: formData.imageUrl?.trim(),
             DiscogUrl: formData.discogsUrl?.trim(),
-        }
+        },
     });
 }
 
@@ -252,19 +252,19 @@ export async function deleteRecord(formData: RequestJsonDeleteRecord) {
     await prisma.records.delete({
         where: {
             RecordId: formData.recordId,
-        }
+        },
     });
 
     await prisma.recordToArtist.deleteMany({
         where: {
             RecordId: formData.recordId,
-        }
+        },
     });
 
     await prisma.recordToGenre.deleteMany({
         where: {
             RecordId: formData.recordId,
-        }
+        },
     });
 }
 
@@ -272,7 +272,7 @@ export async function deleteArtist(formData: number) {
     await prisma.artists.delete({
         where: {
             ArtistId: formData,
-        }
+        },
     });
 }
 
@@ -282,7 +282,7 @@ export async function deleteRecordToArtist(formData: RequestJsonDeleteRecordToAr
             RecordId: formData.recordId!,
             ArtistId: formData.artistId!,
             ArtistTypeId: formData.artistTypeId!,
-        }
+        },
     });
 }
 
@@ -290,7 +290,7 @@ export async function deleteGenre(formData: number) {
     await prisma.genres.delete({
         where: {
             GenreId: formData,
-        }
+        },
     });
 }
 
@@ -299,6 +299,6 @@ export async function deleteRecordToGenre(formData: RequestJsonDeleteRecordToGen
         where: {
             RecordId: formData.recordId,
             GenreId: formData.genreId,
-        }
+        },
     });
 }

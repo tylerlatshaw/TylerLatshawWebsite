@@ -8,7 +8,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson } from "@/app/api/handle-footer-contact-form/route";
+import { RequestJson } from "@/app/api/footer-contact-form/route";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -26,7 +26,7 @@ export default function FormFooterContact() {
     } = useForm<FormInputs>();
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
 
     const onSubmit: SubmitHandler<FormInputs> = async (formData) => {
@@ -35,12 +35,12 @@ export default function FormFooterContact() {
         setLoadingState(true);
 
         try {
-            const { data } = await axios.post("/api/handle-footer-contact-form", {
+            const { data } = await axios.post("/api/footer-contact-form", {
                 name: formData.name,
                 email: formData.email,
                 message: formData.message,
                 source: "Footer",
-                referringPage: window.location.href
+                referringPage: window.location.href,
             } as RequestJson);
 
             setResponseMessage(data.message);
@@ -48,7 +48,7 @@ export default function FormFooterContact() {
             reset({
                 name: "",
                 email: "",
-                message: ""
+                message: "",
             });
         } catch (e) {
             setResponseMessage("Something went wrong. Please try again.");

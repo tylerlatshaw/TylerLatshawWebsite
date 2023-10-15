@@ -13,63 +13,63 @@ type headings = {
 const headerLinks: headings[] = [
     {
         name: "Privacy Policy",
-        anchor: "#policy"
+        anchor: "#policy",
     },
     {
         name: "Summary",
-        anchor: "#summary"
+        anchor: "#summary",
     },
     {
         name: "Information Collected",
-        anchor: "#infocollect"
+        anchor: "#infocollect",
     },
     {
         name: "Use of Information",
-        anchor: "#infouse"
+        anchor: "#infouse",
     },
     {
         name: "Information Sharing",
-        anchor: "#whoshare"
+        anchor: "#whoshare",
     },
     {
         name: "Cookie Use",
-        anchor: "#cookies"
+        anchor: "#cookies",
     },
     {
         name: "Information Retention",
-        anchor: "#inforetain"
+        anchor: "#inforetain",
     },
     {
         name: "Security",
-        anchor: "#infosafe"
+        anchor: "#infosafe",
     },
     {
         name: "Use by Minors",
-        anchor: "#infominors"
+        anchor: "#infominors",
     },
     {
         name: "Your Rights",
-        anchor: "#privacyrights"
+        anchor: "#privacyrights",
     },
     {
         name: "Do Not Track",
-        anchor: "#DNT"
+        anchor: "#DNT",
     },
     {
         name: "California Residents",
-        anchor: "#caresidents"
+        anchor: "#caresidents",
     },
     {
         name: "Policy Updates",
-        anchor: "#policyupdates"
+        anchor: "#policyupdates",
     },
     {
         name: "How to Contact",
-        anchor: "#contact"
+        anchor: "#contact",
     },
     {
         name: "Data Request",
-        anchor: "#request"
+        anchor: "#request",
     }
 ];
 
@@ -77,7 +77,7 @@ export default function PrivacyPolicy() {
 
     const [isOpen, setIsOpen] = useState(false);
 
-    var buttonClasses: string;
+    let buttonClasses: string;
 
     isOpen ? buttonClasses = "w-full pl-3 pr-1 text-left border-b-[1px] border-gray-300" : buttonClasses = "w-full pl-3 pr-1 text-left border-0";
 
