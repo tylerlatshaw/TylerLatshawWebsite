@@ -11,9 +11,9 @@ export async function POST(request: Request) {
 
     const { apiKey,
         recordId,
-        genreId, } = await request.json() as RequestJson;
+        genreId } = await request.json() as RequestJson;
 
-    var formData = {
+    const formData = {
         apiKey,
         recordId,
         genreId,
@@ -26,12 +26,12 @@ export async function POST(request: Request) {
 
         return NextResponse.json({
             status: "Ok",
-            message: "Genre ID: " + formData.genreId + " successfully added!"
+            message: "Genre ID: " + formData.genreId + " successfully added!",
         });
     }
 
     return NextResponse.json({
         status: "Error",
-        message: "Authentication Error: Invalid API Key"
+        message: "Authentication Error: Invalid API Key",
     });
 }

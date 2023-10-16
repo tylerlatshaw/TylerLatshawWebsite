@@ -1,15 +1,15 @@
 export function getCurrentDate() {
-    var month = new Date().getMonth() + 1;
-    var date = new Date().getDate();
-    var year = new Date().getFullYear();
+    const month = new Date().getMonth() + 1;
+    const date = new Date().getDate();
+    const year = new Date().getFullYear();
 
     return month + "/" + date + "/" + year;
 }
 
 export function getCurrentDateISOFormat() {
-    var month = new Date().getMonth();
-    var date = new Date().getDate();
-    var year = new Date().getFullYear();
+    const month = new Date().getMonth();
+    const date = new Date().getDate();
+    const year = new Date().getFullYear();
 
     const fullDate = new Date(year, month, date);
     const result = fullDate.toISOString().substring(0, 10);
@@ -18,9 +18,9 @@ export function getCurrentDateISOFormat() {
 }
 
 export function getCurrentDateTime(date: string) {
-    var hours = new Date().getHours();
-    var minutes = new Date().getMinutes();
-    var seconds = new Date().getSeconds();
+    const hours = new Date().getHours();
+    const minutes = new Date().getMinutes();
+    const seconds = new Date().getSeconds();
 
     return date + " " + hours + ":" + minutes + ":" + seconds;
 }

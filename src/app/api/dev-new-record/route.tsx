@@ -2,13 +2,14 @@ import { addRecord } from "@/database/records";
 import { NextResponse } from "next/server";
 
 export type RequestJson = {
-    apiKey: string
-    recordName: string
-    artistId: number
-    genreId: number[]
-    year: number
-    imageUrl: string
-    discogsUrl: string
+    apiKey: string,
+    recordName: string,
+    artistId: number,
+    artistTypeId: number,
+    genreId: number[],
+    year: number,
+    imageUrl: string,
+    discogsUrl: string,
 }
 
 export async function POST(request: Request) {
@@ -16,19 +17,21 @@ export async function POST(request: Request) {
     const { apiKey,
         recordName,
         artistId,
+        artistTypeId,
         genreId,
         year,
         imageUrl,
         discogsUrl } = await request.json() as RequestJson;
 
-    var formData = {
+    const formData = {
         apiKey,
         recordName,
         artistId,
+        artistTypeId,
         genreId,
         year,
         imageUrl,
-        discogsUrl
+        discogsUrl,
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
@@ -38,12 +41,12 @@ export async function POST(request: Request) {
 
         return NextResponse.json({
             status: "Ok",
-            message: formData.recordName + " successfully added!"
+            message: formData.recordName + " successfully added!",
         });
     }
 
     return NextResponse.json({
         status: "Error",
-        message: "Authentication Error: Invalid API Key"
+        message: "Authentication Error: Invalid API Key",
     });
 }

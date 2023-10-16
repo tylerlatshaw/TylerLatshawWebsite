@@ -7,9 +7,9 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-handle-new-record/route";
-import { RequestJson as RequestJsonNewArtist } from "@/app/api/dev-handle-new-artist/route";
-import { RequestJson as RequestJsonNewGenre } from "@/app/api/dev-handle-new-genre/route";
+import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-new-record/route";
+import { RequestJson as RequestJsonNewArtist } from "@/app/api/dev-new-artist/route";
+import { RequestJson as RequestJsonNewGenre } from "@/app/api/dev-new-genre/route";
 import { Artists, Genres } from "@/database/records";
 import CreatableSelect from "react-select/creatable";
 import { DropdownItem, dropdownStyles } from "./developer-accordion";
@@ -41,7 +41,7 @@ export default function AddRecordsForm() {
     } = useForm<FormInputs>({});
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const [artists, setArtists] = useState<Artists[]>([]);
     const [genres, setGenres] = useState<Genres[]>([]);
@@ -72,7 +72,7 @@ export default function AddRecordsForm() {
         setLoadingState(true);
 
         try {
-            var enteredKey;
+            let enteredKey;
 
             if (environment === "development") {
                 enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
@@ -80,10 +80,10 @@ export default function AddRecordsForm() {
                 enteredKey = formData.apiKey;
             }
 
-            var artist: number;
+            let artist: number;
 
             if (isNaN(+formData.artist.value!)) {
-                const { data } = await axios.post("/api/dev-handle-new-artist", {
+                const { data } = await axios.post("/api/dev-new-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
                 } as RequestJsonNewArtist);
@@ -92,11 +92,11 @@ export default function AddRecordsForm() {
                 artist = +formData.artist.value!;
             }
 
-            var genres: number[] = [];
+            const genres: number[] = [];
 
-            for (var i = 0; i < formData.genre.length; i++) {
+            for (let i = 0; i < formData.genre.length; i++) {
                 if (isNaN(+formData.genre![i].value!)) {
-                    const { data } = await axios.post("/api/dev-handle-new-genre", {
+                    const { data } = await axios.post("/api/dev-new-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
                     } as RequestJsonNewGenre);
@@ -106,14 +106,15 @@ export default function AddRecordsForm() {
                 }
             }
 
-            const { data } = await axios.post("/api/dev-handle-new-record", {
+            const { data } = await axios.post("/api/dev-new-record", {
                 apiKey: enteredKey,
                 recordName: formData.recordName,
                 artistId: artist,
+                artistTypeId: 1,
                 genreId: genres,
                 year: +formData.year!,
                 imageUrl: formData.imageUrl,
-                discogsUrl: formData.discogsUrl
+                discogsUrl: formData.discogsUrl,
             } as RequestJsonNewRecord);
 
             if (data.status === "Error") {
@@ -180,9 +181,6 @@ export default function AddRecordsForm() {
                     <Controller name="artist" control={control} rules={{ required: true }} render={({ field }) =>
                         <CreatableSelect {...field} isClearable={false} isMulti={false} isLoading={loadingState} options={loadingState ? [] : artistOptions} noOptionsMessage={() => noDataFound("Artists")} styles={dropdownStyles} components={{ Input: props => <components.Input {...props} maxLength={50} /> }} required />
                     } />
-                    {/* <Controller name="artist" control={control} rules={{ required: true }} render={({ field: { onBlur, onChange, value, name } }) =>
-                        <CreatableSelect name={name} isClearable={false} isMulti={false} isLoading={loadingState} onBlur={onBlur} value={value} onChange={onChange} options={loadingState ? [] : artistOptions} noOptionsMessage={() => noDataFound("Artists")} styles={dropdownStyles} components={{ Input: props => <components.Input {...props} maxLength={50} /> }} required />
-                    } /> */}
                 </div>
                 <div className="relative w-full group">
                     <label htmlFor="genre" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
@@ -191,9 +189,6 @@ export default function AddRecordsForm() {
                     <Controller name="genre" control={control} rules={{ required: true }} render={({ field }) =>
                         <CreatableSelect {...field} isClearable={true} isMulti={true} isLoading={loadingState} options={loadingState ? [] : genreOptions} noOptionsMessage={() => noDataFound("Genres")} styles={dropdownStyles} components={{ Input: props => <components.Input {...props} maxLength={15} /> }} required />
                     } />
-                    {/* <Controller name="genre" control={control} rules={{ required: true }} render={({ field: { onBlur, onChange, value, name } }) =>
-                        <CreatableSelect name={name} isClearable={true} isMulti={true} isLoading={loadingState} onBlur={onBlur} value={value} onChange={onChange} options={loadingState ? [] : genreOptions} noOptionsMessage={() => noDataFound("Genres")} styles={dropdownStyles} components={{ Input: props => <components.Input {...props} maxLength={15} /> }} required />
-                    } /> */}
                 </div>
                 <div className="relative w-full group">
                     <input {...register("year")} type="number" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" min={1900} max={2100} required disabled={loadingState} />

@@ -7,13 +7,13 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-handle-edit-record/route";
-import { RequestJson as RequestJsonNewArtist } from "@/app/api/dev-handle-new-artist/route";
-import { RequestJson as RequestJsonNewGenre } from "@/app/api/dev-handle-new-genre/route";
-import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-handle-new-record-to-genre/route";
-import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-handle-new-record-to-artist/route";
-import { RequestJson as RequestJsonDeleteRecordToGenre } from "@/app/api/dev-handle-delete-record-to-genre/route";
-import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-handle-delete-record-to-artist/route";
+import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-edit-record/route";
+import { RequestJson as RequestJsonNewArtist } from "@/app/api/dev-new-artist/route";
+import { RequestJson as RequestJsonNewGenre } from "@/app/api/dev-new-genre/route";
+import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-new-record-to-genre/route";
+import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-new-record-to-artist/route";
+import { RequestJson as RequestJsonDeleteRecordToGenre } from "@/app/api/dev-delete-record-to-genre/route";
+import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-delete-record-to-artist/route";
 import { Artists, Genres, RecordData } from "@/database/records";
 import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
@@ -48,7 +48,7 @@ export default function EditRecordsForm() {
     } = useForm<FormInputs>();
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const [showFormFields, setShowFormFields] = useState<boolean>(false);
     const [records, setRecords] = useState<RecordData[]>([]);
@@ -97,7 +97,7 @@ export default function EditRecordsForm() {
             record.Genres.split(",").map((e) => {
                 recordGenres.push({
                     value: +e.split("%")[0],
-                    label: e.split("%")[1]
+                    label: e.split("%")[1],
                 });
             });
 
@@ -116,7 +116,7 @@ export default function EditRecordsForm() {
         setLoadingState(true);
 
         try {
-            var enteredKey;
+            let enteredKey;
 
             if (environment === "development") {
                 enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
@@ -124,10 +124,10 @@ export default function EditRecordsForm() {
                 enteredKey = formData.apiKey;
             }
 
-            var artist: number;
+            let artist: number;
 
             if (isNaN(+formData.artist.value!)) {
-                const { data } = await axios.post("/api/dev-handle-new-artist", {
+                const { data } = await axios.post("/api/dev-new-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
                 } as RequestJsonNewArtist);
@@ -136,11 +136,11 @@ export default function EditRecordsForm() {
                 artist = +formData.artist.value!;
             }
 
-            var genreNumberArray: number[] = [];
+            const genreNumberArray: number[] = [];
 
             for (var i = 0; i < formData.genre.length; i++) {
                 if (isNaN(+formData.genre![i].value!)) {
-                    const { data } = await axios.post("/api/dev-handle-new-genre", {
+                    const { data } = await axios.post("/api/dev-new-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
                     } as RequestJsonNewGenre);
@@ -153,39 +153,40 @@ export default function EditRecordsForm() {
             }
 
             const record = records.filter((recordId) => recordId.RecordId === selectedRecord?.value)[0];
-            var dataBuilder: RequestJsonEditRecord = {
+            const dataBuilder: RequestJsonEditRecord = {
                 apiKey: "",
                 recordId: undefined,
-                recordName: undefined,
+                originalRecordName: record.RecordName,
+                newRecordName: undefined,
                 year: undefined,
                 imageUrl: undefined,
-                discogsUrl: undefined
+                discogsUrl: undefined,
             };
 
             dataBuilder!.apiKey = enteredKey;
             dataBuilder!.recordId = +formData.record.value!;
-            record.RecordName !== formData.recordName ? dataBuilder!.recordName = formData.recordName : dataBuilder!.recordName = undefined;
+            record.RecordName !== formData.recordName ? dataBuilder!.newRecordName = formData.recordName : dataBuilder!.newRecordName = undefined;
 
             if (record.ArtistId !== artist) {
                 //Delete unused record to artist relationships
-                await axios.post("/api/dev-handle-delete-record-to-artist", {
+                await axios.post("/api/dev-delete-record-to-artist", {
                     apiKey: enteredKey,
                     recordId: dataBuilder!.recordId,
                     artistId: record.ArtistId,
-                    artistTypeId: 1
+                    artistTypeId: 1,
                 } as RequestJsonDeleteRecordToArtist);
 
                 //Add new record to artist relationships
-                await axios.post("/api/dev-handle-new-record-to-artist", {
+                await axios.post("/api/dev-new-record-to-artist", {
                     apiKey: enteredKey,
                     recordId: dataBuilder!.recordId,
                     artistId: artist,
-                    artistTypeId: 1
+                    artistTypeId: 1,
                 } as RequestJsonNewRecordToArtist);
             }
 
-            var originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
-            var originalGenreList: number[] = []; //Array of the genre list split only as numbers
+            const originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
+            const originalGenreList: number[] = []; //Array of the genre list split only as numbers
 
             for (var i = 0; i < originalGenreSplit.length; i++) {
                 originalGenreList.push(+originalGenreSplit[i].split("%")[0]); //Push genre IDs to array
@@ -196,7 +197,7 @@ export default function EditRecordsForm() {
                 //Delete unused record to genre relationships
                 for (var i = 0; i < originalGenreList.length; i++) {
                     if (!genreNumberArray.includes(originalGenreList[i])) {
-                        await axios.post("/api/dev-handle-delete-record-to-genre", {
+                        await axios.post("/api/dev-delete-record-to-genre", {
                             apiKey: enteredKey,
                             recordId: dataBuilder!.recordId,
                             genreId: originalGenreList[i],
@@ -207,7 +208,7 @@ export default function EditRecordsForm() {
                 //Add new record to genre relationships
                 for (var i = 0; i < genreNumberArray.length; i++) {
                     if (!originalGenreList.includes(genreNumberArray[i])) {
-                        await axios.post("/api/dev-handle-new-record-to-genre", {
+                        await axios.post("/api/dev-new-record-to-genre", {
                             apiKey: enteredKey,
                             recordId: dataBuilder!.recordId,
                             genreId: genreNumberArray[i],
@@ -220,10 +221,11 @@ export default function EditRecordsForm() {
             record.ImageUrl !== formData.imageUrl ? dataBuilder!.imageUrl = formData.imageUrl : dataBuilder!.imageUrl = undefined;
             record.DiscogUrl !== formData.discogsUrl ? dataBuilder!.discogsUrl = formData.discogsUrl : dataBuilder!.discogsUrl = undefined;
 
-            const { data } = await axios.post("/api/dev-handle-edit-record", {
+            const { data } = await axios.post("/api/dev-edit-record", {
                 apiKey: dataBuilder.apiKey,
                 recordId: dataBuilder.recordId,
-                recordName: dataBuilder.recordName,
+                originalRecordName: dataBuilder.originalRecordName,
+                newRecordName: dataBuilder.newRecordName,
                 year: dataBuilder.year,
                 imageUrl: dataBuilder.imageUrl,
                 discogsUrl: dataBuilder.discogsUrl,
@@ -232,9 +234,11 @@ export default function EditRecordsForm() {
             if (data.status === "Error") {
                 setSubmitState("Error");
             } else {
-                setSubmitState("Success");
+                remapFields();
                 setShowFormFields(false);
+                setSubmitState("Success");
                 reset();
+                setValue("record", { value: undefined, label: undefined });
             }
 
             setResponseMessage(data.message);
@@ -273,6 +277,20 @@ export default function EditRecordsForm() {
         }
 
         return "";
+    }
+
+    function remapFields() {
+        axios.get("/api/dev-get-record-data").then((response) => {
+            setRecords(response.data);
+        });
+
+        axios.get("/api/dev-get-artists").then((response) => {
+            setArtists(response.data);
+        });
+
+        axios.get("/api/dev-get-genres").then((response) => {
+            setGenres(response.data);
+        });
     }
 
     return (

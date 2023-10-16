@@ -15,12 +15,12 @@ export async function POST(request: Request) {
 
     const dateTime = getCurrentDateTime(getCurrentDate());
 
-    var formData: NewWorkout = {
+    const formData: NewWorkout = {
         date,
         dateTime,
         muscleGroup,
         workoutName,
-        weight
+        weight,
     };
 
     await Promise.all([
@@ -29,6 +29,6 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
         status: "Ok",
-        message: workoutName + " added successfully!"
+        message: workoutName + " added successfully!",
     });
 }

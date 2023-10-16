@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 import MessageReceived from "@/components/emails/new-message-received";
-import ThankYouEmail from "@/components/emails/thank-you-email";
+import ComingSoonOnList from "@/components/emails/coming-soon-on-the-list";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { addContactToDatabase } from "@/database/contact";
+import { addContactToDatabase, lookupByEmailAndSource } from "@/database/contact";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
@@ -22,11 +22,20 @@ export async function POST(request: Request) {
 
     const { name, email, message, source, referringPage } = await request.json() as RequestJson;
 
+    const contact = await lookupByEmailAndSource(email, source);
+
+    if(contact) {
+        return NextResponse.json({
+            status: "Ok",
+            message: "You're already on the list!",
+        });
+    }
+
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
-    var title = "";
+    const title = "";
 
-    var messageData = {
+    const messageData = {
         date,
         dateTime,
         title,
@@ -34,7 +43,7 @@ export async function POST(request: Request) {
         email,
         message,
         source,
-        referringPage
+        referringPage,
     };
 
     await Promise.all([
@@ -42,21 +51,21 @@ export async function POST(request: Request) {
         resend.sendEmail({
             from: `${fromAddress}`,
             to: `${myEmailAddress}`,
-            subject: "New Contact Form Submission: " + email,
+            subject: "Notify When Site Goes Live: " + email,
             text: "",
-            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission" }} />
+            react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />,
         }),
         resend.sendEmail({
             from: `${fromAddress}`,
             to: email,
-            subject: "Thanks for reaching out!",
+            subject: "You're on the List!",
             text: "",
-            react: <ThankYouEmail messageData={{ ...messageData, title: "I'll be in touch soon! ✉️" }} />
+            react: <ComingSoonOnList messageData={{ ...messageData, title: "You're on the list! ✅" }} />,
         })
     ]);
 
     return NextResponse.json({
         status: "Ok",
-        message: "Got it! I'll be in touch soon."
+        message: "Got it! I'll notify you when the site goes live.",
     });
 }

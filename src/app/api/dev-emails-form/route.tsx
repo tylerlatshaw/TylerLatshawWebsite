@@ -40,7 +40,7 @@ export async function POST(request: Request) {
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
 
-    var formData = {
+    const formData = {
         date,
         dateTime,
         selection,
@@ -51,7 +51,7 @@ export async function POST(request: Request) {
         name,
         message,
         source,
-        referringPage
+        referringPage,
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
@@ -62,7 +62,7 @@ export async function POST(request: Request) {
                     to: formData.email,
                     subject: devPrefix + "Thanks for reaching out!" + " " + dateTime,
                     text: "",
-                    react: <AutoReplyEmail messageData={{ ...formData, title: "I'll be in touch soon! ✉️" }} />
+                    react: <AutoReplyEmail messageData={{ ...formData, title: "I'll be in touch soon! ✉️" }} />,
                 })
             ]);
         }
@@ -73,7 +73,7 @@ export async function POST(request: Request) {
                 to: formData.email,
                 subject: devPrefix + "You're on the List!" + " " + dateTime,
                 text: "",
-                react: <CsOnList messageData={{ ...formData, title: "You're on the list! ✅" }} />
+                react: <CsOnList messageData={{ ...formData, title: "You're on the list! ✅" }} />,
             });
         }
 
@@ -83,7 +83,7 @@ export async function POST(request: Request) {
                 to: formData.email,
                 subject: devPrefix + "Exciting News: My Website is Now Live! 🎉" + " " + dateTime,
                 text: "",
-                react: <CsSiteLive messageData={{ ...formData, title: "Exciting News: My Website is Now LIVE! 🎉" }} />
+                react: <CsSiteLive messageData={{ ...formData, title: "Exciting News: My Website is Now LIVE! 🎉" }} />,
             });
         }
 
@@ -94,19 +94,19 @@ export async function POST(request: Request) {
                     to: formData.email,
                     subject: devPrefix + "New Contact Form Submission: " + formData.email + " " + dateTime,
                     text: "",
-                    react: <MessageReceived messageData={{ ...formData, title: "New Contact Form Submission" }} />
+                    react: <MessageReceived messageData={{ ...formData, title: "New Contact Form Submission" }} />,
                 })
             ]);
         }
 
         return NextResponse.json({
             status: "Ok",
-            message: formData.formName + " sent successfully to " + formData.email
+            message: formData.formName + " sent successfully to " + formData.email,
         });
     }
 
     return NextResponse.json({
         status: "Error",
-        message: "Authentication Error: Invalid API Key"
+        message: "Authentication Error: Invalid API Key",
     });
 }

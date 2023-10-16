@@ -20,8 +20,8 @@ export async function addContactToDatabase(messageData: MessageData) {
             Email: messageData.email,
             Message: messageData.message,
             ReferringPage: messageData.referringPage,
-            FormSource: messageData.source
-        }
+            FormSource: messageData.source,
+        },
     });
 }
 
@@ -29,8 +29,8 @@ export async function lookupByEmailAndSource(email: string, source: string) {
     const contact = await prisma.contact.findFirst({
         where: {
             Email: email,
-            FormSource: source
-        }
+            FormSource: source,
+        },
     });
 
     return contact;

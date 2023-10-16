@@ -2,7 +2,7 @@
 
 import {
     Card,
-    Avatar,
+    Avatar
 } from "@material-tailwind/react";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 //import axios from "axios";
@@ -12,36 +12,36 @@ const tableHead = ["Muscle Group", "Workout", "Max Wieght", "Date"];
 const imageUrls = [
     {
         muscleGroup: "Abs",
-        url: "/static/gym/abs.png"
+        url: "/static/gym/abs.png",
     },
     {
         muscleGroup: "Back",
-        url: "/static/gym/back.png"
+        url: "/static/gym/back.png",
     },
     {
         muscleGroup: "Biceps",
-        url: "/static/gym/biceps.png"
+        url: "/static/gym/biceps.png",
     },
     {
         muscleGroup: "Chest",
-        url: "/static/gym/chest.png"
+        url: "/static/gym/chest.png",
     },
     {
         muscleGroup: "Forearms",
-        url: "/static/gym/forearms.png"
+        url: "/static/gym/forearms.png",
     },
     {
         muscleGroup: "Legs",
-        url: "/static/gym/legs.png"
+        url: "/static/gym/legs.png",
     },
     {
         muscleGroup: "Shoulders",
-        url: "/static/gym/shoulders.png"
+        url: "/static/gym/shoulders.png",
     },
     {
         muscleGroup: "Triceps",
-        url: "/static/gym/triceps.png"
-    },
+        url: "/static/gym/triceps.png",
+    }
 ];
 
 const tableRows = [
@@ -49,50 +49,50 @@ const tableRows = [
         muscleGroup: "Abs",
         workout: "Workout Name",
         maxWeight: 123,
-        date: "12/10/2023"
+        date: "12/10/2023",
     },
     {
         muscleGroup: "Back",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
+        date: "09/08/2023",
     },
     {
         muscleGroup: "Biceps",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
+        date: "09/08/2023",
     },
     {
         muscleGroup: "Chest",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
+        date: "09/08/2023",
     },
     {
         muscleGroup: "Forearms",
         workout: "Workout Name",
         maxWeight: 123,
-        date: "12/10/2023"
+        date: "12/10/2023",
     },
     {
         muscleGroup: "Legs",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
+        date: "09/08/2023",
     },
     {
         muscleGroup: "Shoulders",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
+        date: "09/08/2023",
     },
     {
         muscleGroup: "Triceps",
         workout: "Workout Name",
         maxWeight: 54,
-        date: "09/08/2023"
-    },
+        date: "09/08/2023",
+    }
 ];
 
 export default function Page() {

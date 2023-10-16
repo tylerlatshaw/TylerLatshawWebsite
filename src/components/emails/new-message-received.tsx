@@ -107,7 +107,7 @@ const container = {
     margin: "0 auto 16px auto",
     width: "648px",
     maxWidth: "648px",
-    position: "relative" as const
+    position: "relative" as const,
 };
 
 const heading = {
@@ -117,7 +117,7 @@ const heading = {
     textAlign: "center" as const,
     fontWeight: "400",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const mainSection = {
@@ -125,12 +125,12 @@ const mainSection = {
     background: "white",
     padding: "0 24px",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const text = {
     fontSize: "16px",
-    color: "black"
+    color: "black",
 };
 
 const footerLinkSection = {
@@ -140,10 +140,10 @@ const footerLinkSection = {
     fontSize: "14px",
     color: "white",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const imgFooter = {
     margin: "auto",
-    width: "200px"
+    width: "200px",
 };

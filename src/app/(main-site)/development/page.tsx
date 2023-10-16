@@ -4,6 +4,7 @@ import DeveloperEmailForm from "@/components/developer-email-send-form";
 import AddRecordsForm from "@/components/developer-add-records-form";
 import EditRecordsForm from "@/components/developer-edit-records-form";
 import DeleteRecordsForm from "@/components/developer-delete-records-form";
+import FindRecordsForm from "@/components/developer-find-records-form";
 
 export const metadata: Metadata = {
   title: "Developer Tools",
@@ -12,19 +13,23 @@ export const metadata: Metadata = {
 const developerPageItems = [
   {
     title: "Send Emails",
-    content: <DeveloperEmailForm />
+    content: <DeveloperEmailForm />,
   },
   {
     title: "Add Record Albums",
-    content: <AddRecordsForm />
+    content: <AddRecordsForm />,
   },
   {
     title: "Edit Record Albums",
-    content: <EditRecordsForm />
+    content: <EditRecordsForm />,
   },
   {
     title: "Delete Record Albums",
-    content: <DeleteRecordsForm />
+    content: <DeleteRecordsForm />,
+  },
+  {
+    title: "Find Record Albums",
+    content: <FindRecordsForm />,
   }
 ];
 

@@ -8,7 +8,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RecordData } from "@/database/records";
-import { RequestJson } from "@/app/api/dev-handle-delete-record/route";
+import { RequestJson } from "@/app/api/dev-delete-record/route";
 import Select from "react-select";
 import { DropdownItem, dropdownStyles } from "./developer-accordion";
 import { components } from "react-select";
@@ -30,10 +30,11 @@ export default function DeleteRecordsForm() {
         handleSubmit,
         control,
         reset,
+        setValue,
     } = useForm<FormInputs>({});
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const [records, setRecords] = useState<RecordData[]>([]);
 
@@ -54,9 +55,9 @@ export default function DeleteRecordsForm() {
         setLoadingState(true);
 
         try {
-            var enteredKey;
-            var recordId = formData.record.value;
-            var recordName = records.find((i) => i.RecordId === +recordId!)?.RecordName;
+            let enteredKey;
+            const recordId = formData.record.value;
+            const recordName = records.find((i) => i.RecordId === +recordId!)?.RecordName;
 
             if (environment === "development") {
                 enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
@@ -64,7 +65,7 @@ export default function DeleteRecordsForm() {
                 enteredKey = formData.apiKey;
             }
 
-            const { data } = await axios.post("/api/dev-handle-delete-record", {
+            const { data } = await axios.post("/api/dev-delete-record", {
                 apiKey: enteredKey,
                 recordName: recordName,
                 recordId: +formData.record.value!,
@@ -74,7 +75,8 @@ export default function DeleteRecordsForm() {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");
-                reset({ "record": { value: undefined, label: undefined } });
+                reset();
+                setValue("record", { value: undefined, label: undefined });
             }
 
             axios.get("/api/dev-get-record-data").then((response) => {

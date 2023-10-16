@@ -13,10 +13,10 @@ export async function POST(request: Request) {
         recordName,
         recordId } = await request.json() as RequestJson;
 
-    var formData = {
+    const formData = {
         apiKey,
         recordName,
-        recordId
+        recordId,
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
@@ -29,13 +29,13 @@ export async function POST(request: Request) {
 
         return NextResponse.json({
             status: "Ok",
-            message: formData.recordName + " successfully deleted!"
+            message: formData.recordName + " successfully deleted!",
         });
     }
 
     return NextResponse.json({
         status: "Error",
-        message: "Authentication Error: Invalid API Key"
+        message: "Authentication Error: Invalid API Key",
     });
 }
 
@@ -43,7 +43,7 @@ async function clearUnusedArtists() {
     const artists: Artists[] = await Promise.all((await getArtists()).map(async (item) => {
         return ({
             ArtistId: item.ArtistId,
-            Name: item.Name
+            Name: item.Name,
         });
     }));
 
@@ -51,7 +51,7 @@ async function clearUnusedArtists() {
         return ({
             RecordToArtistId: item.RecordToArtistId,
             ArtistId: item.ArtistId,
-            RecordId: item.RecordId
+            RecordId: item.RecordId,
         });
     }));
 
@@ -66,7 +66,7 @@ async function clearUnusedGenres() {
     const genres: Genres[] = await Promise.all((await getGenres()).map(async (item) => {
         return ({
             GenreId: item.GenreId,
-            Name: item.Name
+            Name: item.Name,
         });
     }));
 
@@ -74,7 +74,7 @@ async function clearUnusedGenres() {
         return ({
             RecordToGenreId: item.RecordToGenreId,
             GenreId: item.GenreId,
-            RecordId: item.RecordId
+            RecordId: item.RecordId,
         });
     }));
 

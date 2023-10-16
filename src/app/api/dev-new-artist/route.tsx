@@ -18,12 +18,12 @@ export async function POST(request: Request) {
 
         return NextResponse.json({
             status: "Ok",
-            message: newValue
+            message: newValue,
         });
     }
 
     return NextResponse.json({
         status: "Error",
-        message: "Authentication Error: Invalid API Key"
+        message: "Authentication Error: Invalid API Key",
     });
 }

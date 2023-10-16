@@ -15,9 +15,9 @@ export async function POST(request: Request) {
 
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
-    var title = "";
+    const title = "";
 
-    var messageData = {
+    const messageData = {
         date,
         dateTime,
         title,
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         email,
         message,
         source,
-        referringPage
+        referringPage,
     };
 
     await Promise.all([
@@ -35,11 +35,11 @@ export async function POST(request: Request) {
             to: email,
             subject: "New Contact Form Submission" + date,
             text: "",
-            react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />
+            react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />,
         })
     ]);
 
     return NextResponse.json({
-        status: "Ok"
+        status: "Ok",
     });
 }

@@ -12,12 +12,12 @@ export default function setRecordCard(record: RecordData) {
 
     const { RecordName, ArtistName, Year, ImageUrl, DiscogUrl, Genres } = record;
 
-    var genreArray: GenreArray = [];
+    const genreArray: GenreArray = [];
 
     Genres.split(",").map((e) => {
         genreArray.push({
             genreId: +e.split("%")[0],
-            genreName: e.split("%")[1]
+            genreName: e.split("%")[1],
         });
     });
 

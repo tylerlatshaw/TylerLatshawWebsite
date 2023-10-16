@@ -8,7 +8,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson } from "@/app/api/dev-handle-emails-form/route";
+import { RequestJson } from "@/app/api/dev-emails-form/route";
 
 const environment = process.env.NODE_ENV;
 
@@ -36,19 +36,19 @@ interface TemplateSelection {
 const emailTemplate: TemplateSelection[] = [
     {
         value: "CS-OnList",
-        text: "Coming Soon - On the List"
+        text: "Coming Soon - On the List",
     },
     {
         value: "CS-SiteLive",
-        text: "Coming Soon - Site is Live"
+        text: "Coming Soon - Site is Live",
     },
     {
         value: "NewMessage",
-        text: "New Message Received"
+        text: "New Message Received",
     },
     {
         value: "AutoReply",
-        text: "Thank You Auto Reply"
+        text: "Thank You Auto Reply",
     }
 ];
 
@@ -61,12 +61,12 @@ export default function DeveloperEmailForm() {
     } = useForm<FormInputs>({
         defaultValues: {
             selection: "CS-OnList",
-            email: emailPlaceholder
-        }
+            email: emailPlaceholder,
+        },
     });
 
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
-    const [responseMessage, setResponseMessage] = useState<String>("");
+    const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const selectedTemplate = watch("selection");
 
@@ -76,7 +76,7 @@ export default function DeveloperEmailForm() {
         setLoadingState(true);
 
         try {
-            var enteredKey;
+            let enteredKey;
 
             if (environment === "development") {
                 enteredKey = `${process.env.NEXT_PUBLIC_API_KEY}`;
@@ -84,7 +84,7 @@ export default function DeveloperEmailForm() {
                 enteredKey = formData.apiKey;
             }
 
-            const { data } = await axios.post("/api/dev-handle-emails-form", {
+            const { data } = await axios.post("/api/dev-emails-form", {
                 selection: selectedTemplate,
                 formName: emailTemplate.find(emailTemplate => emailTemplate.value === selectedTemplate)?.text ?? "Email",
                 apiKey: enteredKey,
@@ -92,7 +92,7 @@ export default function DeveloperEmailForm() {
                 name: formData.name,
                 message: formData.message,
                 source: "Dev Tools",
-                referringPage: window.location.href
+                referringPage: window.location.href,
             } as RequestJson);
 
             if (data.status === "Error") {

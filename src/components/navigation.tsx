@@ -22,24 +22,24 @@ type iconLookupType = {
 const mobileLinkIcons: iconLookupType[] = [
     {
         display: "Home",
-        icon: HomeIcon
+        icon: HomeIcon,
     },
     {
         display: "Resume",
-        icon: WorkIcon
+        icon: WorkIcon,
     },
     {
         display: "Portfolio",
-        icon: SchoolIcon
+        icon: SchoolIcon,
     },
     {
         display: "Interests",
-        icon: LibraryMusicIcon
+        icon: LibraryMusicIcon,
     },
     {
         display: "Contact Me",
-        icon: EmailIcon
-    },
+        icon: EmailIcon,
+    }
 ];
 
 function lookupMobileIcon(pageName: string) {
@@ -48,7 +48,7 @@ function lookupMobileIcon(pageName: string) {
 
 export default function Navigation() {
 
-    var mobileMenuButtonColor = "#FFFFFF";
+    let mobileMenuButtonColor = "#FFFFFF";
 
     const [isOpen, setIsOpen] = useState(false);
 

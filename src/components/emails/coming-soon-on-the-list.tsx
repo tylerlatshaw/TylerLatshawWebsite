@@ -143,7 +143,7 @@ const container = {
     margin: "0 auto 16px auto",
     width: "648px",
     maxWidth: "648px",
-    position: "relative" as const
+    position: "relative" as const,
 };
 
 const heading = {
@@ -153,7 +153,7 @@ const heading = {
     textAlign: "center" as const,
     fontWeight: "400",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const mainSection = {
@@ -161,26 +161,26 @@ const mainSection = {
     background: "white",
     padding: "0 24px",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const text = {
     fontSize: "16px",
-    color: "black"
+    color: "black",
 };
 
 const alignRight = {
     display: "flex",
     flexDirection: "row-reverse" as const,
-    paddingRight: "48px"
+    paddingRight: "48px",
 };
 
 const alignCenter = {
-    textAlign: "center" as const
+    textAlign: "center" as const,
 };
 
 const signature = {
-    width: "80px"
+    width: "80px",
 };
 
 const callToAction = {
@@ -191,12 +191,12 @@ const callToAction = {
     color: "white",
     padding: "32px 24px 32px 24px",
     border: "6px solid #191919",
-    width: "600px"
+    width: "600px",
 };
 
 const ctaHeader = {
     fontSize: "22px",
-    margin: "0 0 24px 0"
+    margin: "0 0 24px 0",
 };
 
 const ctaButton = {
@@ -207,7 +207,7 @@ const ctaButton = {
     cursor: "pointer",
     borderRadius: "4px",
     margin: "8px",
-    minWidth: "78px"
+    minWidth: "78px",
 };
 
 const disclaimer = {
@@ -219,7 +219,7 @@ const disclaimer = {
     width: "100%",
     maxWidth: "648px",
     margin: "0 0 16px 0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const footerLinkSection = {
@@ -229,16 +229,16 @@ const footerLinkSection = {
     fontSize: "14px",
     color: "white",
     marginTop: "0",
-    marginBottom: "0"
+    marginBottom: "0",
 };
 
 const imgFooter = {
     margin: "auto",
-    width: "200px"
+    width: "200px",
 };
 
 const unsubscribeFooter = {
     fontSize: "14px",
     textAlign: "center" as const,
-    color: "#1a1a1a"
+    color: "#1a1a1a",
 };

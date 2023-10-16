@@ -65,7 +65,7 @@ export const dropdownStyles = {
         color: "#d1d5db", // gray-300
         "&:hover": {
             color: "#16a34a", // green-600
-        }
+        },
     }),
     loadingIndicator: (base: CSSObjectWithLabel) => ({
         ...base,
@@ -80,7 +80,7 @@ export const dropdownStyles = {
         color: "#d1d5db", // gray-300
         "&:hover": {
             color: "#16a34a", // green-600
-        }
+        },
     }),
     placeholder: (base: CSSObjectWithLabel) => ({
         ...base,
@@ -98,12 +98,12 @@ export const dropdownStyles = {
     loadingMessage: (base: CSSObjectWithLabel) => ({
         ...base,
         color: "white",
-    })
+    }),
 };
 
 export default function Accordion({ items }: { items: any; }): JSX.Element {
 
-    const [activeIndex, setActiveIndex] = useState(2);
+    const [activeIndex, setActiveIndex] = useState(4);
 
     const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? -1 : index);
