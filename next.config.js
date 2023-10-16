@@ -8,7 +8,7 @@ module.exports = {
         hostname: "i.discogs.com",
         port: "",
         pathname: "/**",
-      }
+      },
     ],
   },
 };
