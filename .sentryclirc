@@ -1,3 +1,2 @@
-
 [auth]
 token=process.env.SENTRY_AUTH_TOKEN
