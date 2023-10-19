@@ -103,7 +103,7 @@ export const dropdownStyles = {
 
 export default function Accordion({ items }: { items: any; }): JSX.Element {
 
-    const [activeIndex, setActiveIndex] = useState(4);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? -1 : index);
