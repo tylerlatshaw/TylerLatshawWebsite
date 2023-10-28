@@ -100,6 +100,26 @@ model Records {
   DiscogUrl   String?   @db.Text
 }
 
+model WordleLetters {
+  WordleLettersId Int      @id @default(autoincrement())
+  Letter          String?  @db.VarChar(1)
+  Position        Int?
+  Score           Decimal? @db.Decimal(7, 6)
+}
+
+model WordlePastWords {
+  WordlePastWordsId Int       @id @default(autoincrement())
+  Date              DateTime? @unique(map: "Date_UNIQUE") @db.Date
+  PuzzleNumber      Int?      @unique(map: "PuzzleNumber_UNIQUE")
+  WordId            Int?      @unique(map: "Word_UNIQUE")
+}
+
+model WordleWords {
+  WordleWordsId Int      @id @default(autoincrement())
+  Word          String?  @unique(map: "Word_UNIQUE") @db.VarChar(5)
+  Score         Decimal? @db.Decimal(7, 6)
+}
+
 model Workout {
   WorkoutId   Int       @id @unique(map: "WorkoutId_2") @default(autoincrement())
   DateCreated DateTime  @default(now()) @db.DateTime(0)
