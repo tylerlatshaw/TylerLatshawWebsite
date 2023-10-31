@@ -1,0 +1,123 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model ArtistType {
+  ArtistTypeId Int       @id @unique(map: "ArtistTypeId") @default(autoincrement())
+  DateCreated  DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated  DateTime? @db.DateTime(0)
+  Name         String    @db.VarChar(10)
+}
+
+model Artists {
+  ArtistId    Int       @id @unique(map: "ArtistId") @default(autoincrement())
+  DateCreated DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated DateTime? @db.DateTime(0)
+  Name        String    @unique(map: "Name") @db.VarChar(50)
+}
+
+model Contact {
+  MessageId     Int       @id @unique(map: "MessageId") @default(autoincrement())
+  DateCreated   DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated   DateTime? @db.DateTime(0)
+  Name          String    @db.VarChar(100)
+  Email         String    @db.VarChar(255)
+  Message       String    @db.Text
+  ReferringPage String    @db.VarChar(255)
+  FormSource    String?   @db.VarChar(15)
+}
+
+model Genres {
+  GenreId     Int       @id @unique(map: "GenreId") @default(autoincrement())
+  DateCreated DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated DateTime? @db.DateTime(0)
+  Name        String    @db.VarChar(15)
+}
+
+model ListenHistory {
+  ListenHistoryId Int       @id @unique(map: "ListenHistoryId")
+  DateCreated     DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated     DateTime? @db.DateTime(0)
+  ListenDate      DateTime  @db.DateTime(0)
+  SongTitle       String    @db.Text
+  Artist          String?   @db.Text
+  Album           String?   @db.Text
+}
+
+model Log {
+  LogId         Int       @id @unique(map: "LogId") @default(autoincrement())
+  DateCreated   DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated   DateTime? @db.DateTime(0)
+  CountMessages Int
+}
+
+model MuscleGroup {
+  MuscleGroupId Int       @id @default(autoincrement())
+  DateCreated   DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated   DateTime? @db.DateTime(0)
+  Name          String    @unique(map: "Name") @db.VarChar(20)
+
+  @@index([MuscleGroupId], map: "MuscleGroupId")
+}
+
+model RecordToArtist {
+  RecordToArtistId Int       @id @unique(map: "RecordToArtistId") @default(autoincrement())
+  DateCreated      DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated      DateTime? @db.DateTime(0)
+  RecordId         Int
+  ArtistId         Int
+  ArtistTypeId     Int
+
+  @@index([ArtistId], map: "ArtistId")
+  @@index([ArtistTypeId], map: "ArtistTypeId")
+  @@index([RecordId, ArtistId, ArtistTypeId], map: "RecordId")
+}
+
+model RecordToGenre {
+  RecordToGenreId Int       @id @unique(map: "RecordToGenreId") @default(autoincrement())
+  DateCreated     DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated     DateTime? @db.DateTime(0)
+  RecordId        Int
+  GenreId         Int
+
+  @@index([GenreId], map: "GenreId")
+  @@index([RecordId, GenreId], map: "RecordId")
+}
+
+model Records {
+  RecordId    Int       @id @unique(map: "RecordId") @default(autoincrement())
+  DateCreated DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated DateTime? @db.DateTime(0)
+  Name        String    @db.VarChar(50)
+  Year        Int?      @db.Year
+  ImageUrl    String?   @db.Text
+  DiscogUrl   String?   @db.Text
+}
+
+model Workout {
+  WorkoutId   Int       @id @unique(map: "WorkoutId_2") @default(autoincrement())
+  DateCreated DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated DateTime? @db.DateTime(0)
+  Name        String    @db.VarChar(50)
+  MaxWeight   Int
+  WorkoutDate DateTime  @default(now()) @db.DateTime(0)
+
+  @@index([WorkoutId], map: "WorkoutId")
+}
+
+model WorkoutToMuscleGroup {
+  WorkoutToMuscleGroupId Int       @id @unique(map: "WorkoutToMuscleGroupId") @default(autoincrement())
+  DateCreated            DateTime  @default(now()) @db.DateTime(0)
+  DateUpdated            DateTime? @db.DateTime(0)
+  WorkoutId              Int
+  MuscleGroupId          Int
+
+  @@index([MuscleGroupId], map: "MuscleGroupId")
+  @@index([WorkoutId, MuscleGroupId], map: "WorkoutId")
+}

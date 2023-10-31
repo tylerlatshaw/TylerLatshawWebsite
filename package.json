@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npx prisma generate && next build",
     "start": "next start",
-    "lint": "npx eslint --fix ."
+    "lint": "npx eslint --fix .",
+    "email": "email dev --dir src/components/emails --port 3001"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
