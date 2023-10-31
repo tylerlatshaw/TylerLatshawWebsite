@@ -30,7 +30,7 @@ export default function NotFound() {
 
                     <div className="flex flex-col justify-center w-full mt-16 md:mt-24 text-center">
                         <p className="text-xl md:text-3xl leading-none font-semibold">
-                            Sorry! This page doesn&apos;t exist. <br />
+                            Sorry! This page does not exist. <br />
                         </p>
                         <p className="text-lg md:text-2xl leading-tight mt-6 break-all md:break-words mx-auto">
                             <div className="w-fit px-5 py-4 rounded-lg border-2 border-green-500 bg-gray-800/60">
