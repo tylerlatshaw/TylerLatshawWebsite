@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://tylerlatshaw.com/"),
@@ -29,7 +30,9 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       </head>
-      {children}
+      <body className="leading-normal tracking-normal text-white bg-cover bg-fixed min-h-screen" suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }
