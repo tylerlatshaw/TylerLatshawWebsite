@@ -19,12 +19,12 @@ export default function Footer() {
     return (
         <>
             <div className="h-2 bg-gradient-to-r from-green-600 via-pink-800 to-purple-700"></div>
-            <div className="w-full pb-8 md:py-8 px-3 bg-slate-800">
+            <div className="w-full pb-8 md:py-8 px-3 bg-slate-800 text-white">
                 <div className="container mx-auto">
                     <div className="grid md:grid-cols-3">
                         <div className="grid grid-col content-start w-fit mx-auto py-6">
                             <div className="m-auto">
-                                <Link className="grid items-center text-indigo-400 no-underline hover:no-underline font-bold text-3xl sm:text-4xl" href="/">
+                                <Link className="grid items-center no-underline hover:no-underline font-bold text-3xl sm:text-4xl" href="/">
                                     <span className="logo-full-name bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-pink-800 to-purple-700">Tyler Latshaw</span>
                                 </Link>
                             </div>
@@ -33,7 +33,7 @@ export default function Footer() {
                                     <a href="mailto:tyler@tylerlatshaw.com" className="group block" target="_blank">
                                         <div className="flex items-center">
                                             <MailOutlineIcon className="group-hover:text-green-500" />&nbsp;
-                                            <h3 className="text-white group-hover:text-green-500">tyler@tylerlatshaw.com</h3>
+                                            <h3 className="group-hover:text-green-500">tyler@tylerlatshaw.com</h3>
                                         </div>
                                     </a>
                                 </div>
@@ -43,7 +43,7 @@ export default function Footer() {
                                     <a href="https://www.linkedin.com/in/tylerlatshaw/" className="group block" target="_blank">
                                         <div className="flex items-center">
                                             <LinkedInIcon className="group-hover:text-green-500" />&nbsp;
-                                            <h3 className="text-white group-hover:text-green-500">Connect With Me On LinkedIn</h3>
+                                            <h3 className="group-hover:text-green-500">Connect With Me On LinkedIn</h3>
                                         </div>
                                     </a>
                                 </div>
