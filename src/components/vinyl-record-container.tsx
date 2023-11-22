@@ -6,10 +6,6 @@ import axios from "axios";
 import { Metadata } from "next";
 import { useEffect, useState } from "react";
 
-export const metadata: Metadata = {
-    title: "My Interests",
-};
-
 export default function Page() {
     const [records, setRecords] = useState<RecordData[]>([]);
 

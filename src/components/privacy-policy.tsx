@@ -1,6 +1,6 @@
 "use client";
 
-import { PrivacyPolicyText } from "./privacy-policy-text";
+import { PrivacyPolicyText } from "../app/lib/privacy-policy-text";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";

@@ -10,7 +10,7 @@ export default function Page() {
     <div className="h-full px-4 md:px-0 mb-16 md:mb-40">
       <div className="container flex flex-wrap mx-auto pt-28 md:pt-36">
 
-        <h1 className="w-full mb-8 text-3xl md:text-4xl font-bold text-center">My Interests</h1>
+        <h1>My Interests</h1>
 
         <section className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-4 p-2 w-full">
 
