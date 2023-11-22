@@ -9,12 +9,12 @@ export default function Page() {
     <div className="h-full px-4 md:px-0">
       <div className="container pt-24 md:pt-36 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         {/* Left column */}
-        <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden">
-          <h1 className="my-4 text-3xl md:text-5xl leading-tight font-bold text-center md:text-left">
+        <div className="flex flex-col w-full xl:w-2/5 justify-center lg:items-start overflow-y-hidden px-8 md:px-0">
+          <h1 className="my-4 text-4xl md:text-5xl leading-tight font-bold text-center md:text-left">
             Hello! I&apos;m&nbsp;
             <span className="logo-first-name bg-clip-text text-transparent bg-gradient-to-r from-green-500 via-pink-600 to-purple-500">Tyler</span>, a certified technical business analyst and trivia-lover.
           </h1>
-          <span className="homepage-subtext leading-normal text-base text-green-500 md:text-xl mb-8 text-center md:text-left">
+          <span className="homepage-subtext mb-8 leading-normal text-xl text-center md:text-left text-green-500">
             *The certifications are for being a technical business analyst, not a trivia-lover.
           </span>
 
@@ -40,11 +40,11 @@ export default function Page() {
     </div>
 
     {/* Main */}
-    <div className="container mt-12 md:mt-16 mb-16 md:pb-8 md:mb-28 mx-auto px-4 md:px-0 flex flex-wrap flex-col md:flex-row items-center">
+    <div className="container my-8 md:my-16 md:pb-8 px-4 md:px-0 flex flex-wrap flex-col md:flex-row items-center mx-auto">
 
-      <h2 className="w-full text-center text-2xl leading-tight md:leading-tight md:text-4xl text-white font-bold">Get to Know Me</h2>
+      <h2 className="w-full text-center">Get to Know Me</h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 w-full text-center justify-items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 mt-2 w-full text-center justify-items-center">
         {/* Left column */}
         <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
           <Link href="/resume">
