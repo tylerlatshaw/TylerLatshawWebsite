@@ -2,16 +2,14 @@ import Image from "next/image";
 import { Metadata } from "next";
 import ProfessionalProfile from "@/components/resume/professional-profile";
 import EducationSection from "@/components/resume/education";
+import SkillList from "@/components/resume/skills";
+import CertificationList from "@/components/resume/certifications";
 import JobTimeline from "@/components/resume/job-timeline";
 import InternTimeline from "@/components/resume/intern-timeline";
-import SkillsCertifications from "@/components/resume/certifications";
-import SkillList from "@/components/resume/skills";
 
 export const metadata: Metadata = {
   title: "Resume",
 };
-
-const headingClasses = " ";
 
 export default function Page() {
   return <>
@@ -27,43 +25,39 @@ export default function Page() {
 
           <div className="basis-1/2 flex flex-row justify-evenly items-center">
             <div className="w-full">
-              <h2 className={headingClasses}>Professional Profile</h2>
+              <h2>Professional Profile</h2>
               <ProfessionalProfile />
             </div>
           </div>
         </div>
 
         <div className="w-full">
-          <h2 className={headingClasses}>Education</h2>
+          <h2>Education</h2>
           <EducationSection />
         </div>
 
         <div className="w-full">
-          <h2 className={headingClasses}>Professional Projects & Presentations</h2>
+          <h2>Professional Projects & Presentations</h2>
         </div>
 
         <div className="w-full">
-          <h2 className={headingClasses}>Skills</h2>
+          <h2>Skills & Certifications</h2>
           <SkillList />
-        </div>
-
-        <div className="w-full">
-          <h2 className={headingClasses}>Certifications</h2>
-          <SkillsCertifications />
+          <CertificationList />
         </div>
 
         <div className="mx-auto w-full md:w-fit max-w-5xl">
-          <h2 className={headingClasses}>Professional Experience</h2>
+          <h2>Professional Experience</h2>
           <JobTimeline />
         </div>
 
         <div className="mx-auto w-full md:w-fit max-w-5xl">
-          <h2 className={headingClasses}>Internship Experience</h2>
+          <h2>Internship Experience</h2>
           <InternTimeline />
         </div>
 
         <div className="w-full">
-          <h2 className={headingClasses}>Volunteer Work</h2>
+          <h2>Volunteer Work</h2>
         </div>
 
       </div>

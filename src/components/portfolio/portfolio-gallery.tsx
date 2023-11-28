@@ -9,9 +9,7 @@ export default function PortfolioGallery() {
     function createPortfolioCard(portfolioItem: portfolioOptionType) {
 
         const { portfolioSlug, name, isFeatured, associatedWith, previewLink } = portfolioItem;
-
         const associatedOrganization = companyData.find((company) => company.company === associatedWith);
-
         var cardStyles = "flex w-full h-80 group hover:shadow-xl ";
         var infoSection = "flex flex-col justify-between px-4 py-3 md:px-6 md:py-5 bg-slate-900 ";
         var imageSection = "relative overflow-hidden ";

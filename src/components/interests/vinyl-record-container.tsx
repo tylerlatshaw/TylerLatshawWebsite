@@ -1,6 +1,6 @@
 "use client";
 
-import setRecordCard from "@/components/vinyl-record-card";
+import setRecordCard from "@/components/interests/vinyl-record-card";
 import { RecordData } from "@/database/records";
 import axios from "axios";
 import { Metadata } from "next";

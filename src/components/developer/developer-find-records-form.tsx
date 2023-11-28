@@ -8,8 +8,8 @@ import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { Artists, Genres, RecordData } from "@/database/records";
 import Select from "react-select";
-import { DropdownItem, dropdownStyles } from "./developer-accordion";
-import noDataFound from "../no-data-found";
+import { DropdownItem, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
+import noDataFound from "../global-components/no-data-found";
 
 type FormInputs = {
     artist: DropdownItem[],
@@ -98,7 +98,7 @@ export default function AddRecordsForm() {
         <>
             <form className="flex flex-wrap w-full mt-1 developer-tools-form gap-8" method="POST" onSubmit={handleSubmit(onSubmit)}>
                 <div className="relative w-full group">
-                    <label htmlFor="artist" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
+                    <label htmlFor="artist" className={dropdownLabelStyles}>
                         Artist
                     </label>
                     <Controller name="artist" control={control} rules={{ required: false }} render={({ field }) =>
@@ -106,7 +106,7 @@ export default function AddRecordsForm() {
                     } />
                 </div>
                 <div className="relative w-full group">
-                    <label htmlFor="genre" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
+                    <label htmlFor="genre" className={dropdownLabelStyles}>
                         Genre
                     </label>
                     <Controller name="genre" control={control} rules={{ required: false }} render={({ field }) =>

@@ -1,4 +1,4 @@
-import { navigationLinkType, navigationLinks, supplementalLinks } from "@/components/navigation-links";
+import { navigationLinkType, navigationLinks, supplementalLinks } from "@/app/lib/navigation-links";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {

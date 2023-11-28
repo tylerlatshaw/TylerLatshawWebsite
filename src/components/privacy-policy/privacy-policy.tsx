@@ -1,77 +1,10 @@
 "use client";
 
-import { PrivacyPolicyText } from "../app/lib/privacy-policy-text";
+import { policyLinks } from "@/app/lib/privacy-policy-links";
+import { PrivacyPolicyText } from "../../app/lib/privacy-policy-text";
 import ArrowCircleUpIcon from "@mui/icons-material/ArrowCircleUp";
 import { Twirl as Hamburger } from "hamburger-react";
 import { useState } from "react";
-
-type headings = {
-    name: string
-    anchor: string
-}
-
-const headerLinks: headings[] = [
-    {
-        name: "Privacy Policy",
-        anchor: "#policy",
-    },
-    {
-        name: "Summary",
-        anchor: "#summary",
-    },
-    {
-        name: "Information Collected",
-        anchor: "#infocollect",
-    },
-    {
-        name: "Use of Information",
-        anchor: "#infouse",
-    },
-    {
-        name: "Information Sharing",
-        anchor: "#whoshare",
-    },
-    {
-        name: "Cookie Use",
-        anchor: "#cookies",
-    },
-    {
-        name: "Information Retention",
-        anchor: "#inforetain",
-    },
-    {
-        name: "Security",
-        anchor: "#infosafe",
-    },
-    {
-        name: "Use by Minors",
-        anchor: "#infominors",
-    },
-    {
-        name: "Your Rights",
-        anchor: "#privacyrights",
-    },
-    {
-        name: "Do Not Track",
-        anchor: "#DNT",
-    },
-    {
-        name: "California Residents",
-        anchor: "#caresidents",
-    },
-    {
-        name: "Policy Updates",
-        anchor: "#policyupdates",
-    },
-    {
-        name: "How to Contact",
-        anchor: "#contact",
-    },
-    {
-        name: "Data Request",
-        anchor: "#request",
-    }
-];
 
 export default function PrivacyPolicy() {
 
@@ -84,14 +17,14 @@ export default function PrivacyPolicy() {
     function generateNavigation() {
         return (
             <>
-                <div className="hidden md:block sticky top-0 space-y-4">
+                <div className="desktop-only sticky top-0 space-y-4">
                     <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
                         <ul className="text-base py-3">
 
-                            {headerLinks.map((links) => (
-                                <li key={links.name} className="flex items-center w-full first:font-bold first:uppercase hover:bg-gray-300/100">
-                                    <a className="w-full py-1 px-3" href={links.anchor}>
-                                        {links.name}
+                            {policyLinks.map((link) => (
+                                <li key={link.name} className="flex items-center w-full first:font-bold first:uppercase hover:bg-gray-300/100">
+                                    <a className="w-full py-1 px-3" href={link.anchor}>
+                                        {link.name}
                                     </a>
                                 </li>
                             ))}
@@ -109,7 +42,7 @@ export default function PrivacyPolicy() {
                     </div>
                 </div>
 
-                <div className="block md:hidden">
+                <div className="mobile-only">
                     <div className="h-fit bg-white/50 rounded-lg border-2 border-white">
                         <ul className="text-base">
 
@@ -124,10 +57,10 @@ export default function PrivacyPolicy() {
 
                             {isOpen ? <>
                                 <div className="gap-2 py-2">
-                                    {headerLinks.map((links) => (
-                                        <li key={links.name} className="flex items-center w-full first:hidden hover:bg-gray-300/100">
-                                            <a className="w-full px-3 py-px" href={links.anchor} onClick={() => { setIsOpen(false); }}>
-                                                {links.name}
+                                    {policyLinks.map((link) => (
+                                        <li key={link.name} className="flex items-center w-full first:hidden hover:bg-gray-300/100">
+                                            <a className="w-full px-3 py-px" href={link.anchor} onClick={() => { setIsOpen(false); }}>
+                                                {link.name}
                                             </a>
                                         </li>
                                     ))}

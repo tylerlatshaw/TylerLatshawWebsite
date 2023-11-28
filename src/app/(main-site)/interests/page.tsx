@@ -1,4 +1,4 @@
-import VinylRecordContainer from "@/components/vinyl-record-container";
+import VinylRecordContainer from "@/components/interests/vinyl-record-container";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

@@ -4,7 +4,7 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import FormFooterContact from "./footer-contact";
-import { navigationLinks, supplementalLinks } from "./navigation-links";
+import { navigationLinks, supplementalLinks } from "../../app/lib/navigation-links";
 
 export default function Footer() {
 
@@ -70,7 +70,7 @@ export default function Footer() {
                     </div>
                     <div className="w-full pt-6 text-md fade-in text-gray-400">
                         <div className="text-center" id="copyright">
-                            &copy; {new Date().getFullYear()} Tyler J. Latshaw. All rights reserved. <br className="inline md:hidden" /><span className="hidden md:inline">|</span> Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
+                            &copy; {new Date().getFullYear()} Tyler J. Latshaw. All rights reserved. <br className="mobile-only" /><span className="desktop-only">|</span> Website designed by Tyler Latshaw based on <a href="https://github.com/tailwindtoolbox" className="hover:text-slate-400" target="_blank">Tailwind Toolbox</a>.
                         </div>
                     </div>
                 </div>

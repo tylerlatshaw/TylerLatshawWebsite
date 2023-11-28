@@ -34,6 +34,6 @@ export const certificationRibbon: certificationRibbonType[] = [
         name: "ServSafe Food Protection Manager",
         altText: "ServSafe Logo",
         logo: "/static/cert-servsafe.svg",
-        link: null
+        link: "https://www.servsafe.com/access/SS/Certifications/CertSearch?IsSearch=&IssuedLastName=Latshaw&CertificateId=15595803&ProgramCode=SSMGR&IssuedFirstName=&StateProvince="
     }
 ];

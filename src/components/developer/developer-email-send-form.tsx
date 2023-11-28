@@ -8,13 +8,14 @@ import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RequestJson } from "@/app/api/dev-emails-form/route";
+import { inputStyles, inputLabelStyles } from "./dropdown-configuration";
 
 const environment = process.env.NODE_ENV;
 
 const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
-type SubmitState = "Idle" | "Success" | "Error";
 export type TemplateOptions = "CS-OnList" | "CS-SiteLive" | "NewMessage" | "AutoReply";
+type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
     selection: TemplateOptions
     formName: string
@@ -118,8 +119,8 @@ export default function DeveloperEmailForm() {
 
         return (
             <div className="relative w-full group">
-                <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={36} required disabled={loadingState} />
-                <label htmlFor="apiKey" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                <input {...register("apiKey")} type="password" className={inputStyles} maxLength={36} required disabled={loadingState} />
+                <label htmlFor="apiKey" className={inputLabelStyles}>
                     API Key
                 </label>
             </div>
@@ -131,14 +132,14 @@ export default function DeveloperEmailForm() {
             return (
                 <>
                     <div className="relative w-full group">
-                        <input {...register("name")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={100} required disabled={loadingState} />
-                        <label htmlFor="name" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                        <input {...register("name")} className={inputStyles} maxLength={100} required disabled={loadingState} />
+                        <label htmlFor="name" className={inputLabelStyles}>
                             Name
                         </label>
                     </div>
                     <div className="relative w-full group">
-                        <TextareaAutosize {...register("message")} className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" minRows={1} maxRows={4} required disabled={loadingState} />
-                        <label htmlFor="message" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-1 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                        <TextareaAutosize {...register("message")} className={inputStyles} minRows={1} maxRows={4} required disabled={loadingState} />
+                        <label htmlFor="message" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
                             Message
                         </label>
                     </div>
@@ -201,8 +202,8 @@ export default function DeveloperEmailForm() {
                     </div>
                 </div>
                 <div className="relative w-full group">
-                    <input {...register("email")} type="email" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={255} required disabled={loadingState} />
-                    <label htmlFor="email" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                    <input {...register("email")} type="email" className={inputStyles} maxLength={255} required disabled={loadingState} />
+                    <label htmlFor="email" className={inputLabelStyles}>
                         Send To
                     </label>
                 </div>

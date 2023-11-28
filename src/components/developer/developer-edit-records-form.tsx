@@ -16,9 +16,9 @@ import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-de
 import { Artists, Genres, RecordData } from "@/database/records";
 import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
-import { DropdownItem, dropdownStyles } from "./developer-accordion";
+import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import { components } from "react-select";
-import noDataFound from "../no-data-found";
+import noDataFound from "../global-components/no-data-found";
 
 const environment = process.env.NODE_ENV;
 
@@ -258,8 +258,8 @@ export default function EditRecordsForm() {
 
         return (
             <div className="relative w-full group">
-                <input {...register("apiKey")} type="password" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" maxLength={36} required disabled={loadingState} />
-                <label htmlFor="apiKey" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                <input {...register("apiKey")} type="password" className={inputStyles} maxLength={36} required disabled={loadingState} />
+                <label htmlFor="apiKey" className={inputLabelStyles}>
                     API Key
                 </label>
             </div>
@@ -297,7 +297,7 @@ export default function EditRecordsForm() {
             <form className="flex flex-wrap w-full mt-1 developer-tools-form" method="POST" onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-wrap w-full gap-8">
                     <div className="relative w-full group">
-                        <label htmlFor="record" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
+                        <label htmlFor="record" className={dropdownLabelStyles}>
                             Record
                         </label>
                         <Controller name="record" control={control} rules={{ required: true }} render={({ field }) =>
@@ -307,13 +307,13 @@ export default function EditRecordsForm() {
                     {showFormFields ? <>
                         {GetApiField()}
                         <div className="relative w-full group">
-                            <input {...register("recordName")} type="text" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                            <label htmlFor="recordName" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            <input {...register("recordName")} type="text" className={inputStyles} required disabled={loadingState} />
+                            <label htmlFor="recordName" className={inputLabelStyles}>
                                 Record Name
                             </label>
                         </div>
                         <div className="relative w-full group">
-                            <label htmlFor="artist" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
+                            <label htmlFor="artist" className={dropdownLabelStyles}>
                                 Artist
                             </label>
                             <Controller name="artist" control={control} rules={{ required: true }} render={({ field }) =>
@@ -321,7 +321,7 @@ export default function EditRecordsForm() {
                             } />
                         </div>
                         <div className="relative w-full group">
-                            <label htmlFor="genre" className="flex flex-wrap mb-2 w-full pointer-events-none select-none font-semibold text-green-600">
+                            <label htmlFor="genre" className={dropdownLabelStyles}>
                                 Genre
                             </label>
                             <Controller name="genre" control={control} rules={{ required: true }} render={({ field }) =>
@@ -329,20 +329,20 @@ export default function EditRecordsForm() {
                             } />
                         </div>
                         <div className="relative w-full group">
-                            <input {...register("year")} type="number" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                            <label htmlFor="year" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            <input {...register("year")} type="number" className={inputStyles} required disabled={loadingState} />
+                            <label htmlFor="year" className={inputLabelStyles}>
                                 Year
                             </label>
                         </div>
                         <div className="relative w-full group">
-                            <input {...register("imageUrl")} type="url" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                            <label htmlFor="imageUrl" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            <input {...register("imageUrl")} type="url" className={inputStyles} required disabled={loadingState} />
+                            <label htmlFor="imageUrl" className={inputLabelStyles}>
                                 Image URL
                             </label>
                         </div>
                         <div className="relative w-full group">
-                            <input {...register("discogsUrl")} type="url" className="peer h-full w-full border-b border-gray-400 bg-transparent pt-5 pb-1.5 outline outline-0 transition-all focus:border-green-500" required disabled={loadingState} />
-                            <label htmlFor="discogsUrl" className="font-semibold text-green-600 pointer-events-none select-none absolute left-0 -top-2.5 flex h-full w-full transition-all after:absolute after:-bottom-2.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-green-500 after:duration-300 peer-focus:after:scale-x-100">
+                            <input {...register("discogsUrl")} type="url" className={inputStyles} required disabled={loadingState} />
+                            <label htmlFor="discogsUrl" className={inputLabelStyles}>
                                 Discogs URL
                             </label>
                         </div>

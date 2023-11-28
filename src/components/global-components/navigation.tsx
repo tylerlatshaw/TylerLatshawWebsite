@@ -1,46 +1,12 @@
 "use client";
 
-import { Twirl as Hamburger } from "hamburger-react";
-import { useState } from "react";
-import { navigationLinks } from "./navigation-links";
-
-import HomeIcon from "@mui/icons-material/Home";
-import WorkIcon from "@mui/icons-material/Work";
-import SchoolIcon from "@mui/icons-material/School";
-import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
-import EmailIcon from "@mui/icons-material/Email";
-import { SvgIcon, SvgIconTypeMap } from "@mui/material";
-import { OverridableComponent } from "@mui/material/OverridableComponent";
 import Link from "next/link";
 import router from "next/router";
-
-type iconLookupType = {
-    display: string
-    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
-}
-
-const mobileLinkIcons: iconLookupType[] = [
-    {
-        display: "Home",
-        icon: HomeIcon,
-    },
-    {
-        display: "Resume",
-        icon: WorkIcon,
-    },
-    {
-        display: "Portfolio",
-        icon: SchoolIcon,
-    },
-    {
-        display: "Interests",
-        icon: LibraryMusicIcon,
-    },
-    {
-        display: "Contact Me",
-        icon: EmailIcon,
-    }
-];
+import { useState } from "react";
+import { mobileLinkIcons, navigationLinks } from "../../app/lib/navigation-links";
+import HomeIcon from "@mui/icons-material/Home";
+import SvgIcon from "@mui/icons-material/Home";
+import { Twirl as Hamburger } from "hamburger-react";
 
 function lookupMobileIcon(pageName: string) {
     return mobileLinkIcons.find(mobileLinkIcons => mobileLinkIcons.display === pageName)?.icon ?? HomeIcon;
@@ -48,10 +14,9 @@ function lookupMobileIcon(pageName: string) {
 
 export default function Navigation() {
 
-    let mobileMenuButtonColor = "#FFFFFF";
-
     const [isOpen, setIsOpen] = useState(false);
 
+    let mobileMenuButtonColor = "#FFFFFF";
     isOpen ? mobileMenuButtonColor = "#22c55e" : mobileMenuButtonColor = "#FFFFFF";
 
     if (typeof document !== "undefined") {
@@ -91,12 +56,12 @@ export default function Navigation() {
                         </div>
 
                         {/* Navbar items */}
-                        <div className="hidden md:flex items-center space-x-3">
+                        <div className="desktop-only flex items-center space-x-3">
                             {desktopMenuList}
                         </div>
 
                         {/* Mobile menu button */}
-                        <div className="md:hidden flex items-center z-50">
+                        <div className="mobile-only flex items-center z-50">
                             <button className="outline-none">
                                 <Hamburger toggled={isOpen} toggle={setIsOpen} size={20} rounded label="Show menu" color={mobileMenuButtonColor} hideOutline={false} />
                             </button>

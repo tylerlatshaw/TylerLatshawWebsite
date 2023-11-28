@@ -97,7 +97,7 @@ export default function NewWorkoutModal({ onClose }: NewWorkoutModalProps) {
                     <div className="z-50 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 mx-auto shadow-lg shadow-black rounded-lg bg-gray-700">
                         <div className="relative max-h-full rounded-lg">
 
-                            <form className="" method="POST" onSubmit={handleSubmit(onSubmit)}>
+                            <form method="POST" onSubmit={handleSubmit(onSubmit)}>
 
                                 {/* Modal Header */}
                                 <div className="border-b-[1px] border-gray-500">

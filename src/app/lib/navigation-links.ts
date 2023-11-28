@@ -1,3 +1,11 @@
+import HomeIcon from "@mui/icons-material/Home";
+import WorkIcon from "@mui/icons-material/Work";
+import SchoolIcon from "@mui/icons-material/School";
+import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
+import EmailIcon from "@mui/icons-material/Email";
+import { SvgIconTypeMap } from "@mui/material";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
+
 export type navigationLinkType = {
     display: string,
     link: string,
@@ -58,5 +66,33 @@ export const supplementalLinks: navigationLinkType[] = [
         filepath: "src/app/sitemap.xml",
         changeFrequency: "yearly",
         priority: 0.1,
+    }
+];
+
+export type iconLookupType = {
+    display: string
+    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
+}
+
+export const mobileLinkIcons: iconLookupType[] = [
+    {
+        display: "Home",
+        icon: HomeIcon,
+    },
+    {
+        display: "Resume",
+        icon: WorkIcon,
+    },
+    {
+        display: "Portfolio",
+        icon: SchoolIcon,
+    },
+    {
+        display: "Interests",
+        icon: LibraryMusicIcon,
+    },
+    {
+        display: "Contact Me",
+        icon: EmailIcon,
     }
 ];
