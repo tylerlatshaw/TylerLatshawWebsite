@@ -1,5 +1,5 @@
-import { getGenres } from "@/database/records";
 import { NextResponse } from "next/server";
+import { getGenres } from "@/database/supabase/records";
 
 export async function GET() {
     const genres = await getGenres();

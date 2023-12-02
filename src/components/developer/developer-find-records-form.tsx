@@ -6,10 +6,12 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { Artists, Genres, RecordData } from "@/database/records";
+import { RecordData } from "@/database/records";
 import Select from "react-select";
 import { DropdownItem, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import noDataFound from "../global-components/no-data-found";
+
+import type { Artists, Genres } from "@/app/lib/type-library";
 
 type FormInputs = {
     artist: DropdownItem[],

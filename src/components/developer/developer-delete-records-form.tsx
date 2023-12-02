@@ -7,11 +7,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { RecordData } from "@/database/records";
-import { RequestJson } from "@/app/api/dev-delete-record/route";
 import Select from "react-select";
 import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import { components } from "react-select";
 import noDataFound from "../global-components/no-data-found";
+
+import type { DevDeleteRecord } from "@/app/lib/type-library";
 
 const environment = process.env.NODE_ENV;
 
@@ -68,7 +69,7 @@ export default function DeleteRecordsForm() {
                 apiKey: enteredKey,
                 recordName: recordName,
                 recordId: +formData.record.value!,
-            } as RequestJson);
+            } as DevDeleteRecord);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

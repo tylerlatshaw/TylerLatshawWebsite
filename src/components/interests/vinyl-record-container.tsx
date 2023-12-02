@@ -1,13 +1,13 @@
 "use client";
 
-import setRecordCard from "@/components/interests/vinyl-record-card";
-import { RecordData } from "@/database/records";
-import axios from "axios";
-import { Metadata } from "next";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import setRecordCard from "@/components/interests/vinyl-record-card";
+
+import type { RecordDataType } from "@/app/lib/type-library";
 
 export default function Page() {
-    const [records, setRecords] = useState<RecordData[]>([]);
+    const [records, setRecords] = useState<RecordDataType[]>([]);
 
     useEffect(() => {
         axios.get("/api/dev-get-record-data").then((response) => {

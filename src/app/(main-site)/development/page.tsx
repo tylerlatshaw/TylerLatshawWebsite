@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Accordion from "@/components/developer/developer-accordion";
 import DeveloperEmailForm from "@/components/developer/developer-email-send-form";
 import AddRecordsForm from "@/components/developer/developer-add-records-form";
-import EditRecordsForm from "@/components/developer/developer-edit-records-form";
+import EditRecordsForm from "@/components/developer/developer-update-records-form";
 import DeleteRecordsForm from "@/components/developer/developer-delete-records-form";
 import FindRecordsForm from "@/components/developer/developer-find-records-form";
 
@@ -20,7 +20,7 @@ const developerPageItems = [
     content: <AddRecordsForm />,
   },
   {
-    title: "Edit Record Albums",
+    title: "Update Record Albums",
     content: <EditRecordsForm />,
   },
   {

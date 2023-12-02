@@ -7,31 +7,20 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson } from "@/app/api/dev-emails-form/route";
 import { inputStyles, inputLabelStyles } from "./dropdown-configuration";
 
-const environment = process.env.NODE_ENV;
-
-const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
+import type { DevEmailForm } from "@/app/lib/type-library";
 
 export type TemplateOptions = "CS-OnList" | "CS-SiteLive" | "NewMessage" | "AutoReply";
 type SubmitState = "Idle" | "Success" | "Error";
-type FormInputs = {
-    selection: TemplateOptions
-    formName: string
-    email: string
-    apiKey: string
-    title: string
-    name: string
-    message: string
-    source: string
-    referringPage: string
-};
 
 interface TemplateSelection {
     value: TemplateOptions,
     text: string
 }
+
+const environment = process.env.NODE_ENV;
+const emailPlaceholder = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
 const emailTemplate: TemplateSelection[] = [
     {
@@ -58,7 +47,7 @@ export default function DeveloperEmailForm() {
         register,
         handleSubmit,
         watch,
-    } = useForm<FormInputs>({
+    } = useForm<DevEmailForm>({
         defaultValues: {
             selection: "CS-OnList",
             email: emailPlaceholder,
@@ -70,7 +59,7 @@ export default function DeveloperEmailForm() {
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const selectedTemplate = watch("selection");
 
-    const onSubmit: SubmitHandler<FormInputs> = async (formData) => {
+    const onSubmit: SubmitHandler<DevEmailForm> = async (formData) => {
         setSubmitState("Idle");
         setResponseMessage("");
         setLoadingState(true);
@@ -93,7 +82,7 @@ export default function DeveloperEmailForm() {
                 message: formData.message,
                 source: "Dev Tools",
                 referringPage: window.location.href,
-            } as RequestJson);
+            } as DevEmailForm);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

@@ -1,10 +1,10 @@
 import { PrismaClient } from "@prisma/client";
 
-import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-new-record/route";
-import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-new-record-to-artist/route";
-import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-new-record-to-genre/route";
+import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-add-record/route";
+import { RequestJson as RequestJsonNewRecordToArtist } from "@/app/api/dev-add-record-to-artist/route";
+import { RequestJson as RequestJsonNewRecordToGenre } from "@/app/api/dev-add-record-to-genre/route";
 
-import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-edit-record/route";
+import { RequestJson as RequestJsonEditRecord } from "@/app/api/dev-update-record/route";
 
 import { RequestJson as RequestJsonDeleteRecord } from "@/app/api/dev-delete-record/route";
 import { RequestJson as RequestJsonDeleteRecordToArtist } from "@/app/api/dev-delete-record-to-artist/route";
@@ -26,7 +26,7 @@ export type RecordData = {
     RecordName: string,
     Year: number,
     ImageUrl: string,
-    DiscogUrl: string,
+    DiscogsUrl: string,
     ArtistId: number,
     ArtistName: string,
     Genres: string,
@@ -159,7 +159,7 @@ export async function addRecord(formData: RequestJsonNewRecord) {
             Name: formData.recordName?.trim(),
             Year: formData.year,
             ImageUrl: formData.imageUrl?.trim(),
-            DiscogUrl: formData.discogsUrl?.trim(),
+            DiscogsUrl: formData.discogsUrl?.trim(),
         },
     });
 
@@ -236,7 +236,7 @@ export async function updateRecord(formData: RequestJsonEditRecord) {
             Name: formData.newRecordName?.trim(),
             Year: formData.year,
             ImageUrl: formData.imageUrl?.trim(),
-            DiscogUrl: formData.discogsUrl?.trim(),
+            DiscogsUrl: formData.discogsUrl?.trim(),
         },
     });
 }

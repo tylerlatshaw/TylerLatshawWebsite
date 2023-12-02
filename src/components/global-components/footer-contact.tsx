@@ -8,7 +8,8 @@ import TextareaAutosize from "react-textarea-autosize";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson } from "@/app/api/footer-contact-form/route";
+
+import type { EmailData } from "@/app/lib/type-library";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -45,7 +46,7 @@ export default function FormFooterContact() {
                 message: formData.message,
                 source: "Footer",
                 referringPage: window.location.href,
-            } as RequestJson);
+            } as EmailData);
 
             setResponseMessage(data.message);
             setSubmitState("Success");

@@ -1,25 +1,22 @@
-import { deleteRecordToArtist } from "@/database/records";
 import { NextResponse } from "next/server";
+import { deleteRecordToArtist } from "@/database/supabase/records";
 
-export type RequestJson = {
-    apiKey: string
-    recordId: number
-    artistId: number
-    artistTypeId: number
-}
+import type { DeleteRecordToArtistType } from "@/app/lib/type-library";
 
 export async function POST(request: Request) {
 
-    const { apiKey,
+    const {
+        apiKey,
         recordId,
         artistId,
-        artistTypeId } = await request.json() as RequestJson;
+        artistTypeId
+    } = await request.json() as DeleteRecordToArtistType;
 
     const formData = {
         apiKey,
         recordId,
         artistId,
-        artistTypeId,
+        artistTypeId
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {

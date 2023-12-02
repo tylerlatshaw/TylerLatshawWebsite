@@ -1,22 +1,20 @@
-import { getArtists, getGenres, getRecordToArtist, getRecordToGenre, deleteRecord, Artists, RecordToArtist, Genres, RecordToGenre, deleteArtist, deleteGenre } from "@/database/records";
 import { NextResponse } from "next/server";
+import { getArtists, getGenres, getRecordToArtist, getRecordToGenre, deleteRecord, deleteArtist, deleteGenre } from "@/database/supabase/records";
 
-export type RequestJson = {
-    apiKey: string
-    recordName: string
-    recordId: number
-}
+import type { ArtistsType, DeleteRecordType, GenresType, RecordToArtistType, RecordToGenreType } from "@/app/lib/type-library";
 
 export async function POST(request: Request) {
 
-    const { apiKey,
+    const {
+        apiKey,
         recordName,
-        recordId } = await request.json() as RequestJson;
+        recordId
+    } = await request.json() as DeleteRecordType;
 
     const formData = {
         apiKey,
         recordName,
-        recordId,
+        recordId
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
@@ -40,14 +38,14 @@ export async function POST(request: Request) {
 }
 
 async function clearUnusedArtists() {
-    const artists: Artists[] = await Promise.all((await getArtists()).map(async (item) => {
+    const artists: ArtistsType[] = await Promise.all((await getArtists() ?? []).map(async (item) => {
         return ({
             ArtistId: item.ArtistId,
             Name: item.Name,
         });
     }));
 
-    const recordToArtist: RecordToArtist[] = await Promise.all((await getRecordToArtist()).map(async (item) => {
+    const recordToArtist: RecordToArtistType[] = await Promise.all((await getRecordToArtist() ?? []).map(async (item) => {
         return ({
             RecordToArtistId: item.RecordToArtistId,
             ArtistId: item.ArtistId,
@@ -56,21 +54,21 @@ async function clearUnusedArtists() {
     }));
 
     artists.map((artist) => {
-        if(!recordToArtist.some(index => index.ArtistId === artist.ArtistId)) {
+        if (!recordToArtist.some(index => index.ArtistId === artist.ArtistId)) {
             deleteArtist(artist.ArtistId);
         }
     });
 }
 
 async function clearUnusedGenres() {
-    const genres: Genres[] = await Promise.all((await getGenres()).map(async (item) => {
+    const genres: GenresType[] = await Promise.all((await getGenres() ?? []).map(async (item) => {
         return ({
             GenreId: item.GenreId,
             Name: item.Name,
         });
     }));
 
-    const recordToGenre: RecordToGenre[] = await Promise.all((await getRecordToGenre()).map(async (item) => {
+    const recordToGenre: RecordToGenreType[] = await Promise.all((await getRecordToGenre() ?? []).map(async (item) => {
         return ({
             RecordToGenreId: item.RecordToGenreId,
             GenreId: item.GenreId,
@@ -79,7 +77,7 @@ async function clearUnusedGenres() {
     }));
 
     genres.map((genre) => {
-        if(!recordToGenre.some(index => index.GenreId === genre.GenreId)) {
+        if (!recordToGenre.some(index => index.GenreId === genre.GenreId)) {
             deleteGenre(genre.GenreId);
         }
     });

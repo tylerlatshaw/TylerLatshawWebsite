@@ -97,7 +97,7 @@ model Records {
   Name        String    @db.VarChar(50)
   Year        Int?      @db.Year
   ImageUrl    String?   @db.Text
-  DiscogUrl   String?   @db.Text
+  DiscogsUrl   String?   @db.Text
 }
 
 model Workout {

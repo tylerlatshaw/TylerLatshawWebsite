@@ -6,14 +6,12 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RequestJson as RequestJsonNewRecord } from "@/app/api/dev-new-record/route";
-import { RequestJson as RequestJsonNewArtist } from "@/app/api/dev-new-artist/route";
-import { RequestJson as RequestJsonNewGenre } from "@/app/api/dev-new-genre/route";
-import { Artists, Genres } from "@/database/records";
 import CreatableSelect from "react-select/creatable";
 import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import { components } from "react-select";
 import noDataFound from "../global-components/no-data-found";
+
+import type { Artists, DevAddArtist, DevAddGenre, DevAddRecord, Genres } from "@/app/lib/type-library";
 
 const environment = process.env.NODE_ENV;
 
@@ -82,10 +80,10 @@ export default function AddRecordsForm() {
             let artist: number;
 
             if (isNaN(+formData.artist.value!)) {
-                const { data } = await axios.post("/api/dev-new-artist", {
+                const { data } = await axios.post("/api/dev-add-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
-                } as RequestJsonNewArtist);
+                } as DevAddArtist);
                 artist = +data.message;
             } else {
                 artist = +formData.artist.value!;
@@ -95,17 +93,17 @@ export default function AddRecordsForm() {
 
             for (let i = 0; i < formData.genre.length; i++) {
                 if (isNaN(+formData.genre![i].value!)) {
-                    const { data } = await axios.post("/api/dev-new-genre", {
+                    const { data } = await axios.post("/api/dev-add-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
-                    } as RequestJsonNewGenre);
+                    } as DevAddGenre);
                     genres.push(+data.message);
                 } else {
                     genres.push(+formData.genre[i].value!);
                 }
             }
 
-            const { data } = await axios.post("/api/dev-new-record", {
+            const { data } = await axios.post("/api/dev-add-record", {
                 apiKey: enteredKey,
                 recordName: formData.recordName,
                 artistId: artist,
@@ -114,7 +112,7 @@ export default function AddRecordsForm() {
                 year: +formData.year!,
                 imageUrl: formData.imageUrl,
                 discogsUrl: formData.discogsUrl,
-            } as RequestJsonNewRecord);
+            } as DevAddRecord);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

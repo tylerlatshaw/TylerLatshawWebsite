@@ -4,27 +4,27 @@ import { Resend } from "resend";
 import MessageReceived from "@/components/emails/new-message-received";
 import ComingSoonOnList from "@/components/emails/coming-soon-on-the-list";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { addContactToDatabase, lookupByEmailAndSource } from "@/database/contact";
+import { addContactMessage, getContactEmail } from "@/database/supabase/contact";
+
+import type { ComingSoonDataType } from "@/app/lib/type-library";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
 const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 
-export type RequestJson = {
-    name: string,
-    email: string,
-    message: string,
-    source: string,
-    referringPage: string,
-}
-
 export async function POST(request: Request) {
 
-    const { name, email, message, source, referringPage } = await request.json() as RequestJson;
+    const {
+        name,
+        email,
+        message,
+        source,
+        referringPage
+    } = await request.json() as ComingSoonDataType;
 
-    const contact = await lookupByEmailAndSource(email, source);
+    const contact = await getContactEmail(email, source);
 
-    if(contact) {
+    if (contact) {
         return NextResponse.json({
             status: "Ok",
             message: "You're already on the list!",
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
     };
 
     await Promise.all([
-        addContactToDatabase(messageData),
+        addContactMessage(messageData),
         resend.sendEmail({
             from: `${fromAddress}`,
             to: `${myEmailAddress}`,

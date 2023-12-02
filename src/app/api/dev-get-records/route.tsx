@@ -1,5 +1,5 @@
-import { getRecords } from "@/database/records";
 import { NextResponse } from "next/server";
+import { getRecords } from "@/database/supabase/records";
 
 export async function GET() {
     const records = await getRecords();

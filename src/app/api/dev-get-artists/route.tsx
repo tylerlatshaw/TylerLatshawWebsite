@@ -1,6 +1,8 @@
-import { portfolioOptions } from "@/app/lib/portfolio-data";
 import { NextResponse } from "next/server";
+import { getArtists } from "@/database/supabase/records";
 
 export async function GET() {
-    return NextResponse.json(portfolioOptions);
+    const artists = await getArtists();
+
+    return NextResponse.json(artists);
 }
