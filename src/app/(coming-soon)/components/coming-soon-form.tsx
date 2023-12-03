@@ -1,12 +1,13 @@
 "use client";
 
-import axios from "axios";
 import { useState } from "react";
+import axios from "axios";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { CircularProgress } from "@mui/material/";
-import { Button } from "@material-tailwind/react";
 import SendIcon from "@mui/icons-material/Send";
-import { RequestJson } from "@/app/api/coming-soon-form/route";
+import { Button } from "@material-tailwind/react";
+
+import type { ComingSoonDataType } from "@/app/lib/type-library";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -37,8 +38,8 @@ export default function ComingSoonForm() {
                 message: "Notify me when the site goes live",
                 source: "Coming Soon",
                 referringPage: window.location.href,
-            } as RequestJson);
-
+            } as ComingSoonDataType);
+            
             setResponseMessage(data.message);
             setSubmitState("Success");
             reset({

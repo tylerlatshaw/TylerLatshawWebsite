@@ -41,3 +41,11 @@ const sentryWebpackPluginOptions = {
 
 // Make sure adding Sentry options is the last code to run before exporting
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+
+module.exports = {
+  webpack: (config) => {
+    config.resolve.alias.canvas = false;
+
+    return config;
+  },
+};

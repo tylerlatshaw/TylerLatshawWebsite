@@ -7,27 +7,17 @@ import MessageReceived from "@/components/emails/new-message-received";
 import AutoReplyEmail from "@/components/emails/thank-you-email";
 
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { TemplateOptions } from "@/components/developer-email-send-form";
+
+import type { EmailFormType } from "@/app/lib/type-library";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
 const devPrefix = "[Dev] ";
 
-export type RequestJson = {
-    selection: TemplateOptions
-    formName: string
-    email: string
-    apiKey: string
-    title: string
-    name: string
-    message: string
-    source: string
-    referringPage: string
-}
-
 export async function POST(request: Request) {
 
-    const { selection,
+    const {
+        selection,
         formName,
         email,
         apiKey,
@@ -35,7 +25,8 @@ export async function POST(request: Request) {
         name,
         message,
         source,
-        referringPage } = await request.json() as RequestJson;
+        referringPage
+    } = await request.json() as EmailFormType;
 
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);
@@ -51,7 +42,7 @@ export async function POST(request: Request) {
         name,
         message,
         source,
-        referringPage,
+        referringPage
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {

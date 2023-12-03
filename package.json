@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "npx eslint --fix .",
     "email": "email dev --dir src/components/emails --port 3001"
@@ -14,10 +14,11 @@
     "@emotion/styled": "^11.11.0",
     "@material-tailwind/react": "^2.1.2",
     "@mui/icons-material": "^5.14.9",
+    "@mui/lab": "^5.0.0-alpha.151",
     "@mui/material": "^5.14.9",
-    "@prisma/client": "5.3.1",
     "@react-email/components": "^0.0.7",
     "@sentry/nextjs": "^7.74.1",
+    "@supabase/supabase-js": "^2.38.5",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
@@ -29,6 +30,7 @@
     "next": "13.4.19",
     "postcss": "8.4.27",
     "react": "18.2.0",
+    "react-card-flip": "^1.2.2",
     "react-dom": "18.2.0",
     "react-email": "^1.9.4",
     "react-hook-form": "^7.46.1",
@@ -36,6 +38,7 @@
     "react-textarea-autosize": "^8.5.3",
     "resend": "^1.0.0",
     "sharp": "^0.32.5",
+    "supabase": "1.110.3",
     "tailwindcss": "3.3.3"
   },
   "_moduleAliases": {
@@ -43,7 +46,6 @@
     "@core": "build/core"
   },
   "devDependencies": {
-    "prisma": "5.3.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.2.2"
   }

@@ -1,37 +1,36 @@
-import { PrismaClient } from "@prisma/client";
+import { supabase } from "@/utilities/supabase";
 
-const prisma = new PrismaClient();
+import type { EmailDataType } from "@/app/lib/type-library";
 
-type MessageData = {
-    date: string;
-    dateTime: string;
-    title: string;
-    name: string;
-    email: string;
-    message: string;
-    referringPage: string;
-    source: string;
-}
+export async function addContactMessage(messageData: EmailDataType) {
+    const {
+        name,
+        email,
+        message,
+        referringPage,
+        source
+    } = messageData;
 
-export async function addContactToDatabase(messageData: MessageData) {
-    await prisma.contact.create({
-        data: {
-            Name: messageData.name,
-            Email: messageData.email,
-            Message: messageData.message,
-            ReferringPage: messageData.referringPage,
-            FormSource: messageData.source,
-        },
-    });
-}
-
-export async function lookupByEmailAndSource(email: string, source: string) {
-    const contact = await prisma.contact.findFirst({
-        where: {
+    await supabase
+        .from("Contact")
+        .insert({
+            Name: name,
             Email: email,
-            FormSource: source,
-        },
-    });
+            Message: message,
+            ReferringPage: referringPage,
+            FormSource: source
+        })
+        .select();
+}
 
-    return contact;
+export async function getContactEmail(email: string, source: string) {
+    const { data } = await supabase
+        .from("Contact")
+        .select("Email, FormSource")
+        .match({
+            Email: email,
+            FormSource: source
+        });
+
+    return data;
 }
