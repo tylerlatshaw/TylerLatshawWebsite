@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import MessageReceived from "@/components/emails/new-message-received";
 import ComingSoonOnList from "@/components/emails/coming-soon-on-the-list";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { addContactMessage, getContactEmail } from "@/database/supabase/contact";
+import { addContactMessage, getContactEmail } from "@/database/contact";
 
 import type { ComingSoonDataType } from "@/app/lib/type-library";
 

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { addRecordToArtist } from "@/database/supabase/records";
+import { addRecordToArtist } from "@/database/records";
 
 import type { AddRecordToArtistType } from "@/app/lib/type-library";
 

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getArtists, getGenres, getRecordToArtist, getRecordToGenre, deleteRecord, deleteArtist, deleteGenre } from "@/database/supabase/records";
+import { getArtists, getGenres, getRecordToArtist, getRecordToGenre, deleteRecord, deleteArtist, deleteGenre } from "@/database/records";
 
 import type { ArtistsType, DeleteRecordType, GenresType, RecordToArtistType, RecordToGenreType } from "@/app/lib/type-library";
 

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { deleteRecordToGenre } from "@/database/supabase/records";
+import { deleteRecordToGenre } from "@/database/records";
 
 import type { DeleteRecordToGenreType } from "@/app/lib/type-library";
 

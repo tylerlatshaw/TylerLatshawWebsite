@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npx prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "npx eslint --fix .",
     "email": "email dev --dir src/components/emails --port 3001"
@@ -16,7 +16,6 @@
     "@mui/icons-material": "^5.14.9",
     "@mui/lab": "^5.0.0-alpha.151",
     "@mui/material": "^5.14.9",
-    "@prisma/client": "5.3.1",
     "@react-email/components": "^0.0.7",
     "@sentry/nextjs": "^7.74.1",
     "@supabase/supabase-js": "^2.38.5",
@@ -47,7 +46,6 @@
     "@core": "build/core"
   },
   "devDependencies": {
-    "prisma": "5.3.1",
     "tsconfig-paths": "^4.2.0",
     "typescript": "5.2.2"
   }

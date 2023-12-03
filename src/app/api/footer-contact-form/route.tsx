@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import MessageReceived from "@/components/emails/new-message-received";
 import ThankYouEmail from "@/components/emails/thank-you-email";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
-import { addContactMessage } from "@/database/supabase/contact";
+import { addContactMessage } from "@/database/contact";
 
 import type { FooterContactFormType } from "@/app/lib/type-library";
 

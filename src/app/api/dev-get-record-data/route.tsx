@@ -5,7 +5,7 @@ import {
     getRecords,
     getRecordToArtistById,
     getRecordToGenreById
-} from "@/database/supabase/records";
+} from "@/database/records";
 
 import type { GenresType, RecordDataType } from "@/app/lib/type-library";
 
