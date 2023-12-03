@@ -9,7 +9,7 @@ import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
 import { inputStyles, inputLabelStyles } from "./dropdown-configuration";
 
-import type { DevEmailForm } from "@/app/lib/type-library";
+import type { EmailFormType } from "@/app/lib/type-library";
 
 export type TemplateOptions = "CS-OnList" | "CS-SiteLive" | "NewMessage" | "AutoReply";
 type SubmitState = "Idle" | "Success" | "Error";
@@ -47,7 +47,7 @@ export default function DeveloperEmailForm() {
         register,
         handleSubmit,
         watch,
-    } = useForm<DevEmailForm>({
+    } = useForm<EmailFormType>({
         defaultValues: {
             selection: "CS-OnList",
             email: emailPlaceholder,
@@ -59,7 +59,7 @@ export default function DeveloperEmailForm() {
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const selectedTemplate = watch("selection");
 
-    const onSubmit: SubmitHandler<DevEmailForm> = async (formData) => {
+    const onSubmit: SubmitHandler<EmailFormType> = async (formData) => {
         setSubmitState("Idle");
         setResponseMessage("");
         setLoadingState(true);
@@ -82,7 +82,7 @@ export default function DeveloperEmailForm() {
                 message: formData.message,
                 source: "Dev Tools",
                 referringPage: window.location.href,
-            } as DevEmailForm);
+            } as EmailFormType);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

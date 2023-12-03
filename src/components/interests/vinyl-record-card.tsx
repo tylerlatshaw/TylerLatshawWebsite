@@ -20,8 +20,7 @@ export default function setRecordCard(record: RecordDataType) {
             <div>
                 <div className="group relative">
 
-                    {/* <Image src={ImageUrl} width={1} height={1} sizes="100vw" alt={RecordName} className="aspect-square w-full rounded" priority={false} /> */}
-                    <img src={ImageUrl} alt={RecordName} className="aspect-square w-full rounded" />
+                    <Image src={ImageUrl} width={1} height={1} sizes="100vw" alt={RecordName} className="aspect-square w-full rounded" priority={false} />
 
                     <div className="absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly">
                         <a href={`${DiscogsUrl}`} target="_blank">

@@ -6,12 +6,11 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RecordData } from "@/database/records";
 import Select from "react-select";
 import { DropdownItem, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import noDataFound from "../global-components/no-data-found";
 
-import type { Artists, Genres } from "@/app/lib/type-library";
+import type { ArtistsType, GenresType, RecordDataType } from "@/app/lib/type-library";
 
 type FormInputs = {
     artist: DropdownItem[],
@@ -26,10 +25,10 @@ export default function AddRecordsForm() {
     } = useForm<FormInputs>({});
 
     const [loadingState, setLoadingState] = useState<boolean>(false);
-    const [records, setRecords] = useState<RecordData[]>([]);
-    const [matchedRecords, setMatchedRecords] = useState<RecordData[]>([]);
-    const [artists, setArtists] = useState<Artists[]>([]);
-    const [genres, setGenres] = useState<Genres[]>([]);
+    const [records, setRecords] = useState<RecordDataType[]>([]);
+    const [matchedRecords, setMatchedRecords] = useState<RecordDataType[]>([]);
+    const [artists, setArtists] = useState<ArtistsType[]>([]);
+    const [genres, setGenres] = useState<GenresType[]>([]);
 
     const artistOptions: DropdownItem[] = artists.map((value) => ({
         value: value.ArtistId,
@@ -59,7 +58,7 @@ export default function AddRecordsForm() {
         setLoadingState(true);
 
         try {
-            const artistMatches: RecordData[] = [];
+            const artistMatches: RecordDataType[] = [];
 
             if (formData.artist !== undefined) {
                 for (var i = 0; i < formData.artist.length; i++) {
@@ -67,19 +66,19 @@ export default function AddRecordsForm() {
                 }
             }
 
-            const genreMatches: RecordData[] = [];
+            const genreMatches: RecordDataType[] = [];
 
-            if (formData.genre !== undefined) {
-                for (var i = 0; i < records.length; i++) {
-                    for (var j = 0; j < formData.genre.length; j++) {
-                        records[i].Genres.split(",").map((e) => {
-                            if (+e.split("%")[0] === formData.genre[j].value) {
-                                genreMatches.push(records[i]);
-                            }
-                        });
-                    }
-                }
-            }
+            // if (formData.genre !== undefined) {
+            //     for (var i = 0; i < records.length; i++) {
+            //         for (var j = 0; j < formData.genre.length; j++) {
+            //             records[i].Genres.split(",").map((e) => {
+            //                 if (+e.split("%")[0] === formData.genre[j].value) {
+            //                     genreMatches.push(records[i]);
+            //                 }
+            //             });
+            //         }
+            //     }
+            // }
 
             //let allMatches: RecordData[] = [...artistMatches, ...genreMatches];
 

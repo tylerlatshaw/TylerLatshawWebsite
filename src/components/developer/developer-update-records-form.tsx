@@ -6,7 +6,6 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import SendIcon from "@mui/icons-material/Send";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RecordData } from "@/database/records";
 import CreatableSelect from "react-select/creatable";
 import Select from "react-select";
 import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
@@ -14,15 +13,16 @@ import { components } from "react-select";
 import noDataFound from "../global-components/no-data-found";
 
 import type {
-    Artists,
-    DevAddArtist,
-    DevAddGenre,
-    DevAddRecordToArtist,
-    DevAddRecordToGenre,
-    DevDeleteRecordToArtist,
-    DevDeleteRecordToGenre,
-    DevUpdateRecord,
-    Genres
+    AddArtistType,
+    AddGenreType,
+    AddRecordToArtistType,
+    AddRecordToGenreType,
+    ArtistsType,
+    DeleteRecordToArtistType,
+    DeleteRecordToGenreType,
+    GenresType,
+    RecordDataType,
+    UpdateRecordType
 } from "@/app/lib/type-library";
 
 const environment = process.env.NODE_ENV;
@@ -55,9 +55,9 @@ export default function EditRecordsForm() {
     const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
     const [showFormFields, setShowFormFields] = useState<boolean>(false);
-    const [records, setRecords] = useState<RecordData[]>([]);
-    const [artists, setArtists] = useState<Artists[]>([]);
-    const [genres, setGenres] = useState<Genres[]>([]);
+    const [records, setRecords] = useState<RecordDataType[]>([]);
+    const [artists, setArtists] = useState<ArtistsType[]>([]);
+    const [genres, setGenres] = useState<GenresType[]>([]);
 
     const recordOptions: DropdownItem[] = records.map((value) => ({
         value: value.RecordId,
@@ -98,12 +98,12 @@ export default function EditRecordsForm() {
             const record = records.filter((recordId) => recordId.RecordId === selectedRecord?.value)[0];
             const recordGenres: DropdownItem[] = [];
 
-            record.Genres.split(",").map((e) => {
-                recordGenres.push({
-                    value: +e.split("%")[0],
-                    label: e.split("%")[1],
-                });
-            });
+            // record.Genres.split(",").map((e) => {
+            //     recordGenres.push({
+            //         value: +e.split("%")[0],
+            //         label: e.split("%")[1],
+            //     });
+            // });
 
             setValue("recordName", record.RecordName);
             setValue("artist", { value: record.ArtistId, label: record.ArtistName });
@@ -134,7 +134,7 @@ export default function EditRecordsForm() {
                 const { data } = await axios.post("/api/dev-new-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
-                } as DevAddArtist);
+                } as AddArtistType);
                 artist = +data.message;
             } else {
                 artist = +formData.artist.value!;
@@ -147,9 +147,9 @@ export default function EditRecordsForm() {
                     const { data } = await axios.post("/api/dev-new-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
-                    } as DevAddGenre);
+                    } as AddGenreType);
                     genreNumberArray.push(+data.message);
-                    const newGenre: Genres = { GenreId: +data.message[0], Name: formData.genre[i].label! };
+                    const newGenre: GenresType = { GenreId: +data.message[0], Name: formData.genre[i].label! };
                     genres.push(newGenre);
                 } else {
                     genreNumberArray.push(+formData.genre[i].value!);
@@ -157,7 +157,7 @@ export default function EditRecordsForm() {
             }
 
             const record = records.filter((recordId) => recordId.RecordId === selectedRecord?.value)[0];
-            const dataBuilder: DevUpdateRecord = {
+            const dataBuilder: UpdateRecordType = {
                 apiKey: "",
                 recordId: undefined,
                 originalRecordName: record.RecordName,
@@ -178,7 +178,7 @@ export default function EditRecordsForm() {
                     recordId: dataBuilder!.recordId,
                     artistId: record.ArtistId,
                     artistTypeId: 1,
-                } as DevDeleteRecordToArtist);
+                } as DeleteRecordToArtistType);
 
                 //Add new record to artist relationships
                 await axios.post("/api/dev-new-record-to-artist", {
@@ -186,40 +186,40 @@ export default function EditRecordsForm() {
                     recordId: dataBuilder!.recordId,
                     artistId: artist,
                     artistTypeId: 1,
-                } as DevAddRecordToArtist);
+                } as AddRecordToArtistType);
             }
 
-            const originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
-            const originalGenreList: number[] = []; //Array of the genre list split only as numbers
+            // const originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
+            // const originalGenreList: number[] = []; //Array of the genre list split only as numbers
 
-            for (var i = 0; i < originalGenreSplit.length; i++) {
-                originalGenreList.push(+originalGenreSplit[i].split("%")[0]); //Push genre IDs to array
-            }
+            // for (var i = 0; i < originalGenreSplit.length; i++) {
+            //     originalGenreList.push(+originalGenreSplit[i].split("%")[0]); //Push genre IDs to array
+            // }
 
-            if (originalGenreList.sort() !== genreNumberArray.sort()) {
+            // if (originalGenreList.sort() !== genreNumberArray.sort()) {
 
-                //Delete unused record to genre relationships
-                for (var i = 0; i < originalGenreList.length; i++) {
-                    if (!genreNumberArray.includes(originalGenreList[i])) {
-                        await axios.post("/api/dev-delete-record-to-genre", {
-                            apiKey: enteredKey,
-                            recordId: dataBuilder!.recordId,
-                            genreId: originalGenreList[i],
-                        } as DevDeleteRecordToGenre);
-                    }
-                }
+            //     //Delete unused record to genre relationships
+            //     for (var i = 0; i < originalGenreList.length; i++) {
+            //         if (!genreNumberArray.includes(originalGenreList[i])) {
+            //             await axios.post("/api/dev-delete-record-to-genre", {
+            //                 apiKey: enteredKey,
+            //                 recordId: dataBuilder!.recordId,
+            //                 genreId: originalGenreList[i],
+            //             } as DeleteRecordToGenreType);
+            //         }
+            //     }
 
-                //Add new record to genre relationships
-                for (var i = 0; i < genreNumberArray.length; i++) {
-                    if (!originalGenreList.includes(genreNumberArray[i])) {
-                        await axios.post("/api/dev-new-record-to-genre", {
-                            apiKey: enteredKey,
-                            recordId: dataBuilder!.recordId,
-                            genreId: genreNumberArray[i],
-                        } as DevAddRecordToGenre);
-                    }
-                }
-            }
+            //     //Add new record to genre relationships
+            //     for (var i = 0; i < genreNumberArray.length; i++) {
+            //         if (!originalGenreList.includes(genreNumberArray[i])) {
+            //             await axios.post("/api/dev-new-record-to-genre", {
+            //                 apiKey: enteredKey,
+            //                 recordId: dataBuilder!.recordId,
+            //                 genreId: genreNumberArray[i],
+            //             } as AddRecordToGenreType);
+            //         }
+            //     }
+            // }
 
             record.Year !== formData.year ? dataBuilder!.year = +formData.year! : dataBuilder!.year = undefined;
             record.ImageUrl !== formData.imageUrl ? dataBuilder!.imageUrl = formData.imageUrl : dataBuilder!.imageUrl = undefined;
@@ -233,7 +233,7 @@ export default function EditRecordsForm() {
                 year: dataBuilder.year,
                 imageUrl: dataBuilder.imageUrl,
                 discogsUrl: dataBuilder.discogsUrl,
-            } as DevUpdateRecord);
+            } as UpdateRecordType);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

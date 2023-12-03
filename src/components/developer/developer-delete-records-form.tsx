@@ -6,13 +6,13 @@ import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { CircularProgress } from "@mui/material/";
 import { Button } from "@material-tailwind/react";
-import { RecordData } from "@/database/records";
+import { RecordDataType } from "@/app/lib/type-library";
 import Select from "react-select";
 import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropdownStyles } from "./dropdown-configuration";
 import { components } from "react-select";
 import noDataFound from "../global-components/no-data-found";
 
-import type { DevDeleteRecord } from "@/app/lib/type-library";
+import type { DeleteRecordType } from "@/app/lib/type-library";
 
 const environment = process.env.NODE_ENV;
 
@@ -36,7 +36,7 @@ export default function DeleteRecordsForm() {
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
     const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
-    const [records, setRecords] = useState<RecordData[]>([]);
+    const [records, setRecords] = useState<RecordDataType[]>([]);
 
     const recordOptions: DropdownItem[] = records.map((value) => ({
         value: value.RecordId,
@@ -69,7 +69,7 @@ export default function DeleteRecordsForm() {
                 apiKey: enteredKey,
                 recordName: recordName,
                 recordId: +formData.record.value!,
-            } as DevDeleteRecord);
+            } as DeleteRecordType);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

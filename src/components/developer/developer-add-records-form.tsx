@@ -11,7 +11,7 @@ import { DropdownItem, inputStyles, inputLabelStyles, dropdownLabelStyles, dropd
 import { components } from "react-select";
 import noDataFound from "../global-components/no-data-found";
 
-import type { Artists, DevAddArtist, DevAddGenre, DevAddRecord, Genres } from "@/app/lib/type-library";
+import type { AddArtistType, AddGenreType, AddRecordType, ArtistsType, GenresType } from "@/app/lib/type-library";
 
 const environment = process.env.NODE_ENV;
 
@@ -40,8 +40,8 @@ export default function AddRecordsForm() {
     const [submitState, setSubmitState] = useState<SubmitState>("Idle");
     const [responseMessage, setResponseMessage] = useState<string>("");
     const [loadingState, setLoadingState] = useState<boolean>(false);
-    const [artists, setArtists] = useState<Artists[]>([]);
-    const [genres, setGenres] = useState<Genres[]>([]);
+    const [artists, setArtists] = useState<ArtistsType[]>([]);
+    const [genres, setGenres] = useState<GenresType[]>([]);
 
     const artistOptions: DropdownItem[] = artists.map((value) => ({
         value: value.ArtistId,
@@ -83,7 +83,7 @@ export default function AddRecordsForm() {
                 const { data } = await axios.post("/api/dev-add-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
-                } as DevAddArtist);
+                } as AddArtistType);
                 artist = +data.message;
             } else {
                 artist = +formData.artist.value!;
@@ -96,7 +96,7 @@ export default function AddRecordsForm() {
                     const { data } = await axios.post("/api/dev-add-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
-                    } as DevAddGenre);
+                    } as AddGenreType);
                     genres.push(+data.message);
                 } else {
                     genres.push(+formData.genre[i].value!);
@@ -112,7 +112,7 @@ export default function AddRecordsForm() {
                 year: +formData.year!,
                 imageUrl: formData.imageUrl,
                 discogsUrl: formData.discogsUrl,
-            } as DevAddRecord);
+            } as AddRecordType);
 
             if (data.status === "Error") {
                 setSubmitState("Error");

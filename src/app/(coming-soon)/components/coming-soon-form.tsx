@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material/";
 import SendIcon from "@mui/icons-material/Send";
 import { Button } from "@material-tailwind/react";
 
-import type { ComingSoonData } from "@/app/lib/type-library";
+import type { ComingSoonDataType } from "@/app/lib/type-library";
 
 type SubmitState = "Idle" | "Success" | "Error";
 type FormInputs = {
@@ -38,7 +38,7 @@ export default function ComingSoonForm() {
                 message: "Notify me when the site goes live",
                 source: "Coming Soon",
                 referringPage: window.location.href,
-            } as ComingSoonData);
+            } as ComingSoonDataType);
             
             setResponseMessage(data.message);
             setSubmitState("Success");
