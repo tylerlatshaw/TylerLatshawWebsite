@@ -1,15 +1,29 @@
 import Image from "next/image";
+import SvgIcon from "@mui/icons-material/Home";
 import ComingSoonForm from "./components/coming-soon-form";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
 import React from "react";
+import { footerSocialLinks } from "../lib/navigation-links";
 
 export default function Home() {
+
+  const socialLinks = footerSocialLinks.map((link) =>
+    <div key={link.display} className="grid justify-items-center">
+      <div className="mt-3">
+        <a href={link.link} className="group block" target="_blank">
+          <div className="flex items-center">
+            <SvgIcon component={link.icon} className="group-hover:text-green-500 text-3xl md:text-2xl" />&nbsp;
+            <span className="desktop-only group-hover:text-green-500">{link.display}</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  );
+
   return (
     <div className="w-full h-full fixed absolute top-0 left-0 z-50">
       <div className="absolute top-[5%] sm:top-[10%] text-center w-full">
         <div className="w-fit mx-auto">
-          <Image src="/static/gradient-logo-animated.svg" width={300} height={46} alt="Tyler Latshaw animated logo" className="w-[90%] sm:w-[600px] h-fit mx-auto" priority={true}/>
+          <Image src="/static/gradient-logo-animated.svg" width={300} height={46} alt="Tyler Latshaw animated logo" className="w-[90%] sm:w-[600px] h-fit mx-auto" priority={true} />
         </div>
       </div>
 
@@ -40,26 +54,9 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="absolute content-start w-full mx-auto py-6 top-3/4 text-gray-400">
-        <div className="grid justify-center">
-          <div className="mt-6">
-            <a href="mailto:tyler@tylerlatshaw.com" className="group block" target="_blank">
-              <div className="flex items-center">
-                <MailOutlineIcon className="group-hover:text-green-500" />&nbsp;
-                <h3 className="group-hover:text-green-500">tyler@tylerlatshaw.com</h3>
-              </div>
-            </a>
-          </div>
-        </div>
-        <div className="grid justify-center">
-          <div className="mt-3">
-            <a href="https://www.linkedin.com/in/tylerlatshaw/" className="group block" target="_blank">
-              <div className="flex items-center">
-                <LinkedInIcon className="group-hover:text-green-500" />&nbsp;
-                <h3 className="group-hover:text-green-500">Connect With Me On LinkedIn</h3>
-              </div>
-            </a>
-          </div>
+      <div className="absolute content-start w-full mx-auto py-6 bottom-0 mb-6 md:mb-0 md:top-3/4 text-gray-400">
+        <div className="flex flex-row md:flex-col w-full justify-center gap-3 md:gap-0 mt-2 md:mt-0">
+          {socialLinks}
         </div>
       </div>
     </div>
