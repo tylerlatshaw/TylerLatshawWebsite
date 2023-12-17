@@ -98,12 +98,12 @@ export default function EditRecordsForm() {
             const record = records.filter((recordId) => recordId.RecordId === selectedRecord?.value)[0];
             const recordGenres: DropdownItem[] = [];
 
-            // record.Genres.split(",").map((e) => {
-            //     recordGenres.push({
-            //         value: +e.split("%")[0],
-            //         label: e.split("%")[1],
-            //     });
-            // });
+            record.Genres.split(",").map((e) => {
+                recordGenres.push({
+                    value: +e.split("%")[0],
+                    label: e.split("%")[1],
+                });
+            });
 
             setValue("recordName", record.RecordName);
             setValue("artist", { value: record.ArtistId, label: record.ArtistName });
@@ -189,37 +189,37 @@ export default function EditRecordsForm() {
                 } as AddRecordToArtistType);
             }
 
-            // const originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
-            // const originalGenreList: number[] = []; //Array of the genre list split only as numbers
+            const originalGenreSplit = record.Genres.split(","); //Array of the genre list split like '3%Alternative'
+            const originalGenreList: number[] = []; //Array of the genre list split only as numbers
 
-            // for (var i = 0; i < originalGenreSplit.length; i++) {
-            //     originalGenreList.push(+originalGenreSplit[i].split("%")[0]); //Push genre IDs to array
-            // }
+            for (var i = 0; i < originalGenreSplit.length; i++) {
+                originalGenreList.push(+originalGenreSplit[i].split("%")[0]); //Push genre IDs to array
+            }
 
-            // if (originalGenreList.sort() !== genreNumberArray.sort()) {
+            if (originalGenreList.sort() !== genreNumberArray.sort()) {
 
-            //     //Delete unused record to genre relationships
-            //     for (var i = 0; i < originalGenreList.length; i++) {
-            //         if (!genreNumberArray.includes(originalGenreList[i])) {
-            //             await axios.post("/api/dev-delete-record-to-genre", {
-            //                 apiKey: enteredKey,
-            //                 recordId: dataBuilder!.recordId,
-            //                 genreId: originalGenreList[i],
-            //             } as DeleteRecordToGenreType);
-            //         }
-            //     }
+                //Delete unused record to genre relationships
+                for (var i = 0; i < originalGenreList.length; i++) {
+                    if (!genreNumberArray.includes(originalGenreList[i])) {
+                        await axios.post("/api/dev-delete-record-to-genre", {
+                            apiKey: enteredKey,
+                            recordId: dataBuilder!.recordId,
+                            genreId: originalGenreList[i],
+                        } as DeleteRecordToGenreType);
+                    }
+                }
 
-            //     //Add new record to genre relationships
-            //     for (var i = 0; i < genreNumberArray.length; i++) {
-            //         if (!originalGenreList.includes(genreNumberArray[i])) {
-            //             await axios.post("/api/dev-new-record-to-genre", {
-            //                 apiKey: enteredKey,
-            //                 recordId: dataBuilder!.recordId,
-            //                 genreId: genreNumberArray[i],
-            //             } as AddRecordToGenreType);
-            //         }
-            //     }
-            // }
+                //Add new record to genre relationships
+                for (var i = 0; i < genreNumberArray.length; i++) {
+                    if (!originalGenreList.includes(genreNumberArray[i])) {
+                        await axios.post("/api/dev-new-record-to-genre", {
+                            apiKey: enteredKey,
+                            recordId: dataBuilder!.recordId,
+                            genreId: genreNumberArray[i],
+                        } as AddRecordToGenreType);
+                    }
+                }
+            }
 
             record.Year !== formData.year ? dataBuilder!.year = +formData.year! : dataBuilder!.year = undefined;
             record.ImageUrl !== formData.imageUrl ? dataBuilder!.imageUrl = formData.imageUrl : dataBuilder!.imageUrl = undefined;
@@ -342,7 +342,7 @@ export default function EditRecordsForm() {
                         <div className="relative w-full group">
                             <input {...register("imageUrl")} type="url" className={inputStyles} required disabled={loadingState} />
                             <label htmlFor="imageUrl" className={inputLabelStyles}>
-                                Image URL
+                                Image Filename
                             </label>
                         </div>
                         <div className="relative w-full group">

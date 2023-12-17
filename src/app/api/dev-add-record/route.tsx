@@ -28,6 +28,7 @@ export async function POST(request: Request) {
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
+
         await Promise.all([
             addRecord(formData)
         ]);

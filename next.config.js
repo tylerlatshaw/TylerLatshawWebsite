@@ -3,16 +3,6 @@
 const { withSentryConfig } = require("@sentry/nextjs");
 
 const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.discogs.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
   sentry: {
     // See the sections below for information on the following options:
     //   'Configure Source Maps':
@@ -43,6 +33,16 @@ const sentryWebpackPluginOptions = {
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
 
 module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.discogs.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
 

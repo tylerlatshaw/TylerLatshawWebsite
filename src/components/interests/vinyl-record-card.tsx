@@ -2,9 +2,12 @@ import Image from "next/image";
 import PersonIcon from "@mui/icons-material/Person";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-import type { RecordDataType } from "@/app/lib/type-library";
+import type { 
+    GenresType, 
+    RecordDataType 
+} from "@/app/lib/type-library";
 
-export default function setRecordCard(record: RecordDataType) {
+export default function VinylRecordCard(record: RecordDataType) {
 
     const {
         RecordName,
@@ -15,12 +18,24 @@ export default function setRecordCard(record: RecordDataType) {
         Genres
     } = record;
 
+    var genreArray: GenresType[] = [];
+
+    Genres.split(",").map((e) => {
+        genreArray.push({
+            GenreId: +e.split("%")[0],
+            Name: e.split("%")[1],
+        });
+    });
+
+    
+    //( split record card so that images are in a separate component from the rest of the card so it loads faster. Can probably have another for the genres
+
     return <>
         <div className="flex items-stretch bg-gray-900 shadow-lg drop-shadow-lg rounded p-3 flex flex-1 flex-col justify-between w-100">
             <div>
                 <div className="group relative">
 
-                    <Image src={ImageUrl} width={1} height={1} sizes="100vw" alt={RecordName} className="aspect-square w-full rounded" priority={false} />
+                    <Image src={"/static/interests/" + ImageUrl} width={1} height={1} sizes="100vw" alt={RecordName} className="aspect-square w-full rounded" priority={false} />
 
                     <div className="absolute bg-black rounded bg-opacity-0 group-hover:bg-opacity-60 w-full h-full top-0 flex items-center group-hover:opacity-100 transition justify-evenly">
                         <a href={`${DiscogsUrl}`} target="_blank">
@@ -44,7 +59,7 @@ export default function setRecordCard(record: RecordDataType) {
                 </div >
             </div >
             <div className="px-1 pt-2 md:flex md:flex-wrap-reverse">
-                {Genres.map((genre) => (
+                {genreArray.map((genre) => (
                     <span key={genre.GenreId} className="align-bottom inline-block bg-green-900 rounded-full px-3 py-1 text-sm font-semibold text-grey-darker mr-2 mb-2">
                         {genre.Name}
                     </span>

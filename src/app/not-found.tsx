@@ -15,9 +15,9 @@ export default function NotFound() {
                             <h1 className="w-full text-[8rem] md:text-[12rem] leading-none font-bold">404</h1>
                         </div>
 
-                        <div className="self-center text-center">
+                        <div className="self-center text-center mt-6">
                             <FolderOffOutlinedIcon className="text-[6rem] md:text-[9rem] leading-none my-8 md:m-0" />
-                            <h2 className="w-full text-4xl md:text-5xl leading-none font-bold">Page Not Found</h2>
+                            <h2 className="w-full text-4xl md:text-5xl mt-6 leading-none font-bold no-underline">Page Not Found</h2>
                         </div>
 
                     </div>

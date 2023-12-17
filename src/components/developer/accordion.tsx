@@ -5,14 +5,14 @@ import { DevItems } from "./dropdown-configuration";
 
 export default function Accordion({ items }: { items: any; }): JSX.Element {
 
-    const [activeIndex, setActiveIndex] = useState(2);
+    const [activeIndex, setActiveIndex] = useState(1);
 
     const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? -1 : index);
     };
 
     return (
-        <div className="px-3 sm:px-0 mx-auto w-full md:w-1/2 space-y-4">
+        <div className="developer-accordion px-3 sm:px-0 mx-auto w-full md:w-1/2 space-y-4">
             {items.map((item: DevItems, index: number) => (
                 index === activeIndex ? <>
                     <div key={item.title} className="min-w-full bg-gray-700 border-2 border-green-500 rounded-lg">

@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import setRecordCard from "@/components/interests/vinyl-record-card";
 
 import type { RecordDataType } from "@/app/lib/type-library";
+import VinylRecordCard from "./vinyl-record-card";
 
-export default function Page() {
+export default function VinylRecordContainer() {
     const [records, setRecords] = useState<RecordDataType[]>([]);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ export default function Page() {
     return <>
         {records.map((record) => (
             <div key={record.RecordId} className="flex items-stretch">
-                {setRecordCard(record)}
+                {VinylRecordCard(record)}
             </div>
         ))}
     </>;

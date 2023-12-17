@@ -1,4 +1,7 @@
-import { TemplateOptions } from "@/components/developer/developer-email-send-form";
+import { SvgIconTypeMap } from "@mui/material";
+import { OverridableComponent } from "@mui/material/OverridableComponent";
+
+import type { TemplateOptions } from "@/components/developer/email-send-form";
 
 export type AddArtistType = {
     apiKey: string
@@ -97,9 +100,28 @@ export type FooterContactFormType = {
     referringPage: string
 }
 
+export type FooterSocialType = {
+    display: string,
+    link: string,
+    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
+}
+
 export type GenresType = {
     GenreId: number,
     Name: string,
+}
+
+export type IconLookupType = {
+    display: string
+    icon: OverridableComponent<SvgIconTypeMap<{}, "svg">>
+}
+
+export type NavigationLinkType = {
+    display: string,
+    link: string,
+    filepath: string,
+    changeFrequency: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never",
+    priority: number,
 }
 
 export type RecordDataType = {
@@ -110,7 +132,7 @@ export type RecordDataType = {
     DiscogsUrl: string,
     ArtistId: number,
     ArtistName: string,
-    Genres: GenresType[],
+    Genres: string,
 }
 
 export type RecordToArtistType = {
@@ -127,7 +149,10 @@ export type RecordToGenreType = {
 
 export type RecordsType = {
     RecordId: number,
-    Name: string
+    Name: string,
+    Year: number,
+    ImageUrl: string,
+    DiscogsUrl: string
 }
 
 export type UpdateRecordType = {
