@@ -8,7 +8,7 @@ export default function QuickPages() {
         <>
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
                 <Link href="/resume">
-                    <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Resume" className="rounded-t-lg" priority={false} />
+                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Resume" className="rounded-t-lg" priority={false} />
                 </Link>
                 <div className="p-5">
                     <Link href="/resume">
@@ -23,7 +23,7 @@ export default function QuickPages() {
 
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
                 <Link href="/portfolio">
-                    <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg" priority={false} />
+                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg" priority={false} />
                 </Link>
                 <div className="p-5">
                     <Link href="/portfolio">
@@ -38,7 +38,7 @@ export default function QuickPages() {
 
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
                 <Link href="/interests">
-                    <Image src="/static/cover-image-placeholder.png" width={384} height={200} alt="Interests" className="rounded-t-lg" priority={false} />
+                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Interests" className="rounded-t-lg" priority={false} />
                 </Link>
                 <div className="p-5">
                     <Link href="/interests">
