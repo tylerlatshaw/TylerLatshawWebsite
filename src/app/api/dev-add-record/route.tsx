@@ -3,7 +3,7 @@ import { addRecord } from "@/database/records";
 
 import type { AddRecordType } from "@/app/lib/type-library";
 
-export async function POST(request: NextResponse) {
+export async function POST(request: Request) {
 
     const {
         apiKey,
