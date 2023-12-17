@@ -1,10 +1,12 @@
-import { navigationLinkType, navigationLinks, supplementalLinks } from "@/app/lib/navigation-links";
+import { navigationLinks, supplementalLinks } from "@/app/lib/navigation-links";
 import { MetadataRoute } from "next";
+
+import type { NavigationLinkType } from "./lib/type-library";
 
 export default function sitemap(): MetadataRoute.Sitemap {
 
     const fs = require("fs");
-    const sitemapLinks: navigationLinkType[] = [...navigationLinks, ...supplementalLinks];
+    const sitemapLinks: NavigationLinkType[] = [...navigationLinks, ...supplementalLinks];
     var sitemapJson: any[] = [];
 
     for (var i = 0; i < sitemapLinks.length; i++) {
