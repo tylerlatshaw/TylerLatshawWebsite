@@ -24,7 +24,7 @@ type FormInputs = {
     genre: DropdownItem[],
     year: number,
     imageUrl: string,
-    discogsUrl: string,
+    discogsUrl: string
 };
 
 export default function AddRecordsForm() {
@@ -114,7 +114,7 @@ export default function AddRecordsForm() {
                 discogsUrl: formData.discogsUrl,
             } as AddRecordType);
 
-            if (data.status === "Error") {
+            if (!data.ok) {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");
@@ -199,6 +199,7 @@ export default function AddRecordsForm() {
                         Image Filename
                     </label>
                 </div>
+
                 <div className="relative w-full group">
                     <input {...register("discogsUrl")} type="url" className={inputStyles} required disabled={loadingState} />
                     <label htmlFor="discogsUrl" className={inputLabelStyles}>

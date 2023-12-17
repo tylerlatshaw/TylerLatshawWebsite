@@ -3,7 +3,7 @@ import { addRecord } from "@/database/records";
 
 import type { AddRecordType } from "@/app/lib/type-library";
 
-export async function POST(request: Request) {
+export async function POST(request: NextResponse) {
 
     const {
         apiKey,
@@ -28,6 +28,7 @@ export async function POST(request: Request) {
     };
 
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
+
         await Promise.all([
             addRecord(formData)
         ]);

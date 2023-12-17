@@ -1,7 +1,7 @@
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
 
-import type { TemplateOptions } from "@/components/developer/developer-email-send-form";
+import type { TemplateOptions } from "@/components/developer/email-send-form";
 
 export type AddArtistType = {
     apiKey: string
