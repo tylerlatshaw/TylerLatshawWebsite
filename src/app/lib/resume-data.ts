@@ -1,4 +1,4 @@
-export const professionalProfile: string = "I am an Advanced Certified ScrumMaster and Technical Business Analyst with more than 5 years of industry experience leading projects, managing development teams, and mentoring others at a multi-billion-dollar company looking to further my career into academic instruction as an adjunct faculty member while maintaining my current position.";
+export const professionalProfile: string = "I am an Advanced Certified ScrumMaster and Senior Technical Business Analyst with more than 5 years of industry experience leading projects, managing development teams, and mentoring others at a multi-billion-dollar company looking to further my career into academic instruction as an adjunct faculty member while maintaining my current position.";
 
 export type companyName = "Best Buy" | "Elizabethtown College" | "Southern New Hampshire University" | "The Home Depot" | "WebstaurantStore"
 
@@ -61,19 +61,25 @@ export const jobData: jobDataType[] = [
     {
         company: "WebstaurantStore",
         jobData: [{
-            jobTitle: "Technical Business Analyst",
-            startDate: new Date("2022-01-01T00:00:00"),
+            jobTitle: "Senior Technical Business Analyst",
+            startDate: new Date("2024-01-01T00:00:00"),
             endDate: null,
             jobDetails: ["Led over a dozen development teams with up to 25 individuals to build C# applications and systems",
                 "Analyzed complex business workflows and crafted user stories to aid developers while coding",
-                "Facilitated multiple trainings on process automation to teach department of more than 400 employees",
+                "Facilitated multiple trainings on process automation to teach division of more than 500 employees",
                 "Performed advanced SQL reporting for company executives for data-driven business decisions",
                 "Engaged teams in a collaborative manner to maintain positive workplace culture while working remote"],
             previousTitle: [{
-                jobTitle: "Jr Technical Business Analyst",
+                jobTitle: "Technical Business Analyst",
+                startDate: new Date("2022-01-01T00:00:00"),
+                endDate: new Date("2023-12-31T00:00:00"),
+            },
+            {
+                jobTitle: "Junior Technical Business Analyst",
                 startDate: new Date("2020-07-20T00:00:00"),
                 endDate: new Date("2022-01-01T00:00:00"),
-            }]
+            }
+            ]
         },
         {
             jobTitle: "Project Coordinator / Product Owner",

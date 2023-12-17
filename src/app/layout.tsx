@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   },
   title: {
     template: "%s | Tyler Latshaw",
-    default: "Tyler Latshaw | Technical Business Analyst and Scrum Master",
+    default: "Tyler Latshaw | Senior Technical Business Analyst and Scrum Master",
   },
   description: "Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.",
   generator: "Next.js",
