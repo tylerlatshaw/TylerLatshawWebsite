@@ -77,7 +77,7 @@ export const EmailTemplate = (props: EmailVariables) => (
                         </Text>
 
                         <Section style={alignCenter}>
-                            <Button style={button} pX={12} pY={12} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
+                            <Button style={button} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
                                 Visit My Site Now
                             </Button>
                         </Section>
@@ -100,13 +100,13 @@ export const EmailTemplate = (props: EmailVariables) => (
                             </Text>
 
                             <Section style={alignCenter}>
-                                <Button style={ctaButton} pX={12} pY={12} href="mailto:tyler@tylerlatshaw.com">
+                                <Button style={ctaButton} href="mailto:tyler@tylerlatshaw.com">
                                     Email
                                 </Button>
-                                <Button style={ctaButton} pX={12} pY={12} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
+                                <Button style={ctaButton} href="https://tylerlatshaw.com/?utm_source=comingsoon&utm_medium=email&utm_campaign=coming_soon_site_live">
                                     Website
                                 </Button>
-                                <Button style={ctaButton} pX={12} pY={12} href="https://www.linkedin.com/in/tylerlatshaw/">
+                                <Button style={ctaButton} href="https://www.linkedin.com/in/tylerlatshaw/">
                                     LinkedIn
                                 </Button>
                             </Section>
@@ -238,6 +238,7 @@ const ctaButton = {
     borderRadius: "4px",
     margin: "8px",
     minWidth: "78px",
+    padding: "12px"
 };
 
 const button = {
@@ -248,6 +249,7 @@ const button = {
     lineHeight: "18px",
     cursor: "pointer",
     borderRadius: "4px",
+    padding: "12px"
 };
 
 const disclaimer = {
