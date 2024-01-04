@@ -223,8 +223,7 @@ export async function getGenres() {
 export async function getRecordData() {
     const { data } = await supabase
         .from("RecordData")
-        .select()
-        .order("RecordName");
+        .select("RecordId");
 
     return data;
 }
