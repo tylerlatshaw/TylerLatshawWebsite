@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+const description = "Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.";
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://tylerlatshaw.com/"),
   alternates: {
@@ -9,13 +11,31 @@ export const metadata: Metadata = {
     template: "%s | Tyler Latshaw",
     default: "Tyler Latshaw | Senior Technical Business Analyst and Scrum Master",
   },
-  description: "Tyler Latshaw is a professionally-certified Scrum Master with years of experience in project management, web design, leadership, and mentoring.",
+  description: description,
   generator: "Next.js",
-  applicationName: "Next.js",
-  keywords: ["Next.js", "React", "JavaScript"],
+  applicationName: "Tyler Latshaw",
+  keywords: ["Tyler Latshaw", "Scrum Master", "Technical Business Analyst"],
   authors: [{ name: "Tyler Latshaw", url: "https://tylerlatshaw.com/" }],
   creator: "Tyler J. Latshaw",
   publisher: "Tyler J. Latshaw",
+  openGraph: {
+    title: "Tyler Latshaw | Senior Technical Business Analyst and Scrum Master",
+    description: description,
+    url: "https://tylerlatshaw.com/",
+    siteName: "Tyler Latshaw",
+    images: [{
+      url: "https://tylerlatshaw.com/static/tyler-latshaw-meta-cover.png"
+    }],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tyler Latshaw | Senior Technical Business Analyst and Scrum Master",
+    description: description,
+    creator: "@tylerlatshaw",
+    images: ["tps://tylerlatshaw.com/static/tyler-latshaw-meta-cover.png"]
+  }
 };
 
 export default function RootLayout({
