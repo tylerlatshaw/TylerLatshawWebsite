@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     await Promise.all([
         addContactMessage(messageData),
-        resend.sendEmail({
+        resend.emails.send({
             from: `${fromAddress}`,
             to: email,
             subject: "New Contact Form Submission" + date,
