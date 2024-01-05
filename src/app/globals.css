@@ -539,6 +539,22 @@ input:-webkit-autofill:active {
     color: var(--red-600);
 }
 
+.neutral-response {
+    color: var(--gray-500);
+}
+
+.bg-positive-response {
+    background-color: var(--green-600);
+}
+
+.bg-negative-response {
+    background-color: var(--red-600);
+}
+
+.bg-neutral-response {
+    background-color: var(--gray-500);
+}
+
 
 /*******************************/
 /*****
@@ -663,4 +679,39 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 28px var(--slate-800) inset !important;
     -webkit-text-fill-color: white;
+}
+
+.cli-commands>div {
+    width: 100%;
+}
+
+.cli-commands h2:nth-child(1) {
+    margin-top: 0;
+}
+
+.cli-commands table {
+    width: 100%;
+    display: block;
+    overflow-x: scroll;
+}
+
+.cli-commands th {
+    border: solid 1px black;
+    padding: 4px 8px;
+    background-color: var(--slate-600);
+}
+
+.cli-commands td {
+    border: solid 1px black;
+    padding: 4px 8px;
+}
+
+.cli-commands code {
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--red-300);
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: solid 1px var(--slate-950);
+    background-color: var(--slate-900);
+    font-weight: 600;
 }
