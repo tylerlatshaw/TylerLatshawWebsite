@@ -5,7 +5,7 @@ import { DevItems } from "./dropdown-configuration";
 
 export default function Accordion({ items }: { items: any; }): JSX.Element {
 
-    const [activeIndex, setActiveIndex] = useState(1);
+    const [activeIndex, setActiveIndex] = useState(7);
 
     const handleClick = (index: number) => {
         setActiveIndex(index === activeIndex ? -1 : index);
@@ -19,7 +19,7 @@ export default function Accordion({ items }: { items: any; }): JSX.Element {
                         <button onClick={() => handleClick(index)} className="w-full p-3 text-left text-2xl font-semibold text-green-500">{item.title}</button>
                         {index === activeIndex && <>
                             <div className="p-3">
-                                <div className="pt-8 px-8 pb-10 mb-2 bg-gray-800 rounded-md">
+                                <div className="pt-6 px-4 pb-10 mb-2 bg-gray-800 rounded-md">
                                     {item.content}
                                 </div>
                             </div>

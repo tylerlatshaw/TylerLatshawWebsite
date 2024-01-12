@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     if (apiKey === process.env.NEXT_PUBLIC_API_KEY) {
         if (selection === "AutoReply") {
             await Promise.all([
-                resend.sendEmail({
+                resend.emails.send({
                     from: `${fromAddress}`,
                     to: formData.email,
                     subject: devPrefix + "Thanks for reaching out!" + " " + dateTime,
@@ -59,7 +59,7 @@ export async function POST(request: Request) {
         }
 
         if (selection === "CS-OnList") {
-            resend.sendEmail({
+            resend.emails.send({
                 from: `${fromAddress}`,
                 to: formData.email,
                 subject: devPrefix + "You're on the List!" + " " + dateTime,
@@ -69,7 +69,7 @@ export async function POST(request: Request) {
         }
 
         if (selection === "CS-SiteLive") {
-            resend.sendEmail({
+            resend.emails.send({
                 from: `${fromAddress}`,
                 to: formData.email,
                 subject: devPrefix + "Exciting News: My Website is Now Live! 🎉" + " " + dateTime,
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
         if (selection === "NewMessage") {
             await Promise.all([
-                resend.sendEmail({
+                resend.emails.send({
                     from: `${fromAddress}`,
                     to: formData.email,
                     subject: devPrefix + "New Contact Form Submission: " + formData.email + " " + dateTime,

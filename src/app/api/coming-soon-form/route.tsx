@@ -48,14 +48,14 @@ export async function POST(request: Request) {
 
     await Promise.all([
         addContactMessage(messageData),
-        resend.sendEmail({
+        resend.emails.send({
             from: `${fromAddress}`,
             to: `${myEmailAddress}`,
             subject: "Notify When Site Goes Live: " + email,
             text: "",
             react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />,
         }),
-        resend.sendEmail({
+        resend.emails.send({
             from: `${fromAddress}`,
             to: email,
             subject: "You're on the List!",

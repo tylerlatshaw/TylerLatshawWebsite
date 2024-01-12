@@ -5,6 +5,9 @@ import AddRecordsForm from "@/components/developer/add-records-form";
 import EditRecordsForm from "@/components/developer/update-records-form";
 import DeleteRecordsForm from "@/components/developer/delete-records-form";
 import FindRecordsForm from "@/components/developer/find-records-form";
+import SupabaseCommands from "@/components/developer/supabase-commands";
+import NodeCommands from "@/components/developer/node-commands";
+import GitCommands from "@/components/developer/git-commands";
 
 export const metadata: Metadata = {
   title: "Developer Tools",
@@ -30,6 +33,18 @@ const developerPageItems = [
   {
     title: "Find Record Albums",
     content: <FindRecordsForm />,
+  },
+  {
+    title: "Supabase Commands",
+    content: <SupabaseCommands />,
+  },
+  {
+    title: "Node Commands",
+    content: <NodeCommands />,
+  },
+  {
+    title: "Git Commands",
+    content: <GitCommands />,
   }
 ];
 
