@@ -86,8 +86,6 @@ export default function AddRecordsForm() {
 
             setMatchedRecords([...new Set([...artistMatches, ...genreMatches])]);
 
-            console.log(matchedRecords);
-
         } catch (e) {
 
         }

@@ -12,13 +12,13 @@ export default function CertificationsList() {
 
         return <>
             {
-                <Card className="w-full h-full justify-between bg-gray-800 group-hover:bg-blue-800 shadow-xl shadow-gray-900/70 rounded-lg">
+                <Card className="w-full h-full justify-between bg-gray-800 shadow-xl shadow-gray-900/70 rounded-lg">
                     <CardBody>
                         <div className="flex justify-center">
-                            <Image src={logo} width={165} height={150} alt={altText} className="drop-shadow-2xl" />
+                            <Image src={logo} width={165} height={150} alt={altText} className="drop-shadow-2xl group-hover:drop-shadow-[0_0_24px_rgb(255,255,255,0.5)]" />
                         </div>
                         <div className="flex items-center w-full min-h-[56px] text-center">
-                            <div className="w-full text-xl font-semibold line-clamp-2">
+                            <div className="w-full text-xl font-semibold group-hover:text-green-500 group-hover:drop-shadow line-clamp-2">
                                 {name}
                             </div>
                         </div>

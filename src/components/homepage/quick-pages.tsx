@@ -7,9 +7,11 @@ export default function QuickPages() {
     return (
         <>
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
-                <Link href="/resume">
-                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Resume" className="rounded-t-lg" priority={false} />
-                </Link>
+                <div className="rounded-t-lg overflow-hidden">
+                    <Link href="/resume">
+                        <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Resume" className="rounded-t-lg hover:scale-125 duration-200" priority={false} />
+                    </Link>
+                </div>
                 <div className="p-5">
                     <Link href="/resume">
                         <span className="uppercase font-bold tracking-wide text-green-500 hover:text-green-600 text-lg">Resume</span>
@@ -22,9 +24,11 @@ export default function QuickPages() {
             </div>
 
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
-                <Link href="/portfolio">
-                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg" priority={false} />
-                </Link>
+                <div className="rounded-t-lg overflow-hidden">
+                    <Link href="/portfolio">
+                        <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg hover:scale-125 duration-200" priority={false} />
+                    </Link>
+                </div>
                 <div className="p-5">
                     <Link href="/portfolio">
                         <span className="uppercase font-bold tracking-wide text-pink-600 hover:text-pink-700 text-lg">Portfolio</span>
@@ -37,9 +41,11 @@ export default function QuickPages() {
             </div>
 
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
-                <Link href="/interests">
-                    <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Interests" className="rounded-t-lg" priority={false} />
-                </Link>
+                <div className="rounded-t-lg overflow-hidden">
+                    <Link href="/interests">
+                        <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Interests" className="rounded-t-lg hover:scale-125 duration-200" priority={false} />
+                    </Link>
+                </div>
                 <div className="p-5">
                     <Link href="/interests">
                         <span className="uppercase font-bold tracking-wide text-purple-500 hover:text-purple-600 text-lg">Interests</span>

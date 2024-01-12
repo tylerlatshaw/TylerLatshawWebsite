@@ -68,7 +68,8 @@ export const jobData: jobDataType[] = [
                 "Analyzed complex business workflows and crafted user stories to aid developers while coding",
                 "Facilitated multiple trainings on process automation to teach division of more than 500 employees",
                 "Performed advanced SQL reporting for company executives for data-driven business decisions",
-                "Engaged teams in a collaborative manner to maintain positive workplace culture while working remote"],
+                "Engaged teams in a collaborative manner to maintain positive workplace culture while working remote",
+                "Miro Hall of Fame Nominee - 2023, Top 10 Most Copied Users Worldwide, Most Copied Creator - June 2023"],
             previousTitle: [{
                 jobTitle: "Technical Business Analyst",
                 startDate: new Date("2022-01-01T00:00:00"),
