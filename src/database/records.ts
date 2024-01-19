@@ -223,7 +223,7 @@ export async function getGenres() {
 export async function getRecordData() {
     const { data } = await supabase
         .from("RecordData")
-        .select("RecordId");
+        .select("RecordId, RecordName, Year, ImageUrl, DiscogsUrl, ArtistId, ArtistName, Genres");
 
     return data;
 }

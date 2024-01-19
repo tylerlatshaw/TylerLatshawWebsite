@@ -39,3 +39,5 @@ next-env.d.ts
 
 # react email
 /.react-email
+# Local Netlify folder
+.netlify
