@@ -33,16 +33,6 @@ const sentryWebpackPluginOptions = {
 module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
 
 module.exports = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.discogs.com",
-        port: "",
-        pathname: "/**",
-      },
-    ],
-  },
   webpack: (config) => {
     config.resolve.alias.canvas = false;
 

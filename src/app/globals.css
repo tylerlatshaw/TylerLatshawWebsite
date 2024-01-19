@@ -685,6 +685,18 @@ input:-webkit-autofill:active {
     -webkit-text-fill-color: white;
 }
 
+.cli-commands table {
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.cli-commands table::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
+}
+
 .cli-commands>div {
     width: 100%;
 }
@@ -718,4 +730,17 @@ input:-webkit-autofill:active {
     border: solid 1px var(--slate-950);
     background-color: var(--slate-900);
     font-weight: 600;
+}
+
+.cli-commands p {
+  margin-top: 1rem;
+}
+
+.cli-commands a {
+  color: var(--sky-600);
+}
+
+.cli-commands a:hover {
+  color: var(--sky-700);
+  text-decoration: underline;
 }
