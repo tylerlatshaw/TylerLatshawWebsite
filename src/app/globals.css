@@ -647,7 +647,7 @@ input:-webkit-autofill:active {
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 28px var(--slate-800) inset !important;
+    -webkit-box-shadow: 0 0 0 28px var(--gray-800) inset !important;
     -webkit-text-fill-color: white;
 }
 
@@ -733,14 +733,14 @@ input:-webkit-autofill:active {
 }
 
 .cli-commands p {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 .cli-commands a {
-  color: var(--sky-600);
+    color: var(--sky-600);
 }
 
 .cli-commands a:hover {
-  color: var(--sky-700);
-  text-decoration: underline;
+    color: var(--sky-700);
+    text-decoration: underline;
 }

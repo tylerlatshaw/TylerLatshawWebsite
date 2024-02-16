@@ -1,0 +1,26 @@
+name: Build and Update Sitemap
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Runs at 12 AM UTC every day
+
+jobs:
+  build-and-generate-sitemap:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '13' # Ensure this matches your project's Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build
+      run: npm run build
+
+    - name: Generate Sitemap
+      run: npm run postbuild
