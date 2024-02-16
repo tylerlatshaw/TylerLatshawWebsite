@@ -1,8 +1,9 @@
 name: Build and Update Sitemap
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Runs at 12 AM UTC every day
+    push:
+      branches:
+        - main
 
 jobs:
   build-and-generate-sitemap:
