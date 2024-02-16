@@ -19,6 +19,12 @@ export const certificationRibbon: certificationRibbonType[] = [
         link: "https://bcert.me/bc/html/show-badge.html?b=vhkdzsmg"
     },
     {
+        name: "Certified Agile Leader (CAL-E)",
+        altText: "CAL-E Logo",
+        logo: "/static/resume/cert-cal-e.svg",
+        link: "https://bcert.me/svroceohe"
+    },
+    {
         name: "Comptia A+",
         altText: "Comptia A+ Logo",
         logo: "/static/resume/cert-comptia.svg",
