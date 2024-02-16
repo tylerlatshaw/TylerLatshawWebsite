@@ -6,7 +6,7 @@ import ThankYouEmail from "@/components/emails/thank-you-email";
 import { getCurrentDate, getCurrentDateTime } from "@/utilities/date-utilities";
 import { addContactMessage } from "@/database/contact";
 
-import type { FooterContactFormType } from "@/app/lib/type-library";
+import type { ContactFormType } from "@/app/lib/type-library";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
         message,
         source,
         referringPage
-    } = await request.json() as FooterContactFormType;
+    } = await request.json() as ContactFormType;
 
     const date = getCurrentDate();
     const dateTime = getCurrentDateTime(date);

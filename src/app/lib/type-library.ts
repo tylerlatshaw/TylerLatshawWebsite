@@ -50,6 +50,14 @@ export type ComingSoonDataType = {
     referringPage: string
 }
 
+export type ContactFormType = {
+    name: string,
+    email: string,
+    message: string,
+    source: string,
+    referringPage: string
+}
+
 export type DeleteRecordToArtistType = {
     apiKey: string
     recordId: number
@@ -89,14 +97,6 @@ export type EmailFormType = {
     name: string
     message: string
     source: string
-    referringPage: string
-}
-
-export type FooterContactFormType = {
-    name: string,
-    email: string,
-    message: string,
-    source: string,
     referringPage: string
 }
 
