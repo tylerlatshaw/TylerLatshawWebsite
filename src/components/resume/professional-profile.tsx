@@ -12,7 +12,7 @@ export default function CertificationRibbon() {
                 <div key={certification.logo} className="mx-auto certification-image flex align-middle items-stretch">
                     {
                         certification.link ?
-                            <a key={certification.logo} href={certification.link} target="_blank" className="flex align-middle">
+                            <a key={certification.logo} href={certification.link} target="_blank" className="flex align-middle hover:drop-shadow-2xl">
                                 <Image src={certification.logo} width={165} height={150} alt={certification.altText} priority={false} />
                             </a> :
                             <Image key={certification.logo} src={certification.logo} width={165} height={150} className="flex align-middle" alt={certification.altText} priority={false} />

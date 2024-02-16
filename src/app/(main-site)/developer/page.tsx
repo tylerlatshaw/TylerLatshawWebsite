@@ -8,6 +8,7 @@ import FindRecordsForm from "@/components/developer/find-records-form";
 import SupabaseCommands from "@/components/developer/supabase-commands";
 import NodeCommands from "@/components/developer/node-commands";
 import GitCommands from "@/components/developer/git-commands";
+import NetlifyCommands from "@/components/developer/netlify-commands";
 
 export const metadata: Metadata = {
   title: "Developer Tools",
@@ -45,6 +46,10 @@ const developerPageItems = [
   {
     title: "Git Commands",
     content: <GitCommands />,
+  },
+  {
+    title: "Netlify Commands",
+    content: <NetlifyCommands />,
   }
 ];
 

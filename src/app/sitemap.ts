@@ -3,31 +3,34 @@ import { MetadataRoute } from "next";
 
 import type { NavigationLinkType } from "./lib/type-library";
 
+type sitemapType = Array<{
+    url: string
+    lastModified?: string | Date
+    changeFrequency?:
+    | "always"
+    | "hourly"
+    | "daily"
+    | "weekly"
+    | "monthly"
+    | "yearly"
+    | "never"
+    priority?: number
+}>
+
 export default function sitemap(): MetadataRoute.Sitemap {
 
-    const fs = require("fs");
     const sitemapLinks: NavigationLinkType[] = [...navigationLinks, ...supplementalLinks];
-    var sitemapJson: any[] = [];
 
-    for (var i = 0; i < sitemapLinks.length; i++) {
+    var sitemapJson: sitemapType = [];
 
-        if (!sitemapLinks[i].display.includes("Sitemap")) {
-            var stats = fs.statSync(sitemapLinks[i].filepath);
-            sitemapJson.push({
-                url: process.env.BASE_URL + sitemapLinks[i].link,
-                lastModified: stats.mtime,
-                changeFrequency: sitemapLinks[i].changeFrequency,
-                priority: sitemapLinks[i].priority,
-            });
-        } else {
-            sitemapJson.push({
-                url: process.env.BASE_URL + sitemapLinks[i].link,
-                lastModified: new Date,
-                changeFrequency: sitemapLinks[i].changeFrequency,
-                priority: sitemapLinks[i].priority,
-            });
-        }
-    }
+    sitemapLinks.map((item) => {
+        sitemapJson.push({
+            url: process.env.BASE_URL + item.link,
+            lastModified: new Date,
+            changeFrequency: item.changeFrequency,
+            priority: item.priority
+        });
+    });
 
     return sitemapJson;
 }

@@ -11,7 +11,7 @@ export async function addContactMessage(messageData: EmailDataType) {
         source
     } = messageData;
 
-    await supabase
+    const data = await supabase
         .from("Contact")
         .insert({
             Name: name,
@@ -21,6 +21,8 @@ export async function addContactMessage(messageData: EmailDataType) {
             FormSource: source
         })
         .select();
+
+        return data;
 }
 
 export async function getContactEmail(email: string, source: string) {

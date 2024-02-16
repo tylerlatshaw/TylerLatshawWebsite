@@ -4,6 +4,7 @@ import ProfessionalProfile from "@/components/resume/professional-profile";
 import EducationSection from "@/components/resume/education";
 import SkillList from "@/components/resume/skills";
 import CertificationList from "@/components/resume/certifications";
+import PortfolioLink from "@/components/resume/portfolio";
 import JobTimeline from "@/components/resume/job-timeline";
 import InternTimeline from "@/components/resume/intern-timeline";
 
@@ -18,12 +19,12 @@ export default function Page() {
 
         <h1>Resume</h1>
 
-        <div className="flex flex-col md:flex-row justify-evenly items-center">
-          <div className="basis-1/2 flex flex-row justify-evenly items-center">
-            <Image src="/static/resume/tyler_latshaw_headshot.png" width={750} height={938} alt="Tyler Latshaw" className={"w-1/2 mx-auto border-solid border-8 border-black shadow-xl shadow-black/40"} id="tyler_latshaw_headshot" priority={true} />
+        <div className="flex flex-col lg:flex-row justify-evenly items-center">
+          <div className="basis-2/5 flex flex-row justify-evenly items-center">
+            <Image src="/static/resume/tyler_latshaw_headshot.png" width={750} height={938} alt="Tyler Latshaw" className={"w-3/5 mx-auto border-solid border-8 border-black shadow-xl shadow-black/40"} id="tyler_latshaw_headshot" priority={true} />
           </div>
 
-          <div className="basis-1/2 flex flex-row justify-evenly items-center">
+          <div className="basis-2/3 flex flex-row justify-evenly items-center">
             <div className="w-full">
               <h2>Professional Profile</h2>
               <ProfessionalProfile />
@@ -38,6 +39,7 @@ export default function Page() {
 
         <div className="w-full">
           <h2>Professional Projects & Presentations</h2>
+          <PortfolioLink />
         </div>
 
         <div className="w-full">
@@ -54,10 +56,6 @@ export default function Page() {
         <div className="mx-auto w-full md:w-fit max-w-5xl">
           <h2>Internship Experience</h2>
           <InternTimeline />
-        </div>
-
-        <div className="w-full">
-          <h2>Volunteer Work</h2>
         </div>
 
       </div>

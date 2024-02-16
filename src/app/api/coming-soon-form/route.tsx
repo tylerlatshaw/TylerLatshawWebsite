@@ -24,7 +24,7 @@ export async function POST(request: Request) {
 
     const contact = await getContactEmail(email, source);
 
-    if (contact) {
+    if (contact?.length! > 0) {
         return NextResponse.json({
             status: "Ok",
             message: "You're already on the list!",
