@@ -6,7 +6,7 @@ module.exports = {
     changefreq: "monthly",
     generateRobotsTxt: true,
     exclude: ["/api/*", "/developer", "/development", "/sitemap.xml"],
-    additionalPaths: async (config) => {
+    additionalPaths: async () => {
         const result = [];
         
         result.push({
