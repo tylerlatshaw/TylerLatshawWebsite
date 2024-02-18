@@ -118,7 +118,7 @@ export const portfolioOptions: portfolioOptionType[] = [
         order: 9,
         isFeatured: false,
         description: "While working in the Content Department at WebstaurantStore, I worked alongside the SEO and Purchasing departments to write a buying guide to aid customers looking at buying canning supplies. The buying guide was approved and published to the WebstaurantStore website, a noteworthy accomplishment as I was one of the first people in the department to publish a buying guide that was not in a writer position at the company.",
-        date: new Date("1990-11-13T00:00:00"),
+        date: new Date("2019-10-14T00:00:00"),
         associatedWith: "WebstaurantStore",
         previewLink: filepath + "canning_buying_guide_preview.png",
         assetLink: filepath + "canning_buying_guide.png",
