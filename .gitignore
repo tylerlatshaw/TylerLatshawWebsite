@@ -41,3 +41,7 @@ next-env.d.ts
 /.react-email
 # Local Netlify folder
 .netlify
+
+# sitemap
+sitemap.xml
+sitemap-0.xml
