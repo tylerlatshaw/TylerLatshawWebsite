@@ -1,3 +1,5 @@
+"use client";
+
 import { portfolioOptionType } from "@/app/lib/portfolio-data";
 import CreatedForSection from "./created-for";
 import { companyData } from "@/app/lib/resume-data";
