@@ -12,6 +12,7 @@ import type { EmailFormType } from "@/app/lib/type-library";
 
 const resend = new Resend(process.env.NEXT_PUBLIC_RESEND_API_KEY);
 const fromAddress = process.env.NEXT_PUBLIC_RESEND_FROM;
+const myEmailAddress = process.env.NEXT_PUBLIC_RESEND_MY_EMAIL;
 const devPrefix = "[Dev] ";
 
 export async function POST(request: Request) {
@@ -51,6 +52,7 @@ export async function POST(request: Request) {
                 resend.emails.send({
                     from: `${fromAddress}`,
                     to: formData.email,
+                    bcc: `${myEmailAddress}`,
                     subject: devPrefix + "Thanks for reaching out!" + " " + dateTime,
                     text: "",
                     react: <AutoReplyEmail messageData={{ ...formData, title: "I'll be in touch soon! ✉️" }} />,
@@ -62,6 +64,7 @@ export async function POST(request: Request) {
             resend.emails.send({
                 from: `${fromAddress}`,
                 to: formData.email,
+                bcc: `${myEmailAddress}`,
                 subject: devPrefix + "You're on the List!" + " " + dateTime,
                 text: "",
                 react: <CsOnList messageData={{ ...formData, title: "You're on the list! ✅" }} />,
@@ -72,6 +75,7 @@ export async function POST(request: Request) {
             resend.emails.send({
                 from: `${fromAddress}`,
                 to: formData.email,
+                bcc: `${myEmailAddress}`,
                 subject: devPrefix + "Exciting News: My Website is Now Live! 🎉" + " " + dateTime,
                 text: "",
                 react: <CsSiteLive messageData={{ ...formData, title: "Exciting News: My Website is Now LIVE! 🎉" }} />,
@@ -83,6 +87,7 @@ export async function POST(request: Request) {
                 resend.emails.send({
                     from: `${fromAddress}`,
                     to: formData.email,
+                    bcc: `${myEmailAddress}`,
                     subject: devPrefix + "New Contact Form Submission: " + formData.email + " " + dateTime,
                     text: "",
                     react: <MessageReceived messageData={{ ...formData, title: "New Contact Form Submission" }} />,

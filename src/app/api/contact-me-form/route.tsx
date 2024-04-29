@@ -41,17 +41,19 @@ export async function POST(request: Request) {
         addContactMessage(messageData),
         resend.sendEmail({
             from: `${fromAddress}`,
-            to: `${myEmailAddress}`,
-            subject: "New Contact Form Submission: " + email,
-            text: "",
-            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission" }} />,
-        }),
-        resend.sendEmail({
-            from: `${fromAddress}`,
             to: email,
+            bcc: `${myEmailAddress}`,
             subject: "Thanks for reaching out!",
             text: "",
             react: <ThankYouEmail messageData={{ ...messageData, title: "I'll be in touch soon! ✉️" }} />,
+        }),
+        resend.sendEmail({
+            from: `${fromAddress}`,
+            to: `${myEmailAddress}`,
+            bcc: `${myEmailAddress}`,
+            subject: "New Contact Form Submission: " + email,
+            text: "",
+            react: <MessageReceived messageData={{ ...messageData, title: "New Contact Form Submission" }} />,
         })
     ]);
 
