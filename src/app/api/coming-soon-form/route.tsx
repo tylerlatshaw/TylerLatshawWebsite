@@ -50,17 +50,19 @@ export async function POST(request: Request) {
         addContactMessage(messageData),
         resend.emails.send({
             from: `${fromAddress}`,
-            to: `${myEmailAddress}`,
-            subject: "Notify When Site Goes Live: " + email,
-            text: "",
-            react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />,
-        }),
-        resend.emails.send({
-            from: `${fromAddress}`,
             to: email,
+            bcc: `${myEmailAddress}`,
             subject: "You're on the List!",
             text: "",
             react: <ComingSoonOnList messageData={{ ...messageData, title: "You're on the list! ✅" }} />,
+        }),
+        resend.emails.send({
+            from: `${fromAddress}`,
+            to: `${myEmailAddress}`,
+            bcc: `${myEmailAddress}`,
+            subject: "Notify When Site Goes Live: " + email,
+            text: "",
+            react: <MessageReceived messageData={{ ...messageData, title: "Notify When Site Goes Live 📫" }} />,
         })
     ]);
 
