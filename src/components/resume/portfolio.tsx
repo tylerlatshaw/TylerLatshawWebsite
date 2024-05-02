@@ -24,7 +24,7 @@ export default function PortfolioGallery() {
                             </div>
                             <div className="relative overflow-hidden h-48 w-full rounded-t-xl md:h-96 md:w-[75%] md:rounded-tl-none md:rounded-r-xl">
                                 <div className="z-50 bg-gradient-to-b from-zinc-800 to-transparent via-transparent absolute inset-0 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300"></div>
-                                <Image src="/static/portfolio/project_management_system_report_preview.png" width={677} height={320} alt="Portfolio" className="w-full h-full object-cover object-center group-hover:scale-[1.15] transition-all duration-300" priority={false} />
+                                <Image src="/static/portfolio/portfolio_preview.png" width={677} height={320} alt="Portfolio" className="w-full h-full object-cover object-center group-hover:scale-[1.15] transition-all duration-300" priority={false} />
                             </div>
                         </div>
                     </Link>

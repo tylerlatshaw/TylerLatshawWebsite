@@ -33,7 +33,7 @@ export default function CertificationsList() {
             <div className="flex flex-wrap w-full mt-6">
                 {
                     certificationRibbon.map((certification) =>
-                        <div key={certification.altText} className="flex flex-wrap p-2 items-stretch w-1/2 sm:w-1/3 xl:basis-1/6 h-full">
+                        <div key={certification.altText} className="flex flex-wrap p-2 items-stretch w-1/2 sm:w-1/3 xl:basis-1/5 h-full">
                             {
                                 certification.link ?
                                     <a href={certification.link} className="group w-full" target="_blank">{certificationCard(certification)}</a>

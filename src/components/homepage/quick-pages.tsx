@@ -26,7 +26,7 @@ export default function QuickPages() {
             <div className="max-w-sm bg-slate-800 rounded-lg shadow text-left">
                 <div className="rounded-t-lg overflow-hidden">
                     <Link href="/portfolio">
-                        <Image src="/static/utilities/cover-image-placeholder.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg hover:scale-125 duration-200" priority={false} />
+                        <Image src="/static/portfolio/portfolio_preview.png" width={384} height={200} alt="Portfolio" className="rounded-t-lg hover:scale-125 duration-200" priority={false} />
                     </Link>
                 </div>
                 <div className="p-5">

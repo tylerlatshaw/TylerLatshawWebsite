@@ -28,8 +28,8 @@ export default function PortfolioGallery() {
             <Link href={"/portfolio/" + portfolioSlug}>
                 <div className={cardStyles}>
                     <div className={infoSection}>
-                        <div className="w-full">
-                            <span className="text-lg leading-3 md:text-xl w-full font-semibold hover:text-green-500">{name}</span>
+                        <div className="w-full text-center md:text-left">
+                            <span className="leading-3 text-xl md:text-base xl:text-lg w-full font-semibold hover:text-green-500">{name}</span>
                         </div>
                         {
                             associatedOrganization ? <CreatedForSection company={associatedOrganization.company} logo={associatedOrganization.logo} avatar={associatedOrganization.avatar} location={associatedOrganization.location} /> : null
