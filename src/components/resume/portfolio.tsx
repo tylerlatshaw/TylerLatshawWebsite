@@ -14,7 +14,7 @@ export default function PortfolioGallery() {
                         <div className="flex w-full h-96 group hover:shadow-xl flex-col md:flex-row">
                             <div className="flex flex-col justify-between px-4 py-3 md:px-6 md:py-5 bg-gray-800 w-full h-32 rounded-b-xl order-last md:w-[25%] md:h-96 md:rounded-br-none md:rounded-l-xl md:order-first">
                                 <div className="w-full">
-                                    <span className="text-lg leading-3 md:text-xl w-full font-semibold hover:text-green-500">Professional Projects & Presentations</span>
+                                    <span className="text-lg leading-3 md:text-xl lg:text-2xl w-full font-semibold hover:text-green-500">Professional Projects & Presentations</span>
                                 </div>
                                 <div className="flex flex-col">
                                     <Button className="button w-fit flex items-center bg-blue-800 hover:bg-blue-900 drop-shadow-xl rounded-2xl text-center text-md font-semibold px-3 py-1.5 mx-0 my-0">

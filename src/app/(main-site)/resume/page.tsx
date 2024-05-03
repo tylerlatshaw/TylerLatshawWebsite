@@ -48,12 +48,12 @@ export default function Page() {
           <CertificationList />
         </div>
 
-        <div className="mx-auto w-full md:w-fit max-w-5xl">
+        <div className="mx-auto w-full max-w-5xl">
           <h2>Professional Experience</h2>
           <JobTimeline />
         </div>
 
-        <div className="mx-auto w-full md:w-fit max-w-5xl">
+        <div className="mx-auto w-full max-w-5xl">
           <h2>Internship Experience</h2>
           <InternTimeline />
         </div>
