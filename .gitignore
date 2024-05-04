@@ -46,3 +46,7 @@ next-env.d.ts
 sitemap.xml
 sitemap-0.xml
 robots.txt
+
+#supabase
+/supabase/migrations/
+/supabase/seed.sql
