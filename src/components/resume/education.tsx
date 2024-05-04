@@ -126,7 +126,7 @@ export default function EducationSection() {
                                         <div className="flex flex-row flex-wrap gap-2">
                                             {
                                                 education.courses.map((course) =>
-                                                    <Chip key={course} label={course} className="text-white bg-gray-700 font-normal text-base shadow-md shadow-gray-900" />
+                                                    <Chip key={course} label={course} className="text-white bg-gray-700 font-normal text-base" />
                                                 )
                                             }
                                         </div>

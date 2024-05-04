@@ -25,8 +25,8 @@ export const certificationRibbon: certificationRibbonType[] = [
         link: "https://bcert.me/svroceohe"
     },
     {
-        name: "Comptia A+",
-        altText: "Comptia A+ Logo",
+        name: "CompTIA A+",
+        altText: "CompTIA A+ Logo",
         logo: "/static/resume/cert-comptia.svg",
         link: "https://www.credly.com/badges/68fcacd5-757a-433d-95e7-f5979a6b268b"
     },
@@ -35,11 +35,5 @@ export const certificationRibbon: certificationRibbonType[] = [
         altText: "CFSP Logo",
         logo: "/static/resume/cert-cfsp.svg",
         link: "https://cfsp.nafem.org/cfsp-wall-of-fame/"
-    },
-    {
-        name: "ServSafe Food Protection Manager",
-        altText: "ServSafe Logo",
-        logo: "/static/resume/cert-servsafe.svg",
-        link: "https://www.servsafe.com/access/SS/Certifications/CertSearch?IsSearch=&IssuedLastName=Latshaw&CertificateId=15595803&ProgramCode=SSMGR&IssuedFirstName=&StateProvince="
     }
 ];

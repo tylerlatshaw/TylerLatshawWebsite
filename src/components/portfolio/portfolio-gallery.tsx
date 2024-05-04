@@ -28,8 +28,8 @@ export default function PortfolioGallery() {
             <Link href={"/portfolio/" + portfolioSlug}>
                 <div className={cardStyles}>
                     <div className={infoSection}>
-                        <div className="w-full">
-                            <span className="text-lg leading-3 md:text-xl w-full font-semibold hover:text-green-500">{name}</span>
+                        <div className="w-full text-center md:text-left">
+                            <span className={"leading-3 text-xl md:text-base xl:text-lg w-full font-semibold hover:text-green-500" + (!isFeatured ? " md:line-clamp-1 md:text-ellipsis" : null)}>{name}</span>
                         </div>
                         {
                             associatedOrganization ? <CreatedForSection company={associatedOrganization.company} logo={associatedOrganization.logo} avatar={associatedOrganization.avatar} location={associatedOrganization.location} /> : null
@@ -37,7 +37,7 @@ export default function PortfolioGallery() {
                     </div>
                     <div className={imageSection}>
                         <div className="z-50 bg-gradient-to-b from-zinc-800 to-transparent via-transparent absolute inset-0 opacity-0 group-hover:opacity-100 transition-all ease-in-out duration-300"></div>
-                        <Image src={previewLink} width={677} height={320} alt={name} className="w-full h-full object-cover object-center group-hover:scale-[1.15] transition-all duration-300" priority={false} />
+                        <Image src={previewLink} width={677} height={320} alt={name} className="w-full h-full object-cover object-center group-hover:scale-[1.15] transition-all duration-300" priority={isFeatured} />
                     </div>
                 </div>
             </Link>

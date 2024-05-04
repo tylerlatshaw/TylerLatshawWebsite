@@ -33,35 +33,25 @@ export async function addGenre(formData: string) {
 }
 
 export async function addRecord(formData: AddRecordType) {
-    const {
-        recordName,
-        artistId,
-        artistTypeId,
-        genreId,
-        year,
-        imageUrl,
-        discogsUrl
-    } = formData;
-
     const { data } = await supabase
         .from("Records")
         .insert({
-            Name: recordName.trim(),
-            Year: year,
-            ImageUrl: imageUrl.trim(),
-            DiscogsUrl: discogsUrl.trim()
+            Name: formData.recordName.trim(),
+            Year: formData.year,
+            ImageUrl: formData.imageUrl.trim(),
+            DiscogsUrl: formData.discogsUrl.trim()
         })
         .select("RecordId");
 
     await supabase
         .from("RecordToArtist")
         .insert({
-            ArtistId: artistId,
-            ArtistTypeId: artistTypeId,
+            ArtistId: formData.artistId,
+            ArtistTypeId: formData.artistTypeId,
             RecordId: data![0].RecordId
         });
 
-    genreId.map(async (genre) => {
+    formData.genreId.map(async (genre) => {
         await supabase
             .from("RecordToGenre")
             .insert({
@@ -72,32 +62,21 @@ export async function addRecord(formData: AddRecordType) {
 }
 
 export async function addRecordToArtist(formData: AddRecordToArtistType) {
-    const {
-        recordId,
-        artistId,
-        artistTypeId
-    } = formData;
-
     await supabase
         .from("RecordToArtist")
         .insert({
-            RecordId: recordId,
-            ArtistId: artistId,
-            ArtistTypeId: artistTypeId
+            RecordId: formData.recordId,
+            ArtistId: formData.artistId,
+            ArtistTypeId: formData.artistTypeId
         });
 }
 
 export async function addRecordToGenre(formData: AddRecordToGenreType) {
-    const {
-        recordId,
-        genreId
-    } = formData;
-
     await supabase
         .from("RecordToGenre")
         .insert({
-            RecordId: recordId,
-            GenreId: genreId
+            RecordId: formData.recordId,
+            GenreId: formData.genreId
         });
 }
 
@@ -120,59 +99,46 @@ export async function deleteGenre(formData: number) {
 }
 
 export async function deleteRecord(formData: DeleteRecordType) {
-    const { recordId } = formData;
-
     await supabase
         .from("Records")
         .delete()
         .match({
-            RecordId: recordId
+            RecordId: formData.recordId
         });
 
     await supabase
         .from("RecordToArtist")
         .delete()
         .match({
-            RecordId: recordId
+            RecordId: formData.recordId
         });
 
     await supabase
         .from("RecordToGenre")
         .delete()
         .match({
-            RecordId: recordId
+            RecordId: formData.recordId
         });
 }
 
 export async function deleteRecordToArtist(formData: DeleteRecordToArtistType) {
-    const {
-        recordId,
-        artistId,
-        artistTypeId
-    } = formData;
-
     await supabase
         .from("RecordToArtist")
         .delete()
         .match({
-            RecordId: recordId,
-            ArtistId: artistId,
-            ArtistTypeId: artistTypeId
+            RecordId: formData.recordId,
+            ArtistId: formData.artistId,
+            ArtistTypeId: formData.artistTypeId
         });
 }
 
 export async function deleteRecordToGenre(formData: DeleteRecordToGenreType) {
-    const {
-        recordId,
-        genreId
-    } = formData;
-
     await supabase
         .from("RecordToArtist")
         .delete()
         .match({
-            RecordId: recordId,
-            GenreId: genreId
+            RecordId: formData.recordId,
+            GenreId: formData.genreId
         });
 }
 
@@ -278,23 +244,15 @@ export async function getRecordToGenreById(recordId: number) {
 }
 
 export async function updateRecord(formData: UpdateRecordType) {
-    const {
-        recordId,
-        newRecordName,
-        year,
-        imageUrl,
-        discogsUrl
-    } = formData;
-
     await supabase
         .from("Records")
         .update({
-            Name: newRecordName!.trim(),
-            Year: year,
-            ImageUrl: imageUrl!.trim(),
-            DiscogsUrl: discogsUrl!.trim()
+            Name: formData.newRecordName!.trim(),
+            Year: formData.year,
+            ImageUrl: formData.imageUrl!.trim(),
+            DiscogsUrl: formData.discogsUrl!.trim()
         })
         .match({
-            RecordId: recordId
+            RecordId: formData.recordId
         });
 }
