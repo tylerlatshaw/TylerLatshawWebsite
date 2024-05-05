@@ -44,7 +44,7 @@ export default function DeleteRecordsForm() {
     }));
 
     useEffect(() => {
-        axios.get("/api/dev-get-record-data").then((response) => {
+        axios.get("/api/get-record-data").then((response) => {
             setRecords(response.data);
         });
     }, []);
@@ -65,7 +65,7 @@ export default function DeleteRecordsForm() {
                 enteredKey = formData.apiKey;
             }
 
-            const { data } = await axios.post("/api/dev-delete-record", {
+            const { data } = await axios.post("/api/delete-record", {
                 apiKey: enteredKey,
                 recordName: recordName,
                 recordId: +formData.record.value!,
@@ -79,7 +79,7 @@ export default function DeleteRecordsForm() {
                 setValue("record", { value: undefined, label: undefined });
             }
 
-            axios.get("/api/dev-get-record-data").then((response) => {
+            axios.get("/api/get-record-data").then((response) => {
                 setRecords(response.data);
             });
 

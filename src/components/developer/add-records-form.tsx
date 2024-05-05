@@ -54,11 +54,11 @@ export default function AddRecordsForm() {
     }));
 
     useEffect(() => {
-        axios.get("/api/dev-get-artists").then((response) => {
+        axios.get("/api/get-artists").then((response) => {
             setArtists(response.data);
         });
 
-        axios.get("/api/dev-get-genres").then((response) => {
+        axios.get("/api/get-genres").then((response) => {
             setGenres(response.data);
         });
     }, []);
@@ -80,7 +80,7 @@ export default function AddRecordsForm() {
             let artist: number;
 
             if (isNaN(+formData.artist.value!)) {
-                const { data } = await axios.post("/api/dev-add-artist", {
+                const { data } = await axios.post("/api/add-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
                 } as AddArtistType);
@@ -93,7 +93,7 @@ export default function AddRecordsForm() {
 
             for (let i = 0; i < formData.genre.length; i++) {
                 if (isNaN(+formData.genre![i].value!)) {
-                    const { data } = await axios.post("/api/dev-add-genre", {
+                    const { data } = await axios.post("/api/add-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
                     } as AddGenreType);
@@ -103,7 +103,7 @@ export default function AddRecordsForm() {
                 }
             }
 
-            const { data } = await axios.post("/api/dev-add-record", {
+            const { data } = await axios.post("/api/add-record", {
                 apiKey: enteredKey,
                 recordName: formData.recordName,
                 artistId: artist,

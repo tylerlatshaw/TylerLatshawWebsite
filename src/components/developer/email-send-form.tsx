@@ -73,7 +73,7 @@ export default function DeveloperEmailForm() {
                 enteredKey = formData.apiKey;
             }
 
-            const { data } = await axios.post("/api/dev-emails-form", {
+            const { data } = await axios.post("/api/emails-form", {
                 selection: selectedTemplate,
                 formName: emailTemplate.find(emailTemplate => emailTemplate.value === selectedTemplate)?.text ?? "Email",
                 apiKey: enteredKey,

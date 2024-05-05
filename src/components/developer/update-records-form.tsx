@@ -77,15 +77,15 @@ export default function EditRecordsForm() {
     const selectedRecord = watch("record");
 
     useEffect(() => {
-        axios.get("/api/dev-get-record-data").then((response) => {
+        axios.get("/api/get-record-data").then((response) => {
             setRecords(response.data);
         });
 
-        axios.get("/api/dev-get-artists").then((response) => {
+        axios.get("/api/get-artists").then((response) => {
             setArtists(response.data);
         });
 
-        axios.get("/api/dev-get-genres").then((response) => {
+        axios.get("/api/get-genres").then((response) => {
             setGenres(response.data);
         });
     }, []);
@@ -131,7 +131,7 @@ export default function EditRecordsForm() {
             let artist: number;
 
             if (isNaN(+formData.artist.value!)) {
-                const { data } = await axios.post("/api/dev-new-artist", {
+                const { data } = await axios.post("/api/new-artist", {
                     apiKey: enteredKey,
                     artistName: formData.artist.label,
                 } as AddArtistType);
@@ -144,7 +144,7 @@ export default function EditRecordsForm() {
 
             for (var i = 0; i < formData.genre.length; i++) {
                 if (isNaN(+formData.genre![i].value!)) {
-                    const { data } = await axios.post("/api/dev-new-genre", {
+                    const { data } = await axios.post("/api/new-genre", {
                         apiKey: enteredKey,
                         genreName: formData.genre[i].label,
                     } as AddGenreType);
@@ -173,7 +173,7 @@ export default function EditRecordsForm() {
 
             if (record.ArtistId !== artist) {
                 //Delete unused record to artist relationships
-                await axios.post("/api/dev-delete-record-to-artist", {
+                await axios.post("/api/delete-record-to-artist", {
                     apiKey: enteredKey,
                     recordId: dataBuilder!.recordId,
                     artistId: record.ArtistId,
@@ -181,7 +181,7 @@ export default function EditRecordsForm() {
                 } as DeleteRecordToArtistType);
 
                 //Add new record to artist relationships
-                await axios.post("/api/dev-new-record-to-artist", {
+                await axios.post("/api/new-record-to-artist", {
                     apiKey: enteredKey,
                     recordId: dataBuilder!.recordId,
                     artistId: artist,
@@ -201,7 +201,7 @@ export default function EditRecordsForm() {
                 //Delete unused record to genre relationships
                 for (var i = 0; i < originalGenreList.length; i++) {
                     if (!genreNumberArray.includes(originalGenreList[i])) {
-                        await axios.post("/api/dev-delete-record-to-genre", {
+                        await axios.post("/api/delete-record-to-genre", {
                             apiKey: enteredKey,
                             recordId: dataBuilder!.recordId,
                             genreId: originalGenreList[i],
@@ -212,7 +212,7 @@ export default function EditRecordsForm() {
                 //Add new record to genre relationships
                 for (var i = 0; i < genreNumberArray.length; i++) {
                     if (!originalGenreList.includes(genreNumberArray[i])) {
-                        await axios.post("/api/dev-new-record-to-genre", {
+                        await axios.post("/api/new-record-to-genre", {
                             apiKey: enteredKey,
                             recordId: dataBuilder!.recordId,
                             genreId: genreNumberArray[i],
@@ -225,7 +225,7 @@ export default function EditRecordsForm() {
             record.ImageUrl !== formData.imageUrl ? dataBuilder!.imageUrl = formData.imageUrl : dataBuilder!.imageUrl = undefined;
             record.DiscogsUrl !== formData.discogsUrl ? dataBuilder!.discogsUrl = formData.discogsUrl : dataBuilder!.discogsUrl = undefined;
 
-            const { data } = await axios.post("/api/dev-update-record", {
+            const { data } = await axios.post("/api/update-record", {
                 apiKey: dataBuilder.apiKey,
                 recordId: dataBuilder.recordId,
                 originalRecordName: dataBuilder.originalRecordName,
@@ -284,15 +284,15 @@ export default function EditRecordsForm() {
     }
 
     function remapFields() {
-        axios.get("/api/dev-get-record-data").then((response) => {
+        axios.get("/api/get-record-data").then((response) => {
             setRecords(response.data);
         });
 
-        axios.get("/api/dev-get-artists").then((response) => {
+        axios.get("/api/get-artists").then((response) => {
             setArtists(response.data);
         });
 
-        axios.get("/api/dev-get-genres").then((response) => {
+        axios.get("/api/get-genres").then((response) => {
             setGenres(response.data);
         });
     }

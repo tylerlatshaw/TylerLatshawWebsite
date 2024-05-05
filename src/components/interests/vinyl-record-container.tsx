@@ -10,7 +10,7 @@ export default function VinylRecordContainer() {
     const [records, setRecords] = useState<RecordDataType[]>([]);
 
     useEffect(() => {
-        axios.get("/api/dev-get-record-data").then((response) => {
+        axios.get("/api/get-record-data").then((response) => {
             setRecords(response.data);
         });
     }, []);

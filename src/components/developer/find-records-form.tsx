@@ -41,15 +41,15 @@ export default function AddRecordsForm() {
     }));
 
     useEffect(() => {
-        axios.get("/api/dev-get-record-data").then((response) => {
+        axios.get("/api/get-record-data").then((response) => {
             setRecords(response.data);
         });
 
-        axios.get("/api/dev-get-artists").then((response) => {
+        axios.get("/api/get-artists").then((response) => {
             setArtists(response.data);
         });
 
-        axios.get("/api/dev-get-genres").then((response) => {
+        axios.get("/api/get-genres").then((response) => {
             setGenres(response.data);
         });
     }, []);
