@@ -114,7 +114,7 @@ export default function AddRecordsForm() {
                 discogsUrl: formData.discogsUrl,
             } as AddRecordType);
 
-            if (!data.ok) {
+            if (data.status !== "Ok") {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");
@@ -152,9 +152,7 @@ export default function AddRecordsForm() {
     function GetResponseCssClass() {
         if (submitState === "Success") {
             return "positive-response";
-        }
-
-        if (submitState === "Error") {
+        } else if (submitState === "Error") {
             return "negative-response";
         }
 

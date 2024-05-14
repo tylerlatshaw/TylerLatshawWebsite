@@ -235,7 +235,7 @@ export default function EditRecordsForm() {
                 discogsUrl: dataBuilder.discogsUrl,
             } as UpdateRecordType);
 
-            if (data.status === "Error") {
+            if (data.status !== "Ok") {
                 setSubmitState("Error");
             } else {
                 remapFields();

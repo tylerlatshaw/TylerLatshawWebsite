@@ -71,7 +71,7 @@ export default function DeleteRecordsForm() {
                 recordId: +formData.record.value!,
             } as DeleteRecordType);
 
-            if (data.status === "Error") {
+            if (data.status !== "Ok") {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");

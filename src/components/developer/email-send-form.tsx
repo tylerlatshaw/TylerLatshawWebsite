@@ -84,7 +84,7 @@ export default function DeveloperEmailForm() {
                 referringPage: window.location.href,
             } as EmailFormType);
 
-            if (data.status === "Error") {
+            if (data.status !== "Ok") {
                 setSubmitState("Error");
             } else {
                 setSubmitState("Success");
