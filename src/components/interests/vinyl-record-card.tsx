@@ -2,9 +2,9 @@ import Image from "next/image";
 import PersonIcon from "@mui/icons-material/Person";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 
-import type { 
-    GenresType, 
-    RecordDataType 
+import type {
+    GenresType,
+    RecordDataType
 } from "@/app/lib/type-library";
 
 export default function VinylRecordCard(record: RecordDataType) {
@@ -19,15 +19,21 @@ export default function VinylRecordCard(record: RecordDataType) {
     } = record;
 
     var genreArray: GenresType[] = [];
+    var tempArray: GenresType[] = [];
 
     Genres.split(",").map((e) => {
-        genreArray.push({
+        tempArray.push({
             GenreId: +e.split("%")[0],
             Name: e.split("%")[1],
         });
     });
 
-    
+    genreArray = tempArray.sort((a, b) => {
+        if (a.Name.toLowerCase() < b.Name.toLowerCase()) return -1;
+        if (a.Name.toLowerCase() > b.Name.toLowerCase()) return 1;
+        return 0;
+    });
+
     //( split record card so that images are in a separate component from the rest of the card so it loads faster. Can probably have another for the genres
 
     return <>
