@@ -189,7 +189,8 @@ export async function getGenres() {
 export async function getRecordData() {
     const { data } = await supabase
         .from("RecordData")
-        .select("RecordId, RecordName, Year, ImageUrl, DiscogsUrl, ArtistId, ArtistName, Genres");
+        .select("RecordId, RecordName, Year, ImageUrl, DiscogsUrl, ArtistId, ArtistName, Genres")
+        .order("RecordName");
 
     return data;
 }
